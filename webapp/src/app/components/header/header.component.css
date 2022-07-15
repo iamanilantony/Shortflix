@@ -1,0 +1,38 @@
+.header-container{
+    background-color: black;
+    display: flex;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+}
+.header-wrapper{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.header-title{
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.header-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-right h3{
+    font-size: 18px;
+    font-weight: 400;    
+}
+.header-styledbutton{
+    background-color: green;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.header-title-secondary{
+    color: green;
+}
