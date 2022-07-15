@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { LogincompComponent } from './components/logincomp/logincomp.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LogincompComponent } from './components/logincomp/logincomp.component';
     VolunteerComponent,
     LoginComponent,
     HeaderComponent,
-    LogincompComponent
+    LogincompComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
