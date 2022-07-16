@@ -4,11 +4,13 @@
             <div class="login-form">
                 <h1>Login to Your Account</h1>
                 <h4>A good storyteller is the most powerful person in the world</h4>
-                <input type="text" placeholder="UserName">
-                <input type="password" placeholder="Password">
-                <span>Forget password?</span>
-                <button type="submit">LogIn</button>
-                <p>Not a member register now? <a>Register now</a></p>
+                <form (ngSubmit)="userVerify()" #userlogin = "ngForm">
+                    <input type="text" placeholder="UserName" name="uname" [(ngModel)]="User.username" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
+                    <input type="password" placeholder="Password" name="password" [(ngModel)]="User.password" minlength="6" required>
+                    <span>Forget password?</span>
+                    <button type="submit">LogIn</button>
+                </form>
+                <p>Not a member register now? <a [routerLink]="['/signup']">Register now</a></p>
             </div>
         </div>
         <div class="login-right">

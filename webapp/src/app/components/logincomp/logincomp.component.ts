@@ -11,5 +11,12 @@ export class LogincompComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  User = {
+    username : '',
+    password : ''
+  }
+  userVerify(){
+    alert('clicked')
+  }
 
 }
