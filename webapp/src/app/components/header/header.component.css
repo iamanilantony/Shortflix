@@ -11,7 +11,7 @@
     width: 80%;
     display: flex;
     justify-content: space-between;
-
+    position: fixed;
 }
 .header-title{
     font-size: 36px;
