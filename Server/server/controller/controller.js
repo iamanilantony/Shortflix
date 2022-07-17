@@ -1,6 +1,6 @@
 const LibrarySchema = require('../model/model') 
 const AuthorSchema = require('../model/authmodel') 
-const userdb = require('../model/usermodel')
+const userDb = require('../model/usermodel')
 
 exports.addbook=(req,res) => {
     if(Object.entries(req.body).length === 0){
@@ -192,7 +192,7 @@ exports.adduser = (req,res) => {
     else{
         admin = true;
     }
-    let user = new userdb ({
+    let user = new userDb ({
             name : req.body.name,
             username : req.body.username,
             password : req.body.password,
@@ -209,7 +209,7 @@ exports.adduser = (req,res) => {
 }
 exports.finduser = (req,res) => {
     if(!req.params.id){
-        userdb.find()
+        userDb.find()
             .then(response=>{
                 res.send(response)
             })
@@ -219,7 +219,7 @@ exports.finduser = (req,res) => {
     }
     else{
         var id = req.params.id;
-        userdb.findById(id)
+        userDb.findById(id)
         .then(response=>{
             if(!response){
                 res.redirect('/')
@@ -233,4 +233,18 @@ exports.finduser = (req,res) => {
         })
     }
 }
+exports.loginauth = (req,res) => {
+    let user = 'abcd';
+    let password = '12345';
+    let userinfo = req.body;
+    if(user != userinfo.username){
+        res.send('Inavalid Username')
+    }
+    else if (password != userinfo.password){
+        res.send('Inavalid Username')
+    }
+    else{
+        res.send('success')
+    }
 
+}

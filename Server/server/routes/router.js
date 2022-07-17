@@ -46,5 +46,8 @@ router.get('/authors',auth,services.authors)
 router.get('/author/:id',auth,services.singleauthor)
 router.get('/login',services.login)
 
+//exp
+router.post('/loginauth',controller.loginauth)
+
 
 module.exports = router

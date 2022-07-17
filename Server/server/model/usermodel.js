@@ -1,16 +1,18 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-let userschema = {
-    name : String,
-    username: {
+const userSchema = {
+    email : {
         type: String,
-        unique: true,
-        required: true,
+        required : true,
+        unique : true
     },
+    Name : String,
     password : String,
-    admin : Boolean
-}
+    role : String
+} 
 
-const userdb = mongoose.model('users',userschema);
+const userDb = mongoose.model('shortFlix',userSchema);
 
-module.exports = userdb;
+module.exports = userDb;
+
+
