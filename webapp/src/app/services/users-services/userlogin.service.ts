@@ -8,7 +8,7 @@ export class UserloginService {
   constructor(public http: HttpClient) { }
 
   loginUser(user: any){
-    return this.http.post('http://localhost:3000/loginauth',user)
+    return this.http.post<any>('http://localhost:3000/loginauth',user)
   }
 
 }

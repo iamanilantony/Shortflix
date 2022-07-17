@@ -1,6 +1,8 @@
 const LibrarySchema = require('../model/model') 
 const AuthorSchema = require('../model/authmodel') 
 const userDb = require('../model/usermodel')
+const jwt = require('jsonwebtoken')
+
 
 exports.addbook=(req,res) => {
     if(Object.entries(req.body).length === 0){
@@ -238,13 +240,18 @@ exports.loginauth = (req,res) => {
     let password = '12345';
     let userinfo = req.body;
     if(user != userinfo.username){
-        res.send('Inavalid Username')
+        res.status(402)
+        res.send(userinfo.username)
     }
     else if (password != userinfo.password){
-        res.send('Inavalid Username')
+        res.status(401)
+        res.send('Invalid password')
     }
     else{
         res.send('success')
+        // let payload = {subject:user+password};
+        // let token = jwt.sign(payload,'secretkey');
+        // res.send({token});
     }
 
 }

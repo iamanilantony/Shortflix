@@ -4,7 +4,7 @@
   "description": "Library App created on jun 26th 2022",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anil Antony",
@@ -23,6 +23,6 @@
     "http-errors": "~1.6.3",
     "mongoose": "^6.4.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.18"
+    "nodemon": "^2.0.19"
   }
 }
