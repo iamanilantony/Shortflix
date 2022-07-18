@@ -23,12 +23,6 @@ export class LogincompComponent implements OnInit {
             this.router.navigate(['/volunteer'])
           }
     )
-      // .subscribe(
-      //   res=>{
-      //     localStorage.setItem('token',res.token);
-      //     this.router.navigate(['/volunteer'])
-      //   }
-      // )
   }
 
 }
