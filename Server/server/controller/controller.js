@@ -248,10 +248,11 @@ exports.loginauth = (req,res) => {
         res.send('Invalid password')
     }
     else{
-        res.send('success')
-        // let payload = {subject:user+password};
-        // let token = jwt.sign(payload,'secretkey');
-        // res.send({token});
+        // res.send('success')
+        
+        let payload = {subject:user+password};
+        let token = jwt.sign(payload,'secretkey');
+        res.status(200).send({token});
     }
 
 }
