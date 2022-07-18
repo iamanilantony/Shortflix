@@ -1,22 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { UserloginService } from '../../services/users-services/userlogin.service';
 @Component({
   selector: 'app-logincomp',
   templateUrl: './logincomp.component.html',
   styleUrls: ['./logincomp.component.css']
 })
 export class LogincompComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
   User = {
     username : '',
     password : ''
   }
+  constructor(private auth: UserloginService,private router: Router) { }
+
+  ngOnInit(): void {
+  }
   userVerify(){
-    alert('clicked')
+    this.auth.loginUser(this.User)
+    .subscribe(
+      res=>{
+            localStorage.setItem('token',res.token);
+            this.router.navigate(['/volunteer'])
+          }
+    )
+      // .subscribe(
+      //   res=>{
+      //     localStorage.setItem('token',res.token);
+      //     this.router.navigate(['/volunteer'])
+      //   }
+      // )
   }
 
 }

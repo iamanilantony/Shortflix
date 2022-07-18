@@ -10,6 +10,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { LogincompComponent } from './components/logincomp/logincomp.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { UserloginService } from './services/users-services/userlogin.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,11 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MDBBootstrapModule.forRoot(),
   ],
-  providers: [],
+  providers: [UserloginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
