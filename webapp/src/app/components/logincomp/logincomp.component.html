@@ -5,13 +5,12 @@
                 <h1>Login to Your Account</h1>
                 <h4>A good storyteller is the most powerful person in the world</h4>
                 <form (ngSubmit)="userVerify()" #userlogin = "ngForm">
-                    <input type="text" placeholder="UserName" name="uname" [(ngModel)]="User.username" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
+                    <input type="text" placeholder="Email" name="uname" [(ngModel)]="User.email" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
                     <input type="password" placeholder="Password" name="password" [(ngModel)]="User.password" minlength="6" required>
                     <span>Forget password?</span>
                     <button type="submit">LogIn</button>
                 </form>
                 <p>Not a member register now? <a [routerLink]="['/signup']">Register now</a></p>
-                {{User.username}}
             </div>
         </div>
         <div class="login-right">

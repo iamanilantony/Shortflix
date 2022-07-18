@@ -8,7 +8,7 @@ import { UserloginService } from '../../services/users-services/userlogin.servic
 })
 export class LogincompComponent implements OnInit {
   User = {
-    username : '',
+    email : '',
     password : ''
   }
   constructor(private auth: UserloginService,private router: Router) { }

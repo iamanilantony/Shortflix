@@ -5,7 +5,6 @@
                 <h1>Create Your Account</h1>
                 <h4>A good storyteller is the most powerful person in the world</h4>
                 <form (ngSubmit)="userVerify()" #usersignup = "ngForm">
-                    <input type="text" placeholder="UserName" name="uname" [(ngModel)]="User.username" required>
                     <input type="text" placeholder="Email" name="uemail" [(ngModel)]="User.username" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
                     <input type="password" placeholder="Password" name="password" [(ngModel)]="User.username" minlength="6" required>
                     <input type="password" placeholder="Confirm Password" name="password" [(ngModel)]="User.password" minlength="6" required>

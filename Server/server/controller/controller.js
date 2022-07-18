@@ -236,21 +236,19 @@ exports.finduser = (req,res) => {
     }
 }
 exports.loginauth = (req,res) => {
-    let user = 'abcd';
+    let email = 'abcd';
     let password = '12345';
     let userinfo = req.body;
-    if(user != userinfo.username){
-        res.status(402)
-        res.send(userinfo.username)
+    if(email != userinfo.email){
+        res.status(402).send(userinfo.email)
     }
     else if (password != userinfo.password){
-        res.status(401)
-        res.send('Invalid password')
+        res.status(401).send('Invalid password')
     }
     else{
         // res.send('success')
         
-        let payload = {subject:user+password};
+        let payload = {subject:email+password};
         let token = jwt.sign(payload,'secretkey');
         res.status(200).send({token});
     }
