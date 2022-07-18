@@ -3,11 +3,15 @@
     background-color: rgb(26, 26, 26);
     color: white;
     justify-content: center;
+    height: 100vh;
+
 }
 .volunteer-wrapper{
     width: 80%;
     display: flex;
     justify-content: space-between;
+    margin-top: 5rem;
+
 }
 .volunteer-left{
     display: flex;

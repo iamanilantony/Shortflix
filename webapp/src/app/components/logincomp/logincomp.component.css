@@ -4,12 +4,14 @@
     justify-content: center;
     align-items: center;
     color: white;
-    height: 90vh;
+    height: 100vh;
 }
 .login-wrapper{
     width: 80%;
     display: flex;
     justify-content: space-between;
+    margin-top: 5rem;
+
 }
 .login-right-bannerimg{
     height: 40rem;
