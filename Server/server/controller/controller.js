@@ -243,7 +243,7 @@ exports.loginauth = (req,res) => {
                         res.status(200).send({token});
                     }
                 }
-                res.send('No user found')
+                // res.send('No user found')
             })
 
 }

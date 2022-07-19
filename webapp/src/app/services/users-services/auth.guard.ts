@@ -11,6 +11,7 @@ export class AuthGuard implements CanActivate {
   constructor(private auth:UserloginService,private route:Router){}
   canActivate():boolean{
     if( this.auth.authrequest() ){
+      this.route.navigate(['login'])
         return true
     }
     else{
