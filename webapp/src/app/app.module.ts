@@ -14,6 +14,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { UserloginService } from './services/users-services/userlogin.service';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './components/logincomp/token-interceptor.service';
+import { UsersignupService } from './services/users-signup/usersignup.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { TokenInterceptorService } from './components/logincomp/token-intercepto
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
   ],
-  providers: [UserloginService,{
+  providers: [UserloginService,UsersignupService,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true

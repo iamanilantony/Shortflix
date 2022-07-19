@@ -6,12 +6,12 @@ const userSchema = {
         required : true,
         unique : true
     },
-    Name : String,
+    name : String,
     password : String,
     role : String
 } 
 
-const userDb = mongoose.model('shortFlix',userSchema);
+const userDb = mongoose.model('users',userSchema);
 
 module.exports = userDb;
 

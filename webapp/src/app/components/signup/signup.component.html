@@ -5,10 +5,11 @@
                 <h1>Create Your Account</h1>
                 <h4>A good storyteller is the most powerful person in the world</h4>
                 <form (ngSubmit)="userVerify(usersignup)" #usersignup = "ngForm">
+                    <input type="text" placeholder="Name" name="name" class="form-control" [(ngModel)]="User.name" required>
                     <input type="text" placeholder="Email" name="email" class="form-control" [(ngModel)]="User.email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
                     <!-- <small [class.d-none]="email.valid || email.touched">Enter valid email</small> -->
-                    <input type="password" placeholder="Password" class="form-control" name="password" minlength="6" required>
-                    <input type="password" placeholder="Confirm Password" name="confirmpassword" [(ngModel)]="User.password" minlength="6" required>
+                    <input type="password" placeholder="Password" class="form-control" name="password" [(ngModel)]="User.password" minlength="6" required>
+                    <input type="password" placeholder="Confirm Password" name="confirmpassword"  minlength="6" required>
                     <div class="signup-form-radio form-control">
                         <input type="radio" id="html" name="role" value="Volunteer" [(ngModel)]="User.role">
                         <label for="html">Volunteer</label><br>

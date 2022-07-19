@@ -37,9 +37,6 @@ router.get('/api/users/:id',controller.finduser)
 //validate login
 router.post('/api/usersvalid',services.usersvalid)
 
-//session destroy on logout
-router.post('/logout',services.logout)
-
 //service routes
 router.get('/',services.homeroute)
 router.get('/singlebook/:id',services.singlebook)
