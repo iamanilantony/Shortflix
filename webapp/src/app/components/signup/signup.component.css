@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    height: 90vh;
+    height: 100vh;
 }
 .signup-wrapper{
     width: 80%;
@@ -19,9 +19,9 @@
     transform: scaleX(-1);
     object-fit: cover;
 }
-.signup-right-bannerimg:hover{
-    /* transform: scale(1.01); */
-}
+/* .signup-right-bannerimg:hover{
+    transform: scaleX(-1.02);
+} */
 .signup-left{
     display: flex;
     justify-content: center;

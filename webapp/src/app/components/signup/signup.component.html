@@ -4,18 +4,18 @@
             <div class="signup-form">
                 <h1>Create Your Account</h1>
                 <h4>A good storyteller is the most powerful person in the world</h4>
-                <form (ngSubmit)="userVerify()" #usersignup = "ngForm">
-                    <input type="text" placeholder="Email" name="uemail" [(ngModel)]="User.username" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
-                    <input type="password" placeholder="Password" name="password" [(ngModel)]="User.username" minlength="6" required>
-                    <input type="password" placeholder="Confirm Password" name="password" [(ngModel)]="User.password" minlength="6" required>
-                    <div class="signup-form-radio">
-                        <input type="radio" id="html" name="position" value="HTML">
+                <form (ngSubmit)="userVerify(usersignup)" #usersignup = "ngForm">
+                    <input type="text" placeholder="Email" name="email" class="form-control" [(ngModel)]="User.email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
+                    <!-- <small [class.d-none]="email.valid || email.touched">Enter valid email</small> -->
+                    <input type="password" placeholder="Password" class="form-control" name="password" minlength="6" required>
+                    <input type="password" placeholder="Confirm Password" name="confirmpassword" [(ngModel)]="User.password" minlength="6" required>
+                    <div class="signup-form-radio form-control">
+                        <input type="radio" id="html" name="role" value="Volunteer" [(ngModel)]="User.role">
                         <label for="html">Volunteer</label><br>
-                        <input type="radio" id="candidate" name="position" value="candidate">
+                        <input type="radio" id="candidate" name="role" value="candidate" [(ngModel)]="User.role">
                         <label for="candidate">Candidate</label>
-                        <input type="radio" id="viewer" name="position" value="viewer">
+                        <input type="radio" id="viewer" name="role" value="viewer" [(ngModel)]="User.role">
                         <label for="viewer">Viewer</label>
-
                     </div>
                     <button type="submit">SignUp</button>
                 </form>

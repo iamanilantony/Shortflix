@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -12,11 +13,15 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   User = {
-    username : '',
-    password : ''
+    email : '',
+    password : '',
+    role: ''
   }
-  userVerify(){
-    alert('clicked')
+  userVerify(usersignup: NgForm): void{
+    console.log(usersignup.value);
+    alert('clicked');
   }
-
+  pwdvalidate(){
+    alert('sas');
+}
 }
