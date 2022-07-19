@@ -240,7 +240,11 @@ exports.loginauth = (req,res) => {
                 if (response[i].email === req.body.email && response[i].password === req.body.password){
                         let payload = {subject:req.body.email+req.body.password};
                         let token = jwt.sign(payload,'secretkey');
-                        res.status(200).send({token});
+                        // session = req.session;
+                        // session.username = response[i].name;
+                        // session.role = response[i].role;
+                        console.log(req.session);
+                        res.status(200).send({...response[i]._doc, token});
                     }
                 }
                 // res.send('No user found')

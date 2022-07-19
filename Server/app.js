@@ -8,6 +8,8 @@ const bodyparser = require('body-parser');
 const port = process.env.PORT || 3000;
 const connectDB = require('./server/database/connection')
 const cors = require('cors');
+const sessions = require('express-session');
+const sessionstore = require('./server/database/sessionconnection');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -56,6 +58,20 @@ connectDB();
 //config
 dotenv.config({path:'config.env'})
 
+
+//set sessions
+const oneday = 1000 * 60 * 60 * 24;
+app.use(sessions({
+  secret:'thisisasecretkeyanil',
+  saveUninitialized: true,
+  cookie: {maxAge:oneday},
+  resave: false,
+  store: sessionstore
+}))
+
+//set cookie
+app.use(cookieParser());
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -70,8 +86,6 @@ app.use(function(err, req, res, next) {
 
 //set router
 app.use('/',require('./server/routes/router'))
-
-
 
 
 //set port
