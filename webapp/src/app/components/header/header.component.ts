@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserloginService } from 'src/app/services/users-services/userlogin.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth:UserloginService) { }
 
   ngOnInit(): void {
+  }
+  logoutbtn(){
+    this.auth.logout();
   }
 
 }

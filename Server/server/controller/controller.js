@@ -2,6 +2,8 @@ const LibrarySchema = require('../model/model')
 const AuthorSchema = require('../model/authmodel') 
 const userDb = require('../model/usermodel')
 const jwt = require('jsonwebtoken')
+const axios = require('axios');
+
 
 
 exports.addbook=(req,res) => {
@@ -187,23 +189,16 @@ exports.adduser = (req,res) => {
         res.send("Empty data cannot be inserted")
         return ;
     }
-    var admin = false;
-    if(!req.body.admin){
-         admin = false;
-    }
-    else{
-        admin = true;
-    }
     let user = new userDb ({
             name : req.body.name,
-            username : req.body.username,
+            email : req.body.email,
             password : req.body.password,
-            admin : admin,
+            role : req.body.role,
         })
         user
             .save()
-            .then(responsive=>{
-                res.redirect('/login')
+            .then(response=>{
+                res.send(response)
             })
             .catch(err=>{
                 res.send('Could not upload user'+err)
@@ -236,23 +231,23 @@ exports.finduser = (req,res) => {
     }
 }
 exports.loginauth = (req,res) => {
-    let user = 'abcd';
-    let password = '12345';
-    let userinfo = req.body;
-    if(user != userinfo.username){
-        res.status(402)
-        res.send(userinfo.username)
+    if(!req.body){
+        res.send('Insert values first')
     }
-    else if (password != userinfo.password){
-        res.status(401)
-        res.send('Invalid password')
-    }
-    else{
-        // res.send('success')
-        
-        let payload = {subject:user+password};
-        let token = jwt.sign(payload,'secretkey');
-        res.status(200).send({token});
-    }
+    userDb.find()
+        .then(response=>{
+            for(let i=0;i<response.length;i++){
+                if (response[i].email === req.body.email && response[i].password === req.body.password){
+                        let payload = {subject:req.body.email+req.body.password};
+                        let token = jwt.sign(payload,'secretkey');
+                        // session = req.session;
+                        // session.username = response[i].name;
+                        // session.role = response[i].role;
+                        console.log(req.session);
+                        res.status(200).send({...response[i]._doc, token});
+                    }
+                }
+                // res.send('No user found')
+            })
 
 }

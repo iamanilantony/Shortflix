@@ -12,7 +12,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { UserloginService } from './services/users-services/userlogin.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './components/logincomp/token-interceptor.service';
+import { UsersignupService } from './services/users-signup/usersignup.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
   ],
-  providers: [UserloginService],
+  providers: [UserloginService,UsersignupService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
