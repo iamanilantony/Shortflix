@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './components/signup/signup.component';
+import { CandidateComponent } from './containers/candidate/candidate.component';
 import { LoginComponent } from './containers/common/login/login.component';
+import { GuestComponent } from './containers/guest/guest.component';
+import { ViewComponent } from './containers/view/view.component';
 import { VolunteerComponent } from './containers/volunteer/volunteer.component';
 import { AuthGuard } from './services/users-services/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'volunteer',canActivate:[AuthGuard], component: VolunteerComponent}
+  {path: 'volunteer',canActivate:[AuthGuard], component: VolunteerComponent},
+  {path: '',canActivate:[AuthGuard], component: ViewComponent},
+  {path: 'guest',canActivate:[AuthGuard], component: GuestComponent},
+  {path: 'candidate',canActivate:[AuthGuard], component: CandidateComponent},
+
 ];
 
 @NgModule({

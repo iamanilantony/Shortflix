@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 const connectDB = require('./server/database/connection')
 const cors = require('cors');
 const sessions = require('express-session');
-const sessionstore = require('./server/database/sessionconnection');
+// const sessionstore = require('./server/database/sessionconnection');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -60,14 +60,14 @@ dotenv.config({path:'config.env'})
 
 
 //set sessions
-const oneday = 1000 * 60 * 60 * 24;
-app.use(sessions({
-  secret:'thisisasecretkeyanil',
-  saveUninitialized: true,
-  cookie: {maxAge:oneday},
-  resave: false,
-  store: sessionstore
-}))
+// const oneday = 1000 * 60 * 60 * 24;
+// app.use(sessions({
+//   secret:'thisisasecretkeyanil',
+//   saveUninitialized: true,
+//   cookie: {maxAge:oneday},
+//   resave: false,
+//   store: sessionstore
+// }))
 
 //set cookie
 app.use(cookieParser());

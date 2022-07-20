@@ -15,6 +15,9 @@ import { UserloginService } from './services/users-services/userlogin.service';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './components/logincomp/token-interceptor.service';
 import { UsersignupService } from './services/users-signup/usersignup.service';
+import { ViewComponent } from './containers/view/view.component';
+import { GuestComponent } from './containers/guest/guest.component';
+import { CandidateComponent } from './containers/candidate/candidate.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { UsersignupService } from './services/users-signup/usersignup.service';
     LoginComponent,
     HeaderComponent,
     LogincompComponent,
-    SignupComponent
+    SignupComponent,
+    ViewComponent,
+    GuestComponent,
+    CandidateComponent
   ],
   imports: [
     BrowserModule,
