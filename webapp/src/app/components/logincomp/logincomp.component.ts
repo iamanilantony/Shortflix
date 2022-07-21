@@ -22,6 +22,7 @@ export class LogincompComponent implements OnInit {
             localStorage.setItem('token',res.token);
             localStorage.setItem('name',res.name);
             localStorage.setItem('role',res.role);
+            localStorage.setItem('id',res.id);
             switch(res.role){
               case "volunteer":{
                 this.router.navigate(['volunteer'])
@@ -40,18 +41,6 @@ export class LogincompComponent implements OnInit {
                 break;
               }
             }
-            // if(res.role==='volunteer'){
-            //   this.router.navigate(['/volunteer'])
-            // }
-            // else if(res.role==='candidate'){
-            //   this.router.navigate(['/candidate'])
-            // }
-            // else if(res.role==='guest'){
-            //   this.router.navigate(['/candidate'])
-            // }
-            // else if(res.role===''){
-            //   this.router.navigate(['/view'])
-            // }
           }
     )
   }

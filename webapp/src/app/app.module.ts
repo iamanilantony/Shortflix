@@ -18,6 +18,7 @@ import { UsersignupService } from './services/users-signup/usersignup.service';
 import { ViewComponent } from './containers/view/view.component';
 import { GuestComponent } from './containers/guest/guest.component';
 import { CandidateComponent } from './containers/candidate/candidate.component';
+import { UserupdateComponent } from './components/userupdate/userupdate.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CandidateComponent } from './containers/candidate/candidate.component';
     SignupComponent,
     ViewComponent,
     GuestComponent,
-    CandidateComponent
+    CandidateComponent,
+    UserupdateComponent
   ],
   imports: [
     BrowserModule,

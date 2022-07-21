@@ -34,6 +34,10 @@
     margin-right: 20px;
 
 }
+.header-right h3 a{
+    color: white;
+    text-decoration: none;
+}
 .header-styledbutton{
     background-color: green;
     padding: 10px;
