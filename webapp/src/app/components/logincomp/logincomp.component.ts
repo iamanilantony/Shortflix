@@ -20,7 +20,27 @@ export class LogincompComponent implements OnInit {
     .subscribe(
       res=>{
             localStorage.setItem('token',res.token);
-            this.router.navigate(['/volunteer'])
+            localStorage.setItem('name',res.name);
+            localStorage.setItem('role',res.role);
+            localStorage.setItem('id',res.id);
+            switch(res.role){
+              case "volunteer":{
+                this.router.navigate(['volunteer'])
+                break;
+              }
+              case "guest":{
+                this.router.navigate(['guest'])
+                break;
+              }
+              case "viewer":{
+                this.router.navigate([''])
+                break;
+              }
+              case "candidate":{
+                this.router.navigate(['/candidate'])
+                break;
+              }
+            }
           }
     )
   }

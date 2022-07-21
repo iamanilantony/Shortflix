@@ -132,10 +132,14 @@ exports.updateauthor = (req,res) => {
             }
             else{
                 res.send('Data updated succesfuly'+data)
+                return;
+
             }
         })
         .catch(err=>{
             res.send('Could not update data'+err)
+            return;
+
         })
 }
 exports.deleteauthor = (req,res) => {
@@ -170,15 +174,21 @@ exports.findauthor = (req,res) => {
             })
             .catch(err=>{
                 res.send('Error fetching single user data'+err)
+                return;
+
             })
     }
     else{
         AuthorSchema.find()
             .then(data=>{
                     res.send(data)
+                    return;
+
             })
             .catch(err=>{
                 res.send('Error fetching data'+err)
+                return;
+
             })
 
     }
@@ -199,9 +209,13 @@ exports.adduser = (req,res) => {
             .save()
             .then(response=>{
                 res.send(response)
+                return;
+
             })
             .catch(err=>{
                 res.send('Could not upload user'+err)
+                return;
+
             })
 }
 exports.finduser = (req,res) => {
@@ -209,24 +223,32 @@ exports.finduser = (req,res) => {
         userDb.find()
             .then(response=>{
                 res.send(response)
+                return;
+
             })
             .catch(err=>{
                 res.send('Could not fetch full user data '+err)
+                return;
+
             })
     }
     else{
         var id = req.params.id;
-        userDb.findById(id)
+        userDb.findOne({email:`${id}`})
         .then(response=>{
             if(!response){
                 res.redirect('/')
+                return;
             }
             else{
                 res.send(response)
+                return;
             }
         })
         .catch(err=>{
             res.render('/login')
+            return;
+
         })
     }
 }
@@ -240,14 +262,15 @@ exports.loginauth = (req,res) => {
                 if (response[i].email === req.body.email && response[i].password === req.body.password){
                         let payload = {subject:req.body.email+req.body.password};
                         let token = jwt.sign(payload,'secretkey');
-                        // session = req.session;
-                        // session.username = response[i].name;
-                        // session.role = response[i].role;
-                        console.log(req.session);
                         res.status(200).send({...response[i]._doc, token});
+                        return;
                     }
                 }
-                // res.send('No user found')
             })
+        .catch(err=>{
+            res.staus(400).send('could not login user'+err); 
+            return;
+
+        })
 
 }

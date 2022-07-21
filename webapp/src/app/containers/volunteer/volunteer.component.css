@@ -16,9 +16,11 @@
 .volunteer-left{
     display: flex;
     flex-direction: column;
+    flex:3;
 }
 .volunteer-left-top{
     display: flex;
+    width: 100%;
     padding-top: 20px;
     padding-bottom: 3rem;
 }
@@ -38,6 +40,7 @@
     height: 5rem;
     transition: 0.5s ease;
     cursor: pointer;
+    flex: 1;
 }
 .volunteer-card:hover{
     transform: scale(1.01);
@@ -46,20 +49,26 @@
 }
 .volunteer-card-primary{
     background-image: linear-gradient(rgb(54, 2, 144), rgb(91, 0, 249));
-    width: 18rem;
     height: 5rem;
+    flex: 2;
 }
 .volunteer-right{
     background-image: linear-gradient(rgb(39, 39, 39), rgb(38, 35, 35));
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(172, 172, 172);
     padding: 25px;
     width: 100%;
-    margin-left: 10px;
-    /* box-shadow: 5px 10px rgb(39, 39, 39); */
-
+    margin: 25px;
+    border-radius: 10px;
+    height: 35vh;
+}
+.volunteer-right-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex:1;
 }
 .volunteer-left-bottom{
     width: 100%;
     background-color: aquamarine;
-    height: 34.6rem;
+    height: 50vh;
 }

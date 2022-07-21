@@ -8,10 +8,14 @@ import { UserloginService } from 'src/app/services/users-services/userlogin.serv
 })
 
 export class HeaderComponent implements OnInit {
-
+  User = {
+    name: '',
+    role: '',
+  }
   constructor(public auth:UserloginService) { }
 
   ngOnInit(): void {
+        this.User.name = localStorage.getItem('name') || '';
   }
   logoutbtn(){
     this.auth.logout();
