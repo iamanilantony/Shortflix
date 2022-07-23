@@ -234,7 +234,7 @@ exports.finduser = (req,res) => {
     }
     else{
         var id = req.params.id;
-        userDb.findOne({email:`${id}`})
+        userDb.findOne({_id:`${id}`})
         .then(response=>{
             if(!response){
                 res.redirect('/')
@@ -246,7 +246,7 @@ exports.finduser = (req,res) => {
             }
         })
         .catch(err=>{
-            res.render('/login')
+            res.send('error finding single user'+err)
             return;
 
         })

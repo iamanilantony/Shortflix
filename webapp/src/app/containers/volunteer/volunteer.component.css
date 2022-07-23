@@ -69,6 +69,27 @@
 }
 .volunteer-left-bottom{
     width: 100%;
-    background-color: aquamarine;
+    background-image: linear-gradient(rgb(39, 39, 39), rgb(38, 35, 35));
     height: 50vh;
+}
+.volunteer-events-table{
+    width: 100%;
+}
+/* .volunteer-events-table tr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.volunteer-events-table tr th{
+    font-size: 18px;
+    font-weight: 500;
+}
+.volunteer-left-bottom-title{
+    font-size: 22px;
+    padding: 25px;
+    font-weight: 500;
+    margin-left: 3.7em;
+}
+.volunteer-events-table tr td{
+    /* width: 20%; */
 }
