@@ -6,29 +6,32 @@ const axios = require('axios');
 
 
 
-exports.addbook=(req,res) => {
+exports.addevent=(req,res) => {
     if(Object.entries(req.body).length === 0){
         res.status(400).send(`Cannot Insert Empty value ${req.query}`);
         return ;
     }
-   var book = new LibrarySchema({
-        title: req.body.title,
-        author: req.body.author,
-        img: req.body.img,
-        desc: req.body.desc,
+   var event = new LibrarySchema({
+        eventName: req.body.eventName,
+        hostedBy: req.body.hostedBy,
+        sumbmissions: 0,
+        dueDate: req.body.dueDate,
+        startDate: req.body.startDate,
+        maxEntries: req.body.maxEntries,
         about: req.body.about,
    })
 
-   book
+   event
         .save()
         .then(data => {
-            res.redirect('/')
+            res.send(data);
+            // res.redirect('/')
         })
         .catch(e=>{
             res.send('Error updating'+e)
         })
 }
-exports.updatebook=(req,res) => {
+exports.updateevent=(req,res) => {
 if(Object.entries(req.body).length === 0){
         res.status(500).send(req.body);
         return;
@@ -49,7 +52,7 @@ if(Object.entries(req.body).length === 0){
         })
     }
 
-exports.findbook=(req,res) => {
+exports.findevent=(req,res) => {
     if(req.params.id){
         const vid = req.params.id;
         LibrarySchema.findById(vid)
@@ -77,7 +80,7 @@ exports.findbook=(req,res) => {
             }
         }
 
-exports.deletebook=(req,res) => {
+exports.deleteevent=(req,res) => {
         var id = req.params.id;
         LibrarySchema.findByIdAndDelete(id)
             .then(data=>{
