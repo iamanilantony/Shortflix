@@ -13,7 +13,9 @@ exports.addevent=(req,res) => {
         return ;
     }
 
+
    var event = new eventdb({
+
         eventName: req.body.eventName,
         hostedBy: req.body.hostedBy,
         sumbmissions: 0,
