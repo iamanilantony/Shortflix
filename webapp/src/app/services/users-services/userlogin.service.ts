@@ -24,5 +24,8 @@ export class UserloginService {
     localStorage.removeItem('token');
     this.route.navigate(['login'])
   }
+  getUser(id : any){
+    return this.http.get<any>('http://localhost:3000/api/users',id)
+  }
 
 }

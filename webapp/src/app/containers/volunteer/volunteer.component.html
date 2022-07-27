@@ -7,34 +7,6 @@
                 </div>
                 <div class="volunteer-card" id="volunteer-guest-button" onclick="fguest()">
                     Add a guest 
-                    <div>
-                        <table>
-                            <tr>
-                                <th>Name</th>
-                                <th>Due Date</th>
-                                <th>Entries</th>
-                                <th>Others</th>
-                            </tr>
-                            <tr>
-                                <td>JS allison fest</td>
-                                <td>14/12/2001</td>
-                                <td>46</td>
-                                <td>Others</td>
-                            </tr>
-                            <tr>
-                                <td>JS allison fest</td>
-                                <td>14/12/2001</td>
-                                <td>46</td>
-                                <td>Others</td>
-                            </tr>
-                            <tr>
-                                <td>JS allison fest</td>
-                                <td>14/12/2001</td>
-                                <td>46</td>
-                                <td>Others</td>
-                            </tr>
-                        </table>
-                    </div>
                 </div>
                 <div class="volunteer-card" id="volunteer-library-button" onclick="flibrary()">
                     Manage Library
@@ -69,9 +41,41 @@
                 </div>
             </div>
             <div class="volunteer-left-bottom">
-                <span>Events</span>
+                <div class="volunteer-left-bottom-title">Events</div>
                 <div class="volunteer-selector-event">
-                    <span>Active Events</span>
+                    <table class="volunteer-events-table">
+                        <tr>
+                            <th>Title</th>
+                            <th>Entries</th>
+                            <th>By</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>Ais fil competition</td>
+                            <td>34</td>
+                            <td>AJS Orginisation</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>Ais fil competition</td>
+                            <td>34</td>
+                            <td>AJS Orginisation</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>Ais fil competition</td>
+                            <td>34</td>
+                            <td>AJS Orginisation</td>
+                            <td>Completed</td>
+                        </tr>
+                    </table>
+                </div> 
+            </div>
+        </div>
+        <div class="volunteer-right-container" id="volunteer-library">
+            <div class="volunteer-right" id="volunteer-library">
+                Libraries
+                <div>
                     <table>
                         <tr>
                             <th>Name</th>
@@ -96,7 +100,27 @@
                             <td>14/12/2001</td>
                             <td>46</td>
                             <td>Others</td>
-                        </tr><tr>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="volunteer-right" id="volunteer-guest">
+                guest
+                <div>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Due Date</th>
+                            <th>Entries</th>
+                            <th>Others</th>
+                        </tr>
+                        <tr>
+                            <td>JS allison fest</td>
+                            <td>14/12/2001</td>
+                            <td>46</td>
+                            <td>Others</td>
+                        </tr>
+                        <tr>
                             <td>JS allison fest</td>
                             <td>14/12/2001</td>
                             <td>46</td>
@@ -109,15 +133,7 @@
                             <td>Others</td>
                         </tr>
                     </table>
-                </div> 
-            </div>
-        </div>
-        <div class="volunteer-right-container" id="volunteer-library">
-            <div class="volunteer-right" id="volunteer-library">
-                Libraries
-            </div>
-            <div class="volunteer-right" id="volunteer-guest">
-                guest
+                </div>
             </div>    
         </div>
     </div>

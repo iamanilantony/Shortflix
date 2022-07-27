@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const movieDb = require('./moviemodel');
 
+
 var eventSchema = {
     eventName : {
         type: String,
@@ -8,7 +9,8 @@ var eventSchema = {
         unique : true
     },
     hostedBy : String,
-    movies : [movieDb],
+    // movies : [movieDb],
+
     sumbmissions : Number,
     dueDate : Date,
     startDate : Date,

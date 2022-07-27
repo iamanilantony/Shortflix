@@ -22,7 +22,7 @@ export class LogincompComponent implements OnInit {
             localStorage.setItem('token',res.token);
             localStorage.setItem('name',res.name);
             localStorage.setItem('role',res.role);
-            localStorage.setItem('id',res.id);
+            localStorage.setItem('id',res._id);
             switch(res.role){
               case "volunteer":{
                 this.router.navigate(['volunteer'])
