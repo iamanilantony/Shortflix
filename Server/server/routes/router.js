@@ -15,19 +15,19 @@ function verifyToken(req,res,next){
     next()
 }
 
-//restful api books
-router.post('/api/books',controller.addbook)
-router.put('/api/books/:id',controller.updatebook)
-router.get('/api/books/:id',controller.findbook)
-router.get('/api/books',controller.findbook)
-router.delete('/api/books/:id',controller.deletebook)
+//restful api events
+router.post('/api/events',controller.addevent)
+router.put('/api/events/:id',controller.updateevent)
+router.get('/api/events/:id',controller.findevent)
+router.get('/api/events',controller.findevent)
+router.delete('/api/events/:id',controller.deleteevent)
 
 //restful api author
-router.post('/api/author',controller.addauthor)
-router.put('/api/author/:id',controller.updateauthor)
-router.get('/api/author/:id',controller.findauthor)
-router.get('/api/author',controller.findauthor)
-router.delete('/api/author/:id',controller.deleteauthor)
+router.post('/api/movie',controller.addmovie)
+router.put('/api/movie/:id',controller.updatemovie)
+router.get('/api/movie/:id',controller.findmovie)
+router.get('/api/movie',controller.findmovie)
+router.delete('/api/movie/:id',controller.deletemovie)
 
 //restful api user
 router.post('/api/users',controller.adduser)

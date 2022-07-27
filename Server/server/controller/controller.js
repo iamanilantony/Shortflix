@@ -1,8 +1,9 @@
-const LibrarySchema = require('../model/model') 
-const AuthorSchema = require('../model/authmodel') 
+const eventdb = require('../model/eventmodel') 
+const movieDb = require('../model/moviemodel') 
 const userDb = require('../model/usermodel')
 const jwt = require('jsonwebtoken')
 const axios = require('axios');
+
 
 
 
@@ -11,7 +12,8 @@ exports.addevent=(req,res) => {
         res.status(400).send(`Cannot Insert Empty value ${req.query}`);
         return ;
     }
-   var event = new LibrarySchema({
+
+   var event = new eventdb({
         eventName: req.body.eventName,
         hostedBy: req.body.hostedBy,
         sumbmissions: 0,
@@ -37,7 +39,7 @@ if(Object.entries(req.body).length === 0){
         return;
     }
     var id = req.params.id;
-    LibrarySchema.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
+    eventdb.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
         .then(data=>{
             if(!data){
                 res.send('User Does not exist')
@@ -55,7 +57,7 @@ if(Object.entries(req.body).length === 0){
 exports.findevent=(req,res) => {
     if(req.params.id){
         const vid = req.params.id;
-        LibrarySchema.findById(vid)
+        eventdb.findById(vid)
             .then(data=>{
                 if(!data){
                     res.send('Id not found')
@@ -70,7 +72,7 @@ exports.findevent=(req,res) => {
             })
     }
     else{
-        LibrarySchema.find()
+        eventdb.find()
             .then(data=>{
                     res.send(data)
                 })
@@ -82,7 +84,7 @@ exports.findevent=(req,res) => {
 
 exports.deleteevent=(req,res) => {
         var id = req.params.id;
-        LibrarySchema.findByIdAndDelete(id)
+        eventdb.findByIdAndDelete(id)
             .then(data=>{
                 if(!data){
                     res.send('User Does not exist')
@@ -95,12 +97,12 @@ exports.deleteevent=(req,res) => {
             })
         }
 
-exports.addauthor = (req,res) => {
+exports.addmovie = (req,res) => {
     if(!req.body){
         res.status(400).send(`Cannot Insert Empty value ${req.query}`);
         return ;
     }
-    let author = new AuthorSchema ({
+    let movie = new movieDb ({
         name : req.body.name,
         books :req.body.books,
         Age : req.body.age,
@@ -108,18 +110,18 @@ exports.addauthor = (req,res) => {
         desc : req.body.desc,
     })
 
-    author
+    movie
         .save()
         .then(data=>{
             // res.send(data)
-            res.redirect('/authors')
+            res.redirect('/movies')
         })
         .catch(err=>{
             res.status(400).send('Error Adding data to db')
         })
 }
 
-exports.updateauthor = (req,res) => {
+exports.updatemovie = (req,res) => {
     if(!req.body){
         res.status(400).send(`Cannot update Empty value ${req.query.data}`);
         console.log(req.query.data);
@@ -127,7 +129,7 @@ exports.updateauthor = (req,res) => {
         return ;
     }
     let id = req.params.id;
-    AuthorSchema.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
+    movieDb.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
         .then(data=>{
             if(!data){
                 res.send('Id not found '+data)
@@ -145,9 +147,9 @@ exports.updateauthor = (req,res) => {
 
         })
 }
-exports.deleteauthor = (req,res) => {
+exports.deletemovie = (req,res) => {
     let id = req.params.id;
-    AuthorSchema.findByIdAndDelete(id)
+    movieDb.findByIdAndDelete(id)
     .then(data=>{
         if(!data){
             res.send('Id not found')
@@ -162,10 +164,10 @@ exports.deleteauthor = (req,res) => {
         res.send('Error deleting data'+err)
     })
 }
-exports.findauthor = (req,res) => {
+exports.findmovie = (req,res) => {
     if(req.params.id){
         let id = req.params.id;
-        AuthorSchema.findById(id)
+        movieDb.findById(id)
             .then(data=>{
                 if(!data){
                     res.send('Id not found')
@@ -182,7 +184,7 @@ exports.findauthor = (req,res) => {
             })
     }
     else{
-        AuthorSchema.find()
+        movieDb.find()
             .then(data=>{
                     res.send(data)
                     return;
