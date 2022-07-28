@@ -4,9 +4,9 @@
 
 - 🔭 Created by aspiring web enthusisists**
 
-- 🌱 I’m currently learning **react and M.E.R.N stack**
+- 🌱 Anil **Antony**
 
-- 💬 Ask me about **react**
+- 💬 Adlee **Xavie*r*
 
 - 📫 How to reach me **anilantony3134@gmail.com**
 
