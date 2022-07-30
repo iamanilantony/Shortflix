@@ -10,7 +10,7 @@ export class ModalserveService {
   
   sendmovieToBackend(movie: any){
     console.log(movie);
-    return this.http.post<any>('http://localhost:3000/candidate/movie',movie)
+    return this.http.post<any>('http://localhost:3000/api/movie',movie)
 
   }
 }
