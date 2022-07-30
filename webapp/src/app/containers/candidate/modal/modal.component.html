@@ -1,0 +1,17 @@
+
+<div id="container">
+    <div id="header">Hey! share us your Magic Work here</div>
+    <div id="form">
+        <form (ngSubmit) ="send_Movie_to_Service()"  >
+           
+            <input type="text" id="url"      name = "url"       [(ngModel)]="movie.url"    placeholder="Paste your content url here" ><br><br>
+            <input type="text" id="theme"    name = "theme"     [(ngModel)]="movie.theme"    placeholder="Short Discription">           <br><br>
+            <input type="text" id="director" name = "director"  [(ngModel)]="movie.director"    placeholder="Director">                    <br><br>
+            <input type="text" id="Producer" name = "Producer"  [(ngModel)]="movie.Producer"    placeholder="Producer">                    <br><br>
+            <input type="text" id="Actor"    name = "Actor"     [(ngModel)]="movie.Actor"    placeholder="Actor">                       <br><br>
+            <input type="text" id="Others"   name = "Others"    [(ngModel)]="movie.Others"    placeholder="Others">                     <br><br>
+            <input id = "sub" type="submit"  value="Submit" value = "Submit"> &nbsp; &nbsp;&nbsp;
+            <button id = "but"  (click)="serve.showDialog=false">close</button>
+          </form>
+    </div>
+</div>
