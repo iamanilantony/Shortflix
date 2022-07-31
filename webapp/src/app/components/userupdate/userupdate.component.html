@@ -1,4 +1,4 @@
-<div class="updateUser-container">
+<!-- <div class="updateUser-container">
     <div class="updateUser-wrapper">
         <div class="updateUser-left">
             <div class="updateUser-form">
@@ -7,7 +7,7 @@
                 <form (ngSubmit)="updateUserData(userupdateUser)" #userupdateUser = "ngForm">
                     <input type="text" name="name" class="form-control" [(ngModel)]="User.name" required>
                     <input type="text" placeholder="Email" name="email" class="form-control" [(ngModel)]="User.email" value={{User.email}} #email="ngModel" [class.is-invalid]="email.invalid && email.touched" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
-                    <!-- <small [class.d-none]="email.valid || email.touched">Enter valid email</small> -->
+                    <small [class.d-none]="email.valid || email.touched">Enter valid email</small>
                     <input type="password" placeholder="Password" class="form-control" name="password" [(ngModel)]="User.password" value={{User.password}} minlength="6" required>
                     <input type="password" placeholder="Confirm Password" name="confirmpassword"  minlength="6" required>
                     <div class="updateUser-form-radio form-control">
@@ -23,5 +23,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
