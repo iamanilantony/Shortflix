@@ -11,6 +11,7 @@ import { LogincompComponent } from './components/logincomp/logincomp.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { UserupdateComponent } from './components/userupdate/userupdate.component';
 import { UserloginService } from './services/users-services/userlogin.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './components/logincomp/token-interceptor.service';
@@ -18,7 +19,6 @@ import { UsersignupService } from './services/users-signup/usersignup.service';
 import { ViewComponent } from './containers/view/view.component';
 import { GuestComponent } from './containers/guest/guest.component';
 import { CandidateComponent } from './containers/candidate/candidate.component';
-import { UserupdateComponent } from './components/userupdate/userupdate.component';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { AuthModule } from '@auth0/auth0-angular';
 import { VolunteerServicesService } from './containers/volunteer/services/volunteer-services.service';
@@ -33,7 +33,7 @@ import { VolunteerServicesService } from './containers/volunteer/services/volunt
     ViewComponent,
     GuestComponent,
     CandidateComponent,
-    UserupdateComponent
+    UserupdateComponent,
   ],
   imports: [
     BrowserModule,

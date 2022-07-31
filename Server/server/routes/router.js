@@ -35,7 +35,7 @@ router.get('/api/users',controller.finduser)
 router.get('/api/users/:id',controller.finduser)
 
 //Movie login
-router.get('/candidate/movie',controller.addmovie)
+
 
 //validate login
 router.post('/api/usersvalid',services.usersvalid)
