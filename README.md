@@ -6,11 +6,11 @@
 
 - 🌱 Anil **Antony**
 
-- 💬 Adlee **Xavie*r*
+- 💬 Adlee **Xavier*
 
-- 📫 How to reach me **anilantony3134@gmail.com**
+- 📫  **Sreehari**
 
-- ⚡ Fun fact **I think I am funny**
+- ⚡  **Shameem**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
