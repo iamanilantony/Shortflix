@@ -5,8 +5,16 @@
                 <h1>Login to Your Account</h1>
                 <h4>A good storyteller is the most powerful person in the world</h4>
                 <form (ngSubmit)="userVerify()" #userlogin = "ngForm">
-                    <input type="text" placeholder="Email" name="uname" [(ngModel)]="User.email" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
-                    <input type="password" placeholder="Password" name="password" [(ngModel)]="User.password" minlength="6" required>
+                    <input type="email" class="form-control" placeholder="Email" name="uname" [(ngModel)]="User.email" #email="ngModel" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
+                    <div *ngIf ="email.touched && email.invalid" class="alert alert-danger">
+                        <div *ngIf="email.errors?.['required']">
+                            Email is required.
+                        </div>
+                        <div *ngIf="email.errors?.['pattern']">
+                            Invalid Email.
+                        </div>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="User.password" minlength="6" required>
                     <span>Forget password?</span>
                     <button type="submit">LogIn</button>
                 </form>
@@ -18,3 +26,4 @@
         </div>
     </div>
 </div>
+<!-- [disabled]="!userlogin.valid"  [class.is-invalid]="email.invalid && email.touched"-->
