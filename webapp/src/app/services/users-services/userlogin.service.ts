@@ -22,6 +22,9 @@ export class UserloginService {
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    localStorage.removeItem('id');
+    localStorage.removeItem('role',);
     this.route.navigate(['login'])
   }
   getUser(id : any){

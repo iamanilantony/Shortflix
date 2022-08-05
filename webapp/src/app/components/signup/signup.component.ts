@@ -22,7 +22,4 @@ export class SignupComponent implements OnInit {
   userVerify(usersignup: NgForm): void{
     this.signup.adduser(usersignup.value)
   }
-  pwdvalidate(){
-    alert('sas');
-}
 }

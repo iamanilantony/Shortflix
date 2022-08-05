@@ -8,14 +8,16 @@ const axios = require('axios');
 
 
 exports.addevent=(req,res) => {
-    if(Object.entries(req.body).length === 0){
-        res.status(400).send(`Cannot Insert Empty value ${req.query}`);
+    console.log(req.body);
+    console.log(req.query);
+    if(!req.body){
+        res.status(400).send(`Cannot Insert Empty value ${req.body}`);
         return ;
     }
+    console.log(req.body);
 
 
    var event = new eventdb({
-
         eventName: req.body.eventName,
         hostedBy: req.body.hostedBy,
         sumbmissions: 0,
