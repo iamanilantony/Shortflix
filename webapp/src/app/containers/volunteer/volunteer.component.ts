@@ -1,43 +1,65 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { VolunteerServicesService } from './services/volunteer-services.service';
+import {KeyValue} from '@angular/common';
 
 @Component({
   selector: 'app-volunteer',
   templateUrl: './volunteer.component.html',
   styleUrls: ['./volunteer.component.css']
 })
+
 export class VolunteerComponent implements OnInit {
 
-  // constructor(a: string, b: string,c: string,) {
-  //   this.library = a;
-  //   this.guest = b;
-  //   this.event = c;
-  //  }
+  singleevent = {
+    eventName: '',
+    maxEntries: '',
+    startDate: '',
+    dueDate: '',
+    desc: '',
+    hostedBy: ''
+}
+  Guest = {
+    name: '',
+    email : '',
+    password : '',
+    role: 'guest'
+  }
+
+  EventData:any;
+
+  constructor(private event: VolunteerServicesService ){
+   }
 
   ngOnInit(): void {
+    this.fetchEventData();
   }
 
-  // library: string;
-  // guest: string;
-  // event: string;
 
-  // library = document.getElementById('volunteer-library')
-  // var guest = document.getElementById('volunteer-guest');
-  // var event = document.getElementById('volunteer-event');
-  // var librarybtn = document.getElementById('volunteer-library-button');
-  // var guestbtn = document.getElementById('volunteer-guest-button');
-  // var eventbtn = document.getElementById('volunteer-event-button');
-  // function fevent(){
-  //     alert('clcik')
-      // login.style.display = 'block';
-      // signup.style.display = 'none';
-      // signupbtn.style.backgroundColor = '#c89953';
-      // loginbtn.style.backgroundColor = 'white';
+  Emodal = false;
+  Gmodal = false;
+
+
+  fShowModal(){
+      this.Emodal = true;
   }
-  // function fsignup(){
-  //     this.login.style.display = 'none';
-  //     signup.style.display = 'block';
-  //     loginbtn.style.backgroundColor = '#c89953';
-  //     signupbtn.style.backgroundColor = 'white';
-  // }
-
-// }
+  fHideModal(){
+    this.Emodal = false;
+  }
+  sguestmodal(){
+    this.Gmodal = !this.Gmodal;
+  }
+  addEvent(eventform : NgForm): void{
+    this.event.createEvent(eventform.value);
+    this.Emodal = false;
+  }
+  fetchEventData(): any{
+    this.EventData = this.event.fetchEvent();
+    console.log(this.EventData,'this is getting');
+  }
+  addGuest(gData : NgForm) : void{
+    console.log(gData.value);
+    this.event.addGuestS(gData.value);
+    this.Gmodal = false;
+  }
+}

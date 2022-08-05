@@ -2,16 +2,17 @@
     <div class="volunteer-wrapper">
         <div class="volunteer-left">
             <div class="volunteer-left-top">
-                <div class="volunteer-card volunteer-card-primary" id="volunteer-event-button" onclick="fevent()">
-                    Create an event 
+                <div class="volunteer-card volunteer-card-primary" id="volunteer-event-button" (click)="fShowModal()">
+                    Create an event
                 </div>
-                <div class="volunteer-card" id="volunteer-guest-button" onclick="fguest()">
-                    Add a guest 
+                <div class="volunteer-card" id="volunteer-guest-button" (click)="sguestmodal()">
+                    Add a guest
                 </div>
-                <div class="volunteer-card" id="volunteer-library-button" onclick="flibrary()">
+                <div class="volunteer-card volunteer-uppercard-content" id="volunteer-library-button"
+                    onclick="flibrary()">
                     Manage Library
-                    <div>
-                        <table>
+                    <div class="volunteer-uppercard-content-in">
+                        <!-- <table>
                             <tr>
                                 <th>Name</th>
                                 <th>Due Date</th>
@@ -30,47 +31,107 @@
                                 <td>46</td>
                                 <td>Others</td>
                             </tr>
-                            <tr>
-                                <td>JS allison fest</td>
-                                <td>14/12/2001</td>
-                                <td>46</td>
-                                <td>Others</td>
-                            </tr>
-                        </table>
+                        </table> -->
                     </div>
                 </div>
             </div>
+            <div id="modal" class="modalvolunteer" style="display: flex;" *ngIf=Emodal>
+                <div class="modalcontentvolunteer">
+                    <div class="closebutton">
+                        <button (click)="fHideModal()">&times;</button>
+                    </div>
+                    <div class="volunteer-modal-container">
+                        <div class="volunteer-modal-left">
+                            <h1>Add Event</h1>
+                            <form (ngSubmit)="addEvent(eventform)" #eventform = "ngForm">
+                                Name :
+                                <input type="text" name="eventName" class="form-control" [(ngModel)]="singleevent.eventName" placeholder='Enter the name'>
+                                Max-Entry :
+                                <input type="text" name="maxEntries" [(ngModel)]="singleevent.maxEntries" placeholder='Enter the Books'>
+                                Start Date :
+                                <input type="date" name="startDate" [(ngModel)]="singleevent.startDate" placeholder='Enter the Age'>
+                                Due Date :
+                                <input type="date" name="dueDate" [(ngModel)]="singleevent.dueDate" placeholder='Enter the Age'>
+                                Desc :
+                                <input type="text" name="desc" [(ngModel)]="singleevent.desc" placeholder='Enter the Desc'>
+                                Organizer :
+                                <input type="text" name="hostedBy" [(ngModel)]="singleevent.hostedBy" placeholder='Enter the Image'>
+                                <button type="submit">Update</button>
+                            </form>
+                        </div>
+                        <!-- <div class="volunteer-modal-right">
+                            <img src="https://wallpapercave.com/wp/wp5403866.jpg"
+                                alt="">
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+            <div class="modalvolunteer" style="display: flex;" *ngIf=Gmodal>
+                <div class="modalcontentvolunteer">
+                    <div class="closebutton" >
+                        <button (click)="sguestmodal()">&times;</button>
+                    </div>
+                    <div class="volunteer-modal-container">
+                        <div class="volunteer-modal-left">
+
+                            <h1>Add a Guest</h1>
+                            <form (ngSubmit)="addGuest(guestform)" #guestform = "ngForm">
+                                <input type="hidden" name="role" [(ngModel)]="Guest.role" placeholder='Enter the name'>
+                                Name :
+                                <input type="text" name="name" class="form-control" [(ngModel)]="Guest.name" placeholder='Enter the name'>
+                                Email :
+                                <input type="email" name="email" [(ngModel)]="Guest.email" placeholder='Enter the Age'>
+                                Password :
+                                <input type="password" name="password" [(ngModel)]="Guest.password" placeholder='Enter the Age'>
+                                <button type="submit">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- <div id="modal" class="modalvolunteer" style="display: flex;" *ngIf=Gmodal>
+                <div class="modalcontentvolunteer">
+                    <div class="closebutton">
+                        <button (click)="hguestmodal()">&times;</button>
+                    </div>
+                    <div class="volunteer-modal-container">
+                        <div class="volunteer-modal-left">
+                            <h1>Add Guest</h1>
+                            <form (ngSubmit)="addEvent(guestform)" #guestform = "ngForm">
+                                Name :
+                                <input type="text" name="name" class="form-control" [(ngModel)]="Guest.name" placeholder='Enter the name'>
+                                Email :
+                                <input type="email" name="email" [(ngModel)]="Guest.email" placeholder='Enter the Age'>
+                                Password :
+                                <input type="password" name="password" [(ngModel)]="Guest.password" placeholder='Enter the Age'>
+                                <button type="submit">Add</button>
+                            </form>
+                        </div> -->
+                        <!-- <div class="volunteer-modal-right">
+                            <img src="https://univassist.com/wp-content/uploads/2020/11/UnivAssist-Event-Calender_LOOP.gif"
+                                alt="">
+                        </div> -->
+                    <!-- </div> -->
+
+                <!-- </div> -->
+            <!-- </div> -->
             <div class="volunteer-left-bottom">
                 <div class="volunteer-left-bottom-title">Events</div>
                 <div class="volunteer-selector-event">
-                    <table class="volunteer-events-table">
-                        <tr>
-                            <th>Title</th>
-                            <th>Entries</th>
-                            <th>By</th>
-                            <th>Status</th>
-                        </tr>
-                        <tr>
-                            <td>Ais fil competition</td>
-                            <td>34</td>
-                            <td>AJS Orginisation</td>
-                            <td>Completed</td>
-                        </tr>
-                        <tr>
-                            <td>Ais fil competition</td>
-                            <td>34</td>
-                            <td>AJS Orginisation</td>
-                            <td>Completed</td>
-                        </tr>
-                        <tr>
-                            <td>Ais fil competition</td>
-                            <td>34</td>
-                            <td>AJS Orginisation</td>
-                            <td>Completed</td>
-                        </tr>
-                    </table>
+                    <div class="volunteer-event-card-conatainer">
+                        <div class="volunteer-event-card" *ngFor="let eventone of EventData">
+                            {{eventone.eventName}}
+                            {{EventData}}
+                        </div>
+                        </div>
+                    </div>
                 </div>
-            </div>    
+            </div>
         </div>
     </div>
-</div>

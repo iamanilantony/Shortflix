@@ -12,14 +12,16 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { UserloginService } from './services/users-services/userlogin.service';
-import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './components/logincomp/token-interceptor.service';
 import { UsersignupService } from './services/users-signup/usersignup.service';
 import { ViewComponent } from './containers/view/view.component';
 import { GuestComponent } from './containers/guest/guest.component';
 import { CandidateComponent } from './containers/candidate/candidate.component';
 import { UserupdateComponent } from './components/userupdate/userupdate.component';
-
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { AuthModule } from '@auth0/auth0-angular';
+import { VolunteerServicesService } from './containers/volunteer/services/volunteer-services.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,12 +43,32 @@ import { UserupdateComponent } from './components/userupdate/userupdate.componen
     FormsModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
+    SocialLoginModule,
+    AuthModule.forRoot({
+      domain: 'dev-hxnqwb0s.us.auth0.com',
+      clientId: 'eD5MJhiXrKu2mLcQaPQbvvxMCRlJVJLS'
+    }),
   ],
-  providers: [UserloginService,UsersignupService,{
+  providers: [UserloginService, UsersignupService, VolunteerServicesService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
-  }],
+  },
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: false,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(
+    //           '284101135074-2f9nigf4fma7s7j2bu6tsqe5ng2uprvf.apps.googleusercontent.com',
+    //         )
+    //       }
+    //     ]
+    //   } as SocialAuthServiceConfig
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

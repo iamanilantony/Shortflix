@@ -16,6 +16,7 @@ var eventSchema = {
     startDate : Date,
     maxEntries : Number,
     open : Boolean,
+    desc : String,
 }
 
 var eventDb = mongoose.model('events',eventSchema);
