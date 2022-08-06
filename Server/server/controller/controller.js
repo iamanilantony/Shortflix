@@ -30,7 +30,7 @@ exports.addevent=(req,res) => {
    event
         .save()
         .then(data => {
-            res.send(data);
+            res.status(200).send(data);
             // res.redirect('/')
         })
         .catch(e=>{
@@ -50,7 +50,7 @@ if(Object.entries(req.body).length === 0){
                 return;
             }
             else{
-                res.send(data)
+                res.status(200).send(data)
             }
         })
         .catch(err => {
@@ -64,7 +64,7 @@ exports.findevent=(req,res) => {
         eventdb.findById(vid)
             .then(data=>{
                 if(!data){
-                    res.send('Id not found')
+                    res.status(200).send('Id not found')
                 }
                 else{
                     res.send(data)
@@ -78,10 +78,10 @@ exports.findevent=(req,res) => {
     else{
         eventdb.find()
             .then(data=>{
-                    res.send(data)
+                res.status(200).send(data)
                 })
             .catch(err=>{
-                res.send('Error findng all data')
+                res.send('Error findng all data',err)
             })
             }
         }
@@ -94,7 +94,7 @@ exports.deleteevent=(req,res) => {
                     res.send('User Does not exist')
                     return;
                 }
-                res.send('data got deleted successfully')
+                res.status(200).send('data got deleted successfully')
             })
             .catch(err => {
                 res.status(400).send({message:'No such user'})
@@ -107,18 +107,22 @@ exports.addmovie = (req,res) => {
         return ;
     }
     let movie = new movieDb ({
-        name : req.body.name,
-        books :req.body.books,
-        Age : req.body.age,
-        img : req.body.img,
-        desc : req.body.desc,
+        movieName : req.body.movieName,
+        directedBy : req.body.directedBy,
+        crew : req.body.crew,
+        cast : req.body.cast,
+        event : req.body.event,
+        date : req.body.date,
+        shortListed : req.body.shortListed,
+        marks : req.body.marks,
+        startDate : req.body.startDate,
+        maxEntries : req.body.maxEntries,
     })
 
     movie
         .save()
         .then(data=>{
-            // res.send(data)
-            res.redirect('/movies')
+            res.status(200).send(data);
         })
         .catch(err=>{
             res.status(400).send('Error Adding data to db')
@@ -136,17 +140,17 @@ exports.updatemovie = (req,res) => {
     movieDb.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
         .then(data=>{
             if(!data){
-                res.send('Id not found '+data)
+                res.status(300).send('Id not found '+data)
                 return;
             }
             else{
-                res.send('Data updated succesfuly'+data)
+                res.status(200).send('Data updated succesfuly'+data)
                 return;
 
             }
         })
         .catch(err=>{
-            res.send('Could not update data'+err)
+            res.status(301).send('Could not update data'+err)
             return;
 
         })
@@ -160,7 +164,7 @@ exports.deletemovie = (req,res) => {
             return;
         }
         else{
-            res.send('data deleted'+data);
+            res.status(200).send('data deleted'+data);
             // next()
         }
     })
@@ -178,7 +182,7 @@ exports.findmovie = (req,res) => {
                     return;
                 }
                 else{
-                    res.send(data)
+                    res.status(200).send(data)
                 }
             })
             .catch(err=>{
@@ -190,7 +194,7 @@ exports.findmovie = (req,res) => {
     else{
         movieDb.find()
             .then(data=>{
-                    res.send(data)
+                    res.status(200).send(data)
                     return;
 
             })
@@ -217,7 +221,7 @@ exports.adduser = (req,res) => {
         user
             .save()
             .then(response=>{
-                res.send(response)
+                res.status(200).send(response)
                 return;
 
             })
@@ -231,7 +235,7 @@ exports.finduser = (req,res) => {
     if(!req.params.id){
         userDb.find()
             .then(response=>{
-                res.send(response)
+                res.status(200).send(response)
                 return;
 
             })
@@ -250,7 +254,7 @@ exports.finduser = (req,res) => {
                 return;
             }
             else{
-                res.send(response)
+                res.status(200).send(response)
                 return;
             }
         })

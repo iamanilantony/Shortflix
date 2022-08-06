@@ -130,23 +130,23 @@
                     <div class="guest-modal-left">
 
                         <h1>Add Review</h1>
-                        <form>
+                        <form (ngSubmit) ="addReview(reviewform)" #reviewform='ngForm'>
                             Overall :
-                            <input type="number" name="Overall" class="form-control"  placeholder='Enter Overall score'>
+                            <input type="number" name="Overall" [(ngModel)]="movie.marks.Overall" class="form-control"  placeholder='Enter Overall score'>
                             Direction :
-                            <input type="number" name="Direction" class="form-control"  placeholder='Enter Direction score'>
+                            <input type="number" name="Direction" [(ngModel)]="movie.marks.Direction" class="form-control"  placeholder='Enter Direction score'>
                             Story :
-                            <input type="number" name="Story" class="form-control"  placeholder='Enter Story score'>
+                            <input type="number" name="Story" [(ngModel)]="movie.marks.Story" class="form-control"  placeholder='Enter Story score'>
                             Acting :
-                            <input type="number" name="Acting" class="form-control"  placeholder='Enter Acting score'>
+                            <input type="number" name="Acting" [(ngModel)]="movie.marks.Acting" class="form-control"  placeholder='Enter Acting score'>
                             Music :
-                            <input type="number" name="Music" class="form-control"  placeholder='Enter Music score'>
+                            <input type="number" name="Music" [(ngModel)]="movie.marks.Music" class="form-control"  placeholder='Enter Music score'>
                             SFX :
-                            <input type="number" name="SFX" class="form-control"  placeholder='Enter SFX score'>
+                            <input type="number" name="SFX" [(ngModel)]="movie.marks.SFX" class="form-control"  placeholder='Enter SFX score'>
                             Camera :
-                            <input type="number" name="Camera" class="form-control"  placeholder='Enter Camera score'>
+                            <input type="number" name="Camera" [(ngModel)]="movie.marks.Camera" class="form-control"  placeholder='Enter Camera score'>
                             Production :
-                            <input type="number" name="Production" class="form-control"  placeholder='Enter Production score'>
+                            <input type="number" name="Production" [(ngModel)]="movie.marks.Production" class="form-control"  placeholder='Enter Production score'>
                             <button type="submit">Add</button>
                         </form>
                     </div>
