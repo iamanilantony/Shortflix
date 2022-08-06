@@ -1,3 +1,5 @@
+<div class="guest-container">
+    <div class="guest-wrapper">
         <body>
             <link rel="stylesheet" href="./guest.component.css">
         <div class="movie-list-container">
@@ -10,7 +12,7 @@
                         <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                             hic fugit similique accusantium.</p>
                         <button class="movie-list-item-button">Watch</button>
-                        <button class="movie-list-item-button1">Review</button>
+                        <button class="movie-list-item-button1"(click)="sguestmodal()">Review</button>
                     </div>
                     <div class="movie-list-item">
                         <img class="movie-list-item-img" src="https://static.toiimg.com/photo/msid-91646261/91646261.jpg" alt="">
@@ -119,5 +121,38 @@
                 <i class="fas fa-chevron-right arrow"></i>
             </div>
         </div>
+        <div class="modalguest" style="display: flex;" *ngIf=Gmodal>
+            <div class="modalcontentguest">
+                <div class="closebutton" >
+                    <button (click)="sguestmodal()">&times;</button>
+                </div>
+                <div class="guest-modal-container">
+                    <div class="guest-modal-left">
+
+                        <h1>Add Review</h1>
+                        <form>
+                            Overall :
+                            <input type="number" name="Overall" class="form-control"  placeholder='Enter Overall score'>
+                            Direction :
+                            <input type="number" name="Direction" class="form-control"  placeholder='Enter Direction score'>
+                            Story :
+                            <input type="number" name="Story" class="form-control"  placeholder='Enter Story score'>
+                            Acting :
+                            <input type="number" name="Acting" class="form-control"  placeholder='Enter Acting score'>
+                            Music :
+                            <input type="number" name="Music" class="form-control"  placeholder='Enter Music score'>
+                            SFX :
+                            <input type="number" name="SFX" class="form-control"  placeholder='Enter SFX score'>
+                            Camera :
+                            <input type="number" name="Camera" class="form-control"  placeholder='Enter Camera score'>
+                            Production :
+                            <input type="number" name="Production" class="form-control"  placeholder='Enter Production score'>
+                            <button type="submit">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         </body>
-<!-- <script src="app.js"></script> -->
+    </div>
+</div>

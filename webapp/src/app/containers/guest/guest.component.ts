@@ -11,5 +11,8 @@ export class GuestComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  Gmodal = false;
+  sguestmodal(){
+    this.Gmodal = !this.Gmodal;
+  }
 }
