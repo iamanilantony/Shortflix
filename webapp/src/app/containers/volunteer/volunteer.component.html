@@ -9,7 +9,7 @@
                     Add a guest
                 </div>
                 <div class="volunteer-card volunteer-uppercard-content" id="volunteer-library-button"
-                    onclick="flibrary()">
+                    (click)="flibrary()">
                     Manage Library
                     <div class="volunteer-uppercard-content-in">
                         <!-- <table>
@@ -38,7 +38,7 @@
             <div id="modal" class="modalvolunteer" style="display: flex;" *ngIf=Emodal>
                 <div class="modalcontentvolunteer">
                     <div class="closebutton">
-                        <button (click)="fHideModal()">&times;</button>
+                        <button (click)="fShowModal()">&times;</button>
                     </div>
                     <div class="volunteer-modal-container">
                         <div class="volunteer-modal-left">
@@ -124,10 +124,13 @@
             <div class="volunteer-left-bottom">
                 <div class="volunteer-left-bottom-title">Events</div>
                 <div class="volunteer-selector-event">
-                    <div class="volunteer-event-card-conatainer">
+                    <div class="volunteer-event-card-container">
                         <div class="volunteer-event-card" *ngFor="let eventone of EventData">
-                            {{eventone.eventName}}
-                            {{EventData}}
+                            <h1>{{eventone.eventName}}</h1>
+                            <h2>{{eventone.hostedBy}}</h2>    
+                            <h3>{{eventone.sumbmissions}}</h3>
+                            <h4>{{eventone.maxEntries}}</h4> 
+                            <button>View</button>
                         </div>
                         </div>
                     </div>

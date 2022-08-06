@@ -20,13 +20,8 @@ export class VolunteerServicesService {
     )
   }
   fetchEvent(){
-    let x = this.http.get('http://localhost:3000/api/events')
-      .subscribe(
-        res => {
-          console.log(res,'this is getting xx4 called');
-        }
-      )
-      console.log(x);
+    return this.http.get<any>('http://localhost:3000/api/events')
+
   }
   addGuestS(data:any){
     return this.http.post('http://localhost:3000/api/users',data)

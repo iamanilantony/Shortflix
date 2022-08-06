@@ -41,10 +41,7 @@ export class VolunteerComponent implements OnInit {
 
 
   fShowModal(){
-      this.Emodal = true;
-  }
-  fHideModal(){
-    this.Emodal = false;
+      this.Emodal = !this.Emodal;
   }
   sguestmodal(){
     this.Gmodal = !this.Gmodal;
@@ -54,12 +51,19 @@ export class VolunteerComponent implements OnInit {
     this.Emodal = false;
   }
   fetchEventData(): any{
-    this.EventData = this.event.fetchEvent();
-    console.log(this.EventData,'this is getting');
+    return this.event.fetchEvent()
+    .subscribe(
+      res => {
+        this.EventData = Object.values(res);
+      }
+    )
   }
   addGuest(gData : NgForm) : void{
     console.log(gData.value);
     this.event.addGuestS(gData.value);
     this.Gmodal = false;
+  }
+  flibrary(){
+    
   }
 }
