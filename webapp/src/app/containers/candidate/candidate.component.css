@@ -18,22 +18,21 @@ app-modal {
     z-index: 10;
 }
 
-button {
-    background-color:yellow;
-    border-radius: 20px;
-    color:black;
-    top:8.3%;
-    left:90%;
-    width:8%;
-    height:8%;
-    position: absolute;
-    font-weight: bolder;
-    font-size: 30px;
-    
-    z-index: 20;
-}
+
 
 app-status {
+    background-color:yellowgreen;
+    border-radius: 20px;
+    color:black;
+    top:17%;
+    left:2.5%;
+    width:55%;
+    height:73%;
+    position: absolute;
+    z-index: 1;
+
+}
+app-events {
     background-color:yellowgreen;
     border-radius: 20px;
     color:black;

@@ -12,7 +12,8 @@ export class ModalComponent implements OnInit {
     director  : '',
     Producer  : '',
     Actor     : '',
-    Others    : ''
+    Others    : '',
+    event     : ''
   }
   constructor(public serve:ModalserveService) { }
 

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DatamodelService } from './datamodel.service';
+import { GetEtableService } from './get-etable.service';
 
-describe('DatamodelService', () => {
-  let service: DatamodelService;
+describe('GetEtableService', () => {
+  let service: GetEtableService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DatamodelService);
+    service = TestBed.inject(GetEtableService);
   });
 
   it('should be created', () => {
