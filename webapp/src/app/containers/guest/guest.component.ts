@@ -8,9 +8,7 @@ import { GuestServiceService } from './services/guest-service.service';
   styleUrls: ['./guest.component.css']
 })
 export class GuestComponent implements OnInit {
-  mark :any=[]
-  movie = {
-    marks :{
+  marks ={
       Overall : '',
       Direction : '',
       Story : '',
@@ -18,32 +16,43 @@ export class GuestComponent implements OnInit {
       Music : '',
       SFX : '',
       Camera : '',
-      Production : ''
-    }
+      Production : '',
+      _id :''
   }
-  constructor(public serve:GuestServiceService) { }
+  id : string = ''
+  movieid : string =''
+  
+  GMoviedata:any;
+  constructor(
+    public serve:GuestServiceService,
+    public getmovie:GuestServiceService
+  ) {
+     this.fetchgmovie();
+    }
 
   ngOnInit(): void {
   }
   Gmodal = false;
-  sguestmodal(){
+  sguestmodal(movieId:string){
+    this.Gmodal = !this.Gmodal;
+    this.movieid = movieId;
+    console.log(this.movieid);
+  }
+  cguestmodal(){
     this.Gmodal = !this.Gmodal;
   }
   addReview(rvform:NgForm):void{
-    // console.log(rvform.value);
-    this.mark=[]
-    this.mark.push(rvform.value.Overall)
-    this.mark.push(rvform.value.Direction)
-    this.mark.push(rvform.value.Story)
-    this.mark.push(rvform.value.Acting)
-    this.mark.push(rvform.value.Music)
-    this.mark.push(rvform.value.SFX)
-    this.mark.push(rvform.value.Camera)
-    this.mark.push(rvform.value.Production)
-    this.movie.marks=this.mark
-    console.log(this.movie);
-    console.log(this.mark);
-    this.serve.updatemark(this.mark);
+    this.marks._id = localStorage.getItem('id') || '';
+    console.log(this.marks);
+    this.serve.updatemark(this.marks,this.movieid);
     this.Gmodal = false;
   }
+  fetchgmovie(){
+    return this.getmovie.getGmovie().subscribe((movies) => {
+      console.log(movies);
+      this.GMoviedata = Object.values(movies);
+      console.log(this.GMoviedata);
+    })
+  }
+
 }

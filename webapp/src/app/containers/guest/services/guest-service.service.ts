@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 export class GuestServiceService {
 
   constructor(public http: HttpClient, private route: Router) { }
-  updatemark(revw: any) {
-    return this.http.put('http://localhost:3000/api/movie/62ee6ff64a2eb30ee4911b1e', revw).subscribe();
+  updatemark(revw : any,id : string) {
+    console.log(id);
+    return this.http.put(`http://localhost:3000/api/movie/marks/${id}`, revw).subscribe();
+  }
+  getGmovie(){
+    return this.http.get<any>('http://localhost:3000/api/movie');
   }
 }

@@ -155,6 +155,17 @@ exports.updatemovie = (req,res) => {
 
         })
 }
+exports.updateMarks = (req,res) => {
+    console.log(req.body);
+    console.log(req.params.id);
+    let id = req.params.id;
+    movieDb.findByIdAndUpdate(id, { $push: { marks: req.body}})
+    .then(data => {
+             res.status(200).send(data);
+         })
+    .catch(e => {
+        console.log('Could not update data',e);
+    })}
 exports.deletemovie = (req,res) => {
     let id = req.params.id;
     movieDb.findByIdAndDelete(id)
