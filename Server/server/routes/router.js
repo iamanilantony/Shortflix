@@ -34,6 +34,9 @@ router.post('/api/users',controller.adduser)
 router.get('/api/users',controller.finduser)
 router.get('/api/users/:id',controller.finduser)
 
+//Movie login
+
+
 //validate login
 router.post('/api/usersvalid',services.usersvalid)
 

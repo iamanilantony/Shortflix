@@ -1,0 +1,98 @@
+<div id="container">
+  <div id="header">Hey! share us your Magic Work here</div>
+  <div id="form">
+    <form (ngSubmit)="send_Movie_to_Service(Modalform)" #Modalform="ngForm">
+      <input
+        type="text"
+        id="url"
+        name="url"
+        [(ngModel)]="movie.url"
+        placeholder="Paste your content url here"
+      /><br /><br />
+      <input
+        type="text"
+        id="theme"
+        name="theme"
+        [(ngModel)]="movie.theme"
+        placeholder="Short Discription"
+      />
+      <br /><br />
+      <input
+        type="text"
+        id="directedBy"
+        name="directedBy"
+        [(ngModel)]="movie.directedBy"
+        placeholder="directedBy"
+      />
+      <br /><br />
+      <input
+        type="text"
+        id="Producer"
+        name="Producer"
+        [(ngModel)]="movie.Producer"
+        placeholder="Producer"
+      />
+      <br /><br />
+      <input
+        type="text"
+        id="Actor"
+        name="Actor"
+        [(ngModel)]="movie.Actor"
+        placeholder="Actor"
+      />
+      <br /><br />
+      <!-- <input type="text" id="Others"          name = "Others"          [(ngModel)]="movie.Others"         placeholder="Others">                      <br><br> -->
+      <input
+        type="text"
+        id="movieName"
+        name="movieName"
+        [(ngModel)]="movie.movieName"
+        placeholder="Movie Name"
+      />
+      <br /><br />
+      <input
+        type="text"
+        id="cinematography"
+        name="cinematography"
+        [(ngModel)]="movie.crew.cinematography"
+        placeholder="Cinematography"
+      />
+      <br /><br />
+      <input
+        type="text"
+        id="editor"
+        name="editor"
+        [(ngModel)]="movie.crew.editor"
+        placeholder="Editor"
+      />
+      <br /><br />
+      <input
+        type="text"
+        id="asst_director"
+        name="asst_director"
+        [(ngModel)]="movie.crew.asst_director"
+        placeholder="Assistant director"
+      />
+      <br /><br />
+      <input
+        type="text"
+        id="writer"
+        name="writer"
+        [(ngModel)]="movie.crew.writer"
+        placeholder="Writer"
+      />
+      <br /><br />
+      <input
+        type="text"
+        id="cast"
+        name="cast"
+        [(ngModel)]="movie.cast"
+        placeholder="cast"
+      />
+      <br /><br />
+      <input id="sub" type="submit" value="Submit" value="Submit" /> &nbsp;
+      &nbsp;&nbsp;
+      <button id="but" (click)="serve.showDialog = false">close</button>
+    </form>
+  </div>
+</div>

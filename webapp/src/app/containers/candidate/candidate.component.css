@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(24, 23, 23);
+    position: relative;
+}
+app-submit {
+    background-color:yellow;
+    border-radius: 20px;
+    color:black;
+    top:17%;
+    left:63%;
+    width:35%;
+    height:73%;
+    position: absolute;
+    
+    z-index: 1;
+}
+app-modal {
+    z-index: 10;
+}
+
+
+
+app-status {
+    background-color:yellowgreen;
+    border-radius: 20px;
+    color:black;
+    top:17%;
+    left:2.5%;
+    width:55%;
+    height:73%;
+    position: absolute;
+    z-index: 1;
+
+}
+app-events {
+    background-color:yellowgreen;
+    border-radius: 20px;
+    color:black;
+    top:17%;
+    left:2.5%;
+    width:55%;
+    height:73%;
+    position: absolute;
+    z-index: 1;
+
+}

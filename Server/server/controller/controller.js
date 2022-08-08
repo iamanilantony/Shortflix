@@ -102,6 +102,7 @@ exports.deleteevent=(req,res) => {
         }
 
 exports.addmovie = (req,res) => {
+    console.log(req.body);
     if(!req.body){
         res.status(400).send(`Cannot Insert Empty value ${req.query}`);
         return ;

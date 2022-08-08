@@ -1,0 +1,17 @@
+<h1 style="font-size: xxx-large; font-weight: bolder">Events</h1>
+
+<table style="width: 100%" class="bordered">
+  <tr>
+    <th>Event Name</th>
+    <th>Max Submissions</th>
+    <th>Join Now!</th>
+  </tr>
+  <tr *ngFor="let event of EventData">
+    <td>{{ event.eventName }}</td>
+    <td>{{ event.maxEntries }}</td>
+
+    <td>
+      <button (click)="putEventModal(event._id)">+Submission</button>
+    </td>
+  </tr>
+</table>
