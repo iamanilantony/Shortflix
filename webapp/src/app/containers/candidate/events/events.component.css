@@ -16,30 +16,33 @@ table, th, td
 
 table.bordered
   {
-   
-    border-radius: 10px;
-    border-radius: 13px; 
+    
     border-spacing: 0;
+    width: 100%;
   }
 
 th {
     background-color: black;
-    font-size: xx-large; 
+    font-size: 1.5vw; 
     color: white;
     border: 6px solid black;
+
   
    }
 td 
   {
     padding: 15px;
     font-weight: bolder;
-    font-size: x-large;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
+    font-size: 1vw;
+
+
   }
+
+    
 tr
   {
     border: 3px solid black;
+
   }
 
   button {

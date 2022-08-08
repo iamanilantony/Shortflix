@@ -2,13 +2,16 @@
 
 <table style="width: 100%" class="bordered">
   <tr>
-    <th>Table</th>
-    <th>Deadline</th>
+    <th>Event Name</th>
+    <th>Max Submissions</th>
     <th>Join Now!</th>
   </tr>
-  <tr>
-    <td>E1</td>
-    <td>1234</td>
-    <td><button (click)="serve.showDialog = true">+Submission</button></td>
+  <tr *ngFor="let event of EventData">
+    <td>{{ event.eventName }}</td>
+    <td>{{ event.maxEntries }}</td>
+
+    <td>
+      <button (click)="putEventModal(event._id)">+Submission</button>
+    </td>
   </tr>
 </table>
