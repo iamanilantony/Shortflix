@@ -46,6 +46,7 @@
                             <form (ngSubmit)="addEvent(eventform)" #eventform = "ngForm">
                                 Name :
                                 <input type="text" name="eventName" class="form-control" [(ngModel)]="singleevent.eventName" placeholder='Enter the name'>
+                                <input type="hidden" class="form-control" [(ngModel)]="singleevent.eventName" placeholder='Enter the name'>
                                 Max-Entry :
                                 <input type="text" name="maxEntries" [(ngModel)]="singleevent.maxEntries" placeholder='Enter the Books'>
                                 Start Date :
@@ -55,7 +56,12 @@
                                 Desc :
                                 <input type="text" name="desc" [(ngModel)]="singleevent.desc" placeholder='Enter the Desc'>
                                 Organizer :
-                                <input type="text" name="hostedBy" [(ngModel)]="singleevent.hostedBy" placeholder='Enter the Image'>
+                                <input type="text" name="hostedBy" [(ngModel)]="singleevent.hostedBy" placeholder='Enter the Host'>
+                                <input (change)="fileUpload($event)" type="file" />
+                                <div *ngIf="imagesData" >
+                                    <img [src]="imagesData">
+                                </div>
+                                
                                 <button type="submit">Update</button>
                             </form>
                         </div>
@@ -125,13 +131,22 @@
                 <div class="volunteer-left-bottom-title">Events</div>
                 <div class="volunteer-selector-event">
                     <div class="volunteer-event-card-container">
-                        <div class="volunteer-event-card" *ngFor="let eventone of EventData">
-                            <h1>{{eventone.eventName}}</h1>
-                            <h2>{{eventone.hostedBy}}</h2>    
-                            <h3>{{eventone.sumbmissions}}</h3>
-                            <h4>{{eventone.maxEntries}}</h4> 
-                            <button>View</button>
-                        </div>
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Entries</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>View</th>
+                            </tr>
+                            <tr *ngFor="let eventone of EventData">
+                                <td>{{eventone.eventName}}</td>
+                                <td>{{eventone.hostedBy}}</td>
+                                <td>{{eventone.sumbmissions}}</td>
+                                <td>{{eventone.maxEntries}}</td>
+                                <td>View</td>
+                            </tr>
+                        </table>
                         </div>
                     </div>
                 </div>
