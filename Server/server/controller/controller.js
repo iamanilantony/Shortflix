@@ -293,7 +293,7 @@ exports.loginauth = (req,res) => {
                 }
             })
         .catch(err=>{
-            res.staus(400).send('could not login user'+err); 
+            res.status(400).send('could not login user'+err); 
             return;
 
         })
