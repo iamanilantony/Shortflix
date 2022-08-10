@@ -35,7 +35,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: 500;
-    border-radius: 10px;
+    border-radius: 30px;
     width: 10rem;
     height: 5rem;
     transition: 0.5s ease;
@@ -69,8 +69,19 @@
 }
 .volunteer-left-bottom{
     width: 100%;
+    margin-right: 20px;
+    padding: 1.2rem;
     background-image: linear-gradient(rgb(39, 39, 39), rgb(38, 35, 35));
     height: 50vh;
+    border-radius: 30px;
+}
+.volunteer-right-bottom{
+  background-image: linear-gradient(rgb(4, 189, 87), rgb(0, 255, 55));
+  height: 50vh;
+  border-radius: 30px;
+  padding: 1.2rem;
+
+
 }
 .volunteer-events-table{
     width: 100%;
@@ -111,6 +122,7 @@
     z-index: 5;
     left: 0;
     top: 0;
+    transition: 0.5s;
   }
 .modalcontentvolunteer{
     padding: 20px;
@@ -206,4 +218,59 @@
   }
   .volunteer-event-card:hover{
     transform: scale(1.05);
+  }
+  .volunteer-table-container{
+    width: 100%;
+    table-layout: fixed;
+    font-size: 16px;
+    border-collapse: collapse;
+  }
+  .volunteer-table-container tr:first-child{
+    color: gray;
+    font-weight: 600;
+    border-bottom: 0px;
+
+  }
+  .volunteer-guest-table-list tr:first-child{
+    color: #4b4b4b;
+    font-weight: 600;
+    border-bottom: 1px solid gray;
+  }
+  .volunteer-table-container tr td{
+    padding: 10px;
+    text-align: center;
+  }
+  .volunteer-table-container tr {
+    border-bottom: 1px solid gray;
+    padding-top: 10px;
+  }
+  .volunteer-bottom-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .volunteer-table-container tr td button {
+    background-color: forestgreen;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .volunteer-guest-table-list tr td{
+    padding: 5px;
+    font-weight: 400;
+    text-align: center;
+
+  }
+
+  /* .volunteer-table-container tr td{ */
+    /* display: table-column; */
+  /* }  */
+  .volunteer-guest-table-list{
+    color: rgb(26, 26, 26);
+
+  }
+
+  .volunteer-guest-table-list tr{
+    border-bottom: 1px solid gray;
   }

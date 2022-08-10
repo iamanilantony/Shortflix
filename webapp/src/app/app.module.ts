@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VolunteerComponent } from './containers/volunteer/volunteer.component';
@@ -22,6 +23,7 @@ import { CandidateComponent } from './containers/candidate/candidate.component';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { AuthModule } from '@auth0/auth0-angular';
 import { VolunteerServicesService } from './containers/volunteer/services/volunteer-services.service';
+import { EventsComponent } from './containers/volunteer/events/events.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { VolunteerServicesService } from './containers/volunteer/services/volunt
     GuestComponent,
     CandidateComponent,
     UserupdateComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,   Input, Output, OnChanges, EventEmitter} from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { animate, trigger, transition, state, style } from '@angular/animations';
 import { VolunteerServicesService } from './services/volunteer-services.service';
 import {KeyValue} from '@angular/common';
 import $ from "jquery";
@@ -7,10 +8,22 @@ import $ from "jquery";
 @Component({
   selector: 'app-volunteer',
   templateUrl: './volunteer.component.html',
-  styleUrls: ['./volunteer.component.css']
+  styleUrls: ['./volunteer.component.css'],
+  animations: [
+    trigger('dialog',[
+      transition('void => *',[
+        style({ transform: 'scale3d(.3,.3,.3)' }),
+        animate(250)
+      ]),
+      transition('* => void',[
+        animate(200, style({ transform: 'scale3d(.0, .0, .0)' }))
+      ])
+    ])
+  ]
 })
 
 export class VolunteerComponent implements OnInit {
+  @Output() visibleChange : EventEmitter<boolean> = new EventEmitter<boolean>(); 
 
   image: any;
 
@@ -37,15 +50,13 @@ export class VolunteerComponent implements OnInit {
   ngOnInit(): void {
     this.fetchEventData();
   }
-  file1:any;
-  file2:any;
-  imagesData:any;
   Emodal = false;
   Gmodal = false;
 
 
   fShowModal(){
-      this.Emodal = !this.Emodal;
+    this.Emodal = !this.Emodal;
+    this.visibleChange.emit(this.Emodal);
   }
   sguestmodal(){
     this.Gmodal = !this.Gmodal;
@@ -55,7 +66,6 @@ export class VolunteerComponent implements OnInit {
     this.Emodal = false;
   }
   fetchEventData(): any{
-    this.imagesData = null
     return this.event.fetchEvent()
     .subscribe(
       res => {
@@ -72,39 +82,5 @@ export class VolunteerComponent implements OnInit {
     
   }
 
-  fileUpload(event: Event){
-    console.log('This is getting called',event.target)
-    const file:any = event.target;
-    this.image.patchValue({image: file})
-    const allowedMimeTypes = ["image/png","image/jpg","image/jpeg"];
-    if (file && allowedMimeTypes.includes(file.type)){
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagesData= reader.result as string;
-      }
-      reader.readAsDataURL(file);
-    }
-  }
-
-  // fileUpload(event:any){
-  //   this.file1 = event.target.value;
-  //   this.file2 = event.target.files[0];
-  // this.imagesPreview = (event:any,placeToInsertImagePreview:any) => {
-  //   console.log(this.file1) ;
-  //   console.table(this.file2);
-  //   if(this.file1){
-  //     let reader = new FileReader();
-  //     reader.onload = ((event) => {
-  //       $($.parseHTML("<img>"))
-  //         .attr("src", this.file1)
-  //         .appendTo(placeToInsertImagePreview);
-  //     });
-  //     reader.readAsDataURL(this.file1)
-  //   }
-  //  }
-  //  $("#input-files").on("change",() => {
-  //     this.imagesPreview(this,"div.preview-images")
-  //  })
-  // }
 }
 

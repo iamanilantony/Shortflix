@@ -9,6 +9,7 @@ export class VolunteerServicesService {
 
   constructor(public http: HttpClient, private route: Router) { }
   res = {}
+  showEvent = false;
   createEvent(data:any){
     console.log(data);
     const headers ={'Content-type':'application/x-www-form-urlencoded'}
@@ -18,6 +19,9 @@ export class VolunteerServicesService {
         this.route.navigate(['/volunteer'])
       }
     )
+  }
+  eventModal(){
+    this.showEvent = !this.showEvent;
   }
   fetchEvent(){
     return this.http.get<any>('http://localhost:3000/api/events')

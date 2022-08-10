@@ -36,32 +36,34 @@
                 </div>
             </div>
             <div id="modal" class="modalvolunteer" style="display: flex;" *ngIf=Emodal>
-                <div class="modalcontentvolunteer">
+                <div class="modalcontentvolunteer" id="vol-modal" [@dialog]>
                     <div class="closebutton">
                         <button (click)="fShowModal()">&times;</button>
                     </div>
                     <div class="volunteer-modal-container">
                         <div class="volunteer-modal-left">
                             <h1>Add Event</h1>
-                            <form (ngSubmit)="addEvent(eventform)" #eventform = "ngForm">
+                            <form (ngSubmit)="addEvent(eventform)" #eventform="ngForm">
                                 Name :
-                                <input type="text" name="eventName" class="form-control" [(ngModel)]="singleevent.eventName" placeholder='Enter the name'>
-                                <input type="hidden" class="form-control" [(ngModel)]="singleevent.eventName" placeholder='Enter the name'>
+                                <input type="text" name="eventName" class="form-control"
+                                    [(ngModel)]="singleevent.eventName" placeholder='Enter the name'>
+                                <input type="hidden" class="form-control" [(ngModel)]="singleevent.eventName"
+                                    placeholder='Enter the name'>
                                 Max-Entry :
-                                <input type="text" name="maxEntries" [(ngModel)]="singleevent.maxEntries" placeholder='Enter the Books'>
+                                <input type="text" name="maxEntries" [(ngModel)]="singleevent.maxEntries"
+                                    placeholder='Enter the Books'>
                                 Start Date :
-                                <input type="date" name="startDate" [(ngModel)]="singleevent.startDate" placeholder='Enter the Age'>
+                                <input type="date" name="startDate" [(ngModel)]="singleevent.startDate"
+                                    placeholder='Enter the Age'>
                                 Due Date :
-                                <input type="date" name="dueDate" [(ngModel)]="singleevent.dueDate" placeholder='Enter the Age'>
+                                <input type="date" name="dueDate" [(ngModel)]="singleevent.dueDate"
+                                    placeholder='Enter the Age'>
                                 Desc :
-                                <input type="text" name="desc" [(ngModel)]="singleevent.desc" placeholder='Enter the Desc'>
+                                <input type="text" name="desc" [(ngModel)]="singleevent.desc"
+                                    placeholder='Enter the Desc'>
                                 Organizer :
-                                <input type="text" name="hostedBy" [(ngModel)]="singleevent.hostedBy" placeholder='Enter the Host'>
-                                <input (change)="fileUpload($event)" type="file" />
-                                <div *ngIf="imagesData" >
-                                    <img [src]="imagesData">
-                                </div>
-                                
+                                <input type="text" name="hostedBy" [(ngModel)]="singleevent.hostedBy"
+                                    placeholder='Enter the Host'>
                                 <button type="submit">Update</button>
                             </form>
                         </div>
@@ -74,82 +76,68 @@
                 </div>
             </div>
             <div class="modalvolunteer" style="display: flex;" *ngIf=Gmodal>
-                <div class="modalcontentvolunteer">
-                    <div class="closebutton" >
+                <div class="modalcontentvolunteer" [@dialog]>
+                    <div class="closebutton">
                         <button (click)="sguestmodal()">&times;</button>
                     </div>
                     <div class="volunteer-modal-container">
                         <div class="volunteer-modal-left">
 
                             <h1>Add a Guest</h1>
-                            <form (ngSubmit)="addGuest(guestform)" #guestform = "ngForm">
+                            <form (ngSubmit)="addGuest(guestform)" #guestform="ngForm">
                                 <input type="hidden" name="role" [(ngModel)]="Guest.role" placeholder='Enter the name'>
                                 Name :
-                                <input type="text" name="name" class="form-control" [(ngModel)]="Guest.name" placeholder='Enter the name'>
+                                <input type="text" name="name" class="form-control" [(ngModel)]="Guest.name"
+                                    placeholder='Enter the name'>
                                 Email :
                                 <input type="email" name="email" [(ngModel)]="Guest.email" placeholder='Enter the Age'>
                                 Password :
-                                <input type="password" name="password" [(ngModel)]="Guest.password" placeholder='Enter the Age'>
+                                <input type="password" name="password" [(ngModel)]="Guest.password"
+                                    placeholder='Enter the Age'>
                                 <button type="submit">Add</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-            <!-- <div id="modal" class="modalvolunteer" style="display: flex;" *ngIf=Gmodal>
-                <div class="modalcontentvolunteer">
-                    <div class="closebutton">
-                        <button (click)="hguestmodal()">&times;</button>
-                    </div>
-                    <div class="volunteer-modal-container">
-                        <div class="volunteer-modal-left">
-                            <h1>Add Guest</h1>
-                            <form (ngSubmit)="addEvent(guestform)" #guestform = "ngForm">
-                                Name :
-                                <input type="text" name="name" class="form-control" [(ngModel)]="Guest.name" placeholder='Enter the name'>
-                                Email :
-                                <input type="email" name="email" [(ngModel)]="Guest.email" placeholder='Enter the Age'>
-                                Password :
-                                <input type="password" name="password" [(ngModel)]="Guest.password" placeholder='Enter the Age'>
-                                <button type="submit">Add</button>
-                            </form>
-                        </div> -->
-                        <!-- <div class="volunteer-modal-right">
-                            <img src="https://univassist.com/wp-content/uploads/2020/11/UnivAssist-Event-Calender_LOOP.gif"
-                                alt="">
-                        </div> -->
-                    <!-- </div> -->
-
-                <!-- </div> -->
-            <!-- </div> -->
-            <div class="volunteer-left-bottom">
-                <div class="volunteer-left-bottom-title">Events</div>
-                <div class="volunteer-selector-event">
-                    <div class="volunteer-event-card-container">
-                        <table>
+            <div class="volunteer-bottom-container">
+                <div class="volunteer-left-bottom">
+                    <div class="volunteer-left-bottom-title">Events</div>
+                        <table class="volunteer-table-container">
                             <tr>
-                                <th>Event</th>
-                                <th>Entries</th>
-                                <th>Due Date</th>
-                                <th>Status</th>
-                                <th>View</th>
+                                <td>Event</td>
+                                <td>Entries</td>
+                                <td>Due Date</td>
+                                <td>Status</td>
+                                <td>View</td>
                             </tr>
                             <tr *ngFor="let eventone of EventData">
                                 <td>{{eventone.eventName}}</td>
                                 <td>{{eventone.hostedBy}}</td>
                                 <td>{{eventone.sumbmissions}}</td>
                                 <td>{{eventone.maxEntries}}</td>
-                                <td>View</td>
+                                <td><button><a [routerLink]="['/event']">View</a> </button></td>
                             </tr>
                         </table>
-                        </div>
+                    </div>
+                <div class="volunteer-right-bottom">
+                    <div class="volunteer-bottom-guest">
+                        <table class="volunteer-guest-table-list">
+                            <tr>
+                                <td>Name</td>
+                                <td>Reviewed</td>
+                                <td>Pending</td>
+                            </tr>
+                            <tr *ngFor="let eventone of EventData">
+                                <td>{{eventone.eventName}}</td>
+                                <td>{{eventone.hostedBy}}</td>
+                                <td>{{eventone.sumbmissions}}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+</div>
