@@ -23,7 +23,9 @@ import { CandidateComponent } from './containers/candidate/candidate.component';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { AuthModule } from '@auth0/auth0-angular';
 import { VolunteerServicesService } from './containers/volunteer/services/volunteer-services.service';
-import { EventsComponent } from './containers/volunteer/events/events.component';
+import { ModalComponent } from './containers/candidate/modal/modal.component';
+import { SubmitComponent } from './containers/candidate/submit/submit.component';
+import { EventsComponent } from './containers/candidate/events/events.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import { EventsComponent } from './containers/volunteer/events/events.component'
     GuestComponent,
     CandidateComponent,
     UserupdateComponent,
-    EventsComponent,
+    ModalComponent,
+    SubmitComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
