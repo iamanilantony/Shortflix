@@ -3,14 +3,10 @@
     background-color: rgb(26, 26, 26);
     color: white;
     justify-content: center;
-    height: 100vh;
-
 }
 .volunteer-wrapper{
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
     margin-top: 5rem;
+    height: 100vh;
 
 }
 .volunteer-left{
@@ -23,6 +19,9 @@
     width: 100%;
     padding-top: 20px;
     padding-bottom: 3rem;
+}
+.navbar-expand-lg{
+  justify-content: space-between;
 }
 .volunteer-card{
     background-color: rgb(161, 0, 135);
@@ -37,7 +36,7 @@
     font-weight: 500;
     border-radius: 30px;
     width: 10rem;
-    height: 5rem;
+    /* height: 5rem; */
     transition: 0.5s ease;
     cursor: pointer;
     flex: 1;
@@ -49,7 +48,7 @@
 }
 .volunteer-card-primary{
     background-image: linear-gradient(rgb(54, 2, 144), rgb(91, 0, 249));
-    height: 5rem;
+    /* height: 5rem; */
     flex: 2;
 }
 .volunteer-right{
@@ -68,20 +67,14 @@
     flex:1;
 }
 .volunteer-left-bottom{
-    width: 100%;
-    margin-right: 20px;
-    padding: 1.2rem;
     background-image: linear-gradient(rgb(39, 39, 39), rgb(38, 35, 35));
-    height: 50vh;
     border-radius: 30px;
 }
 .volunteer-right-bottom{
   background-image: linear-gradient(rgb(4, 189, 87), rgb(0, 255, 55));
-  height: 50vh;
   border-radius: 30px;
   padding: 1.2rem;
-
-
+  margin-left: 20px;
 }
 .volunteer-events-table{
     width: 100%;
@@ -96,21 +89,6 @@
     width: 80px;
     display: hidden;
 }
-/* .volunteer-events-table tr{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-/* .volunteer-events-table tr th{
-    font-size: 18px;
-    font-weight: 500;
-}
-.volunteer-left-bottom-title{
-    font-size: 22px;
-    padding: 25px;
-    font-weight: 500;
-    margin-left: 3.7em;
-} */
 .modalvolunteer{
     width: 100%;
     height: 100%;
@@ -229,9 +207,8 @@
     color: gray;
     font-weight: 600;
     border-bottom: 0px;
-
   }
-  .volunteer-guest-table-list tr:first-child{
+  .volunteer-wrapper tr:first-child{
     color: #4b4b4b;
     font-weight: 600;
     border-bottom: 1px solid gray;
@@ -256,7 +233,7 @@
     border-radius: 10px;
     cursor: pointer;
   }
-  .volunteer-guest-table-list tr td{
+  .volunteer-wrapper tr td{
     padding: 5px;
     font-weight: 400;
     text-align: center;
@@ -268,9 +245,12 @@
   /* }  */
   .volunteer-guest-table-list{
     color: rgb(26, 26, 26);
-
   }
 
   .volunteer-guest-table-list tr{
     border-bottom: 1px solid gray;
+  }
+  .volunteer-guest-table-list tr:last-child{
+    border-bottom: 0px;
+
   }

@@ -1,38 +1,15 @@
- <div class="volunteer-container">
-    <div class="volunteer-wrapper">
-        <div class="volunteer-left">
-            <div class="volunteer-left-top">
-                <div class="volunteer-card volunteer-card-primary" id="volunteer-event-button" (click)="fShowModal()">
+ <div class="volunteer-container container-fluid" >
+    <div class="volunteer-wrapper container">
+            <div class="volunteer-left-top row">
+                <div class="volunteer-card volunteer-card-primary h-100" id="volunteer-event-button" (click)="fShowModal()">
                     Create an event
                 </div>
-                <div class="volunteer-card" id="volunteer-guest-button" (click)="sguestmodal()">
+                <div class="volunteer-card" id="volunteer-guest-button h-50" (click)="sguestmodal()">
                     Add a guest
                 </div>
-                <div class="volunteer-card volunteer-uppercard-content" id="volunteer-library-button"
+                <div class="volunteer-card volunteer-uppercard-content h-50" id="volunteer-library-button"
                     (click)="flibrary()">
                     Manage Library
-                    <div class="volunteer-uppercard-content-in">
-                        <!-- <table>
-                            <tr>
-                                <th>Name</th>
-                                <th>Due Date</th>
-                                <th>Entries</th>
-                                <th>Others</th>
-                            </tr>
-                            <tr>
-                                <td>JS allison fest</td>
-                                <td>14/12/2001</td>
-                                <td>46</td>
-                                <td>Others</td>
-                            </tr>
-                            <tr>
-                                <td>JS allison fest</td>
-                                <td>14/12/2001</td>
-                                <td>46</td>
-                                <td>Others</td>
-                            </tr>
-                        </table> -->
-                    </div>
                 </div>
             </div>
             <div id="modal" class="modalvolunteer" style="display: flex;" *ngIf=Emodal>
@@ -100,9 +77,8 @@
                     </div>
                 </div>
             </div>
-            <div class="volunteer-bottom-container">
-                <div class="volunteer-left-bottom">
-                    <div class="volunteer-left-bottom-title">Events</div>
+            <div class="row justify-content-center">
+                <div class="volunteer-left-bottom col-sm-12 col-lg-7">
                         <table class="volunteer-table-container">
                             <tr>
                                 <td>Event</td>
@@ -120,9 +96,8 @@
                             </tr>
                         </table>
                     </div>
-                <div class="volunteer-right-bottom">
-                    <div class="volunteer-bottom-guest">
-                        <table class="volunteer-guest-table-list">
+                <div class="volunteer-right-bottom col-sm-12 col-lg-4 pl-2 mt-4 mt-md-0 d-flex justify-content-center">
+                        <table class="volunteer-guest-table-list w-100">
                             <tr>
                                 <td>Name</td>
                                 <td>Reviewed</td>
@@ -135,9 +110,6 @@
                             </tr>
                         </table>
                     </div>
-                </div>
             </div>
-
-        </div>
     </div>
 </div>

@@ -9,13 +9,6 @@
     z-index: 5;
     position: fixed;
     width: 100%;
-    /* padding-bottom: 40px; */
-}
-.header-wrapper{
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    /* position: fixed; */
 }
 .header-title{
     font-size: 36px;
