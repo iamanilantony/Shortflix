@@ -1,31 +1,27 @@
-const eventdb = require('../model/eventmodel') 
-const movieDb = require('../model/moviemodel') 
-const userDb = require('../model/usermodel')
-const jwt = require('jsonwebtoken')
-const axios = require('axios');
+const eventdb = require("../model/eventmodel");
+const movieDb = require("../model/moviemodel");
+const userDb = require("../model/usermodel");
+const jwt = require("jsonwebtoken");
+const axios = require("axios");
 
+exports.addevent = (req, res) => {
+  console.log(req.body);
+  console.log(req.query);
+  if (!req.body) {
+    res.status(400).send(`Cannot Insert Empty value ${req.body}`);
+    return;
+  }
+  console.log(req.body);
 
-
-
-exports.addevent=(req,res) => {
-    console.log(req.body);
-    console.log(req.query);
-    if(!req.body){
-        res.status(400).send(`Cannot Insert Empty value ${req.body}`);
-        return ;
-    }
-    console.log(req.body);
-
-
-   var event = new eventdb({
-        eventName: req.body.eventName,
-        hostedBy: req.body.hostedBy,
-        sumbmissions: 0,
-        dueDate: req.body.dueDate,
-        startDate: req.body.startDate,
-        maxEntries: req.body.maxEntries,
-        about: req.body.about,
-   })
+  var event = new eventdb({
+    eventName: req.body.eventName,
+    hostedBy: req.body.hostedBy,
+    sumbmissions: 0,
+    dueDate: req.body.dueDate,
+    startDate: req.body.startDate,
+    maxEntries: req.body.maxEntries,
+    about: req.body.about,
+  });
 
    event
         .save()
