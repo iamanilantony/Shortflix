@@ -21,6 +21,8 @@ export class GuestComponent implements OnInit {
   }
   id : string = ''
   movieid : string =''
+  movieName : string =''
+  MarKs : []
   
   GMoviedata:any;
   GMoviedatam:any;
@@ -43,10 +45,15 @@ export class GuestComponent implements OnInit {
   cguestmodal(){
     this.Gmodal = !this.Gmodal;
   }
-  sguestmodalmarks(movieId:string){
+  sguestmodalmarks(movieId:string,moviename:string,marKs:[]){
     this.Gmodalm = !this.Gmodalm;
     this.movieid = movieId;
     console.log(this.movieid);
+    this.movieName = moviename;
+    console.log(this.movieName);
+    this.MarKs = marKs;
+    console.log(this.MarKs);
+
   }
   cguestmodalmarks(){
     this.Gmodalm = !this.Gmodalm;

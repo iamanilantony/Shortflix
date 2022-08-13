@@ -25,7 +25,7 @@
                         <span class="movie-list-item-title">{{gam.movieName}}</span>
                         <p class="movie-list-item-desc">mark;{{gam.directedBy}}</p>
                         <button class="movie-list-item-button">Watch</button>
-                        <button class="movie-list-item-button1"(click)="sguestmodalmarks(gam._id)">Review</button>
+                        <button class="movie-list-item-button1"(click)="sguestmodalmarks(gam._id,gam.movieName,gam.marks)">Review</button>
                     </div>
 
                 </div>
@@ -135,9 +135,10 @@
                     <button (click)="cguestmodalmarks()">&times;</button>
                 </div>
                 <div class="guest-modal-container">
-                    <div class="guest-modal-left" *ngFor="let cam of GMoviedatam">
+                    <div class="guest-modal-left">
 
-                        <h1>{{cam.movieName}}</h1>
+                        <h1>{{movieName}}</h1>
+                        <h1>{{marks}}</h1>
                         
                     </div>
                 </div>
