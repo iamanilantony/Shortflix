@@ -12,6 +12,32 @@
                     Manage Library
                 </div>
             </div>
+            <div class="volunteer-dashboard row">
+                <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
+                    <div class="card-body card-content-volunteer hover-blue">
+                      <h3>Total Events</h3>
+                      <h1>120</h1>
+                    </div>
+                </div>
+                <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
+                    <div class="card-body card-content-volunteer hover-green">
+                      <h3>Current Events</h3>
+                      <h1>120</h1>
+                    </div>
+                </div>
+                <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
+                    <div class="card-body card-content-volunteer hover-yellow">
+                      <h3>Total Guests</h3>
+                      <h1>120</h1>
+                    </div>
+                </div>
+                <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
+                    <div class="card-body card-content-volunteer hover-violet">
+                      <h3>Movie Sumbissions</h3>
+                      <h1>120</h1>
+                    </div>
+                </div>
+            </div>
             <div id="modal" class="modalvolunteer" style="display: flex;" *ngIf=Emodal>
                 <div class="modalcontentvolunteer" id="vol-modal" [@dialog]>
                     <div class="closebutton">
@@ -77,17 +103,17 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-between pt-5">
                 <div class="volunteer-left-bottom col-sm-12 col-lg-7">
                         <table class="volunteer-table-container">
-                            <tr>
+                            <tr class="lead">
                                 <td>Event</td>
                                 <td>Entries</td>
                                 <td>Due Date</td>
                                 <td>Status</td>
                                 <td>View</td>
                             </tr>
-                            <tr *ngFor="let eventone of EventData">
+                            <tr *ngFor="let eventone of EventData" class="h6">
                                 <td>{{eventone.eventName}}</td>
                                 <td>{{eventone.hostedBy}}</td>
                                 <td>{{eventone.sumbmissions}}</td>
@@ -103,13 +129,23 @@
                                 <td>Reviewed</td>
                                 <td>Pending</td>
                             </tr>
-                            <tr *ngFor="let eventone of EventData">
+                            <tr *ngFor="let eventone of EventData" class="h6">
                                 <td>{{eventone.eventName}}</td>
                                 <td>{{eventone.hostedBy}}</td>
                                 <td>{{eventone.sumbmissions}}</td>
                             </tr>
                         </table>
+                </div>
+                <div class="volunteer-recent-submissions row mt-4">
+                    <div class="h3">Latest Sumbissions</div>    
+                    <div class="card card-volunteer-videos col-lg-2 col-md-6 col-sm-12" *ngFor="let videos of EventData">
+                        <img src="https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                        <div class="card-body">
+                          <h3>Total Events</h3>
+                          <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, officia consequuntur ab voluptates amet et totam? Dolore obcaecati possimus cumque, eum culpa iste iure ipsum. Illo tempora consectetur repellendus ad? </p>
+                        </div>
                     </div>
+                </div>
             </div>
     </div>
 </div>

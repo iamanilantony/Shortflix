@@ -157,8 +157,6 @@ exports.updatemovie = (req,res) => {
         })
 }
 exports.updateMarks = (req,res) => {
-    console.log(req.body);
-    console.log(req.params.id);
     let id = req.params.id;
     movieDb.findByIdAndUpdate(id, { $push: { marks: req.body}})
     .then(data => {
@@ -219,6 +217,47 @@ exports.findmovie = (req,res) => {
     }
 }
 
+exports.findUsersMovies = (req,res) => {
+    let id = req.params.id;
+    if(!id){
+        res.status(400).send('Empty Data cannot be searched')
+        return;
+    }
+    else{
+        movieDb.aggregate([{$match: {user_id: req.body.id}}])
+            .then(response => {
+                res.status(200).send(response);
+                return;
+            })
+            .catch(e => {
+                res.status(200).send('Error finding users movie from db',e);
+                return;
+            })
+    
+    }
+    
+}
+exports.findEventMovies = (req,res) => {
+    let id = req.params.id;
+    if(!id){
+        res.status(400).send('Empty Data cannot be searched')
+        return;
+    }
+    else{
+        movieDb.aggregate([{$match: {event: req.body.id}}])
+            .then(response => {
+                res.status(200).send(response);
+                return;
+            })
+            .catch(e => {
+                res.status(200).send('Error finding movie in event from db',e);
+                return;
+            })
+    
+    }
+    
+}
+
 exports.adduser = (req,res) => {
     if(!req.body){
         res.send("Empty data cannot be inserted")
@@ -276,6 +315,24 @@ exports.finduser = (req,res) => {
 
         })
     }
+}
+exports.findGuests= (req,res) => {
+    userDb.aggregate([{$match: {role: 'guest'}}])
+        .then(response=>{
+            if(!response){
+                res.status(400).send('no users found');
+                return;
+            }
+            else{
+                res.status(200).send(response);
+                return;
+            }
+        })
+        .catch(e => {
+            res.status(200).send('Error finding guests from db',e);
+            return;
+        })
+
 }
 exports.loginauth = (req,res) => {
     if(!req.body){
