@@ -8,6 +8,7 @@ import { GuestComponent } from './containers/guest/guest.component';
 import { ViewComponent } from './containers/view/view.component';
 import { VolunteerComponent } from './containers/volunteer/volunteer.component';
 import { AuthGuard } from './services/users-services/auth.guard';
+import { EventPageComponent } from './components/event-page/event-page.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'guest',canActivate:[AuthGuard], component: GuestComponent},
   {path: 'candidate',canActivate:[AuthGuard], component: CandidateComponent},
   {path: 'updateuser',canActivate:[AuthGuard], component: UserupdateComponent},
+  {path: 'event',canActivate:[AuthGuard], component: EventPageComponent},
 ];
 
 @NgModule({

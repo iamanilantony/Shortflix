@@ -27,6 +27,7 @@ import { ModalComponent } from './containers/candidate/modal/modal.component';
 import { SubmitComponent } from './containers/candidate/submit/submit.component';
 import { EventsComponent } from './containers/candidate/events/events.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { EventPageComponent } from './components/event-page/event-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ModalComponent,
     SubmitComponent,
     EventsComponent,
-    FooterComponent
+    FooterComponent,
+    EventPageComponent
   ],
   imports: [
     BrowserModule,

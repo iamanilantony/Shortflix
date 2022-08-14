@@ -17,6 +17,9 @@
     padding: 20px;
   
   }
+  .main-container{
+    
+  }
   .row_poster{
        width: 100%;
        object-fit: contain;
