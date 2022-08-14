@@ -217,6 +217,24 @@ exports.findmovie = (req, res) => {
       });
   }
 };
+exports.findEventMovies = (req, res) => {
+  let id = req.params.id;
+  if (!id) {
+    res.status(400).send("Empty Data cannot be searched");
+    return;
+  } else {
+    movieDb
+      .aggregate([{ $match: { event: id } }])
+      .then((response) => {
+        res.status(200).send(response);
+        return;
+      })
+      .catch((e) => {
+        res.status(200).send("Error finding users movie from db", e);
+        return;
+      });
+  }
+};
 exports.findUsersMovies = (req, res) => {
   let id = req.params.id;
   if (!id) {
@@ -312,3 +330,21 @@ exports.loginauth = (req, res) => {
       return;
     });
 };
+exports.aggregateEvent = (req,res) => {
+  let id = req.params;
+  if(!id){
+    res.send('cannot Send empty data'); 
+    return;
+  } 
+  else {
+    movieDb.aggregate([
+      {$lookup:
+      {
+        from: "events",
+        localField: "event",
+        foreignField: "_id",
+        as: "event_name"
+      }}])
+  }
+  
+}

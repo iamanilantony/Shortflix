@@ -29,6 +29,9 @@ export class VolunteerComponent implements OnInit {
   videoObject: any;
   MoviesData: any;
   UsersData: any;
+  TotalEvents: any;
+  TotalGuests: any;
+  TotalMovie: any;
 
   singleevent = {
     eventName: '',
@@ -76,6 +79,7 @@ export class VolunteerComponent implements OnInit {
     .subscribe(
       res => {
         this.EventData = Object.values(res);
+        this.TotalEvents = this.EventData.length;
       }
     )
   }
@@ -84,7 +88,7 @@ export class VolunteerComponent implements OnInit {
       .subscribe(
         res => {
             this.UsersData = Object.values(res);
-            console.log(this.UsersData);
+            this.TotalGuests = this.UsersData.length;
         }
         )
   }
@@ -94,14 +98,8 @@ export class VolunteerComponent implements OnInit {
     .subscribe(
       res => {
         this.MoviesData = Object.values(res);
-        this.MoviesData.forEach((e:any) => {
+        this.TotalMovie = this.MoviesData.length;
 
-        })
-        console.log(this.MoviesData);
-        this.MoviesData.forEach(function(value:any,key: any){
-          console.log(`Map key is:${key} and value is:${value}`);
-      });
-        // console.log(this.MoviesData);
       }
     )
   }
