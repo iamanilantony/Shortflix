@@ -2,8 +2,7 @@ import { Component, OnInit,   Input, Output, OnChanges, EventEmitter} from '@ang
 import { NgForm } from '@angular/forms';
 import { animate, trigger, transition, state, style } from '@angular/animations';
 import { VolunteerServicesService } from './services/volunteer-services.service';
-import {KeyValue} from '@angular/common';
-import $ from "jquery";
+import { VideoServicesService } from 'src/app/services/video-services.service';
 
 @Component({
   selector: 'app-volunteer',
@@ -26,6 +25,10 @@ export class VolunteerComponent implements OnInit {
   @Output() visibleChange : EventEmitter<boolean> = new EventEmitter<boolean>(); 
 
   image: any;
+  EventData:any;
+  videoObject: any;
+  MoviesData: any;
+  UsersData: any;
 
   singleevent = {
     eventName: '',
@@ -42,13 +45,16 @@ export class VolunteerComponent implements OnInit {
     role: 'guest'
   }
 
-  EventData:any;
 
-  constructor(private event: VolunteerServicesService ){
+  constructor(private event: VolunteerServicesService, private video:VideoServicesService ){
    }
 
   ngOnInit(): void {
     this.fetchEventData();
+    this.fetchMoviesData();
+    this.fetchUsersData()
+    // this.fetchMovieDataApi('EAyo3_zJj5c');
+
   }
   Emodal = false;
   Gmodal = false;
@@ -73,6 +79,33 @@ export class VolunteerComponent implements OnInit {
       }
     )
   }
+  fetchUsersData(): any{
+    return this.event.fetchusers()
+      .subscribe(
+        res => {
+            this.UsersData = Object.values(res);
+            console.log(this.UsersData);
+        }
+        )
+  }
+
+  fetchMoviesData(): any{
+    return this.event.fetchMovies()
+    .subscribe(
+      res => {
+        this.MoviesData = Object.values(res);
+        this.MoviesData.forEach((e:any) => {
+
+        })
+        console.log(this.MoviesData);
+        this.MoviesData.forEach(function(value:any,key: any){
+          console.log(`Map key is:${key} and value is:${value}`);
+      });
+        // console.log(this.MoviesData);
+      }
+    )
+  }
+  
   addGuest(gData : NgForm) : void{
     console.log(gData.value);
     this.event.addGuestS(gData.value);
@@ -80,6 +113,15 @@ export class VolunteerComponent implements OnInit {
   }
   flibrary(){
     
+  }
+  fetchMovieDataApi(url: string): any{
+    return this.video.getVideoDetails(url)
+      .subscribe(
+        res => {
+          this.videoObject = res;
+          console.log(this.videoObject)
+        }
+      )
   }
 
 }
