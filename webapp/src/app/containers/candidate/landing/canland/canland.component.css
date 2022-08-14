@@ -1,0 +1,62 @@
+.our-training-program,.why-should-join-us{
+    padding: 100px;
+    background-color: black;
+    color: white;
+}
+.cnlandtestcard{
+    display: flex;
+    align-items: center;
+    /* height: 400px; */
+}
+.cnlnd-card{
+    padding: 20px;
+    margin-right: 20px;
+    background-color: rgb(26,26,26);
+    color: white;
+    /* height: 400px; */
+    /* width: 500px; */
+    
+}
+.cnlnd-card-join{
+    padding: 20px;
+    margin-top: 20px;
+    background-color: rgb(26,26,26);
+    color: white;
+    width: 300px;
+    height: 150px;
+}
+.trainingtesttext1{
+    font-size: 150px;
+    font-weight: 600;
+    opacity: 0.1;
+}
+.trainingtesttext2{
+    font-size: 30px;
+    font-weight: 600;
+}
+.card-title{
+    font-weight: 500;
+    font-size: medium;
+}
+.card-text{
+    font-weight: 100;
+    color: gray;
+}
+.joinustest{
+    display: flex;
+}
+.subttt1{
+    padding: 50px;
+}
+.nnntest{
+    display: flex;
+    padding: 30px;
+}
+.nntest{
+    padding: 20px;
+}
+.nnum{
+    color: palevioletred;
+    font-size: 30px;
+    font-weight: 600;
+}
