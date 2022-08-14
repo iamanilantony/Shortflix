@@ -10,6 +10,7 @@ import { VolunteerComponent } from './containers/volunteer/volunteer.component';
 import { AuthGuard } from './services/users-services/auth.guard';
 import { EventPageComponent } from './components/event-page/event-page.component';
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
+import { CanlandComponent } from './containers/candidate/landing/canland/canland.component'
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'updateuser',canActivate:[AuthGuard], component: UserupdateComponent},
   {path: 'event',canActivate:[AuthGuard], component: EventPageComponent},
   {path: 'movie',canActivate:[AuthGuard], component: MoviePageComponent},
+  {path: 'candidatelanding',canActivate:[AuthGuard], component:CanlandComponent},
 ];
 
 @NgModule({

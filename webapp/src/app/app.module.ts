@@ -29,6 +29,7 @@ import { EventsComponent } from './containers/candidate/events/events.component'
 import { FooterComponent } from './components/footer/footer.component';
 import { EventPageComponent } from './components/event-page/event-page.component';
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
+import { CanlandComponent } from './containers/candidate/landing/canland/canland.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { MoviePageComponent } from './components/movie-page/movie-page.component
     EventsComponent,
     FooterComponent,
     EventPageComponent,
-    MoviePageComponent
+    MoviePageComponent,
+    CanlandComponent
   ],
   imports: [
     BrowserModule,
