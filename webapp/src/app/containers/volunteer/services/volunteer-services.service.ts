@@ -25,7 +25,12 @@ export class VolunteerServicesService {
   }
   fetchEvent(){
     return this.http.get<any>('http://localhost:3000/api/events')
-
+  }
+  fetchMovies(){
+    return this.http.get<any>('http://localhost:3000/api/movie')
+  }
+  fetchusers(){
+    return this.http.get<any>('http://localhost:3000/api/users')
   }
   addGuestS(data:any){
     return this.http.post('http://localhost:3000/api/users',data)

@@ -26,6 +26,7 @@ import { VolunteerServicesService } from './containers/volunteer/services/volunt
 import { ModalComponent } from './containers/candidate/modal/modal.component';
 import { SubmitComponent } from './containers/candidate/submit/submit.component';
 import { EventsComponent } from './containers/candidate/events/events.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { EventsComponent } from './containers/candidate/events/events.component'
     UserupdateComponent,
     ModalComponent,
     SubmitComponent,
-    EventsComponent
+    EventsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

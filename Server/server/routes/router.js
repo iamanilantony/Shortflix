@@ -21,18 +21,22 @@ router.put('/api/events/:id',controller.updateevent)
 router.get('/api/events/:id',controller.findevent)
 router.get('/api/events',controller.findevent)
 router.delete('/api/events/:id',controller.deleteevent)
+router.get('/api/eventmovies/:id',controller.findEventMovies)
 
-//restful api author
+//restful api movie
 router.post('/api/movie',controller.addmovie)
 router.put('/api/movie/:id',controller.updatemovie)
 router.get('/api/movie/:id',controller.findmovie)
 router.get('/api/movie',controller.findmovie)
 router.delete('/api/movie/:id',controller.deletemovie)
 router.put('/api/movie/marks/:id',controller.updateMarks)
+router.get('/api/usersmovie/:id',controller.findUsersMovies)
+
 //restful api user
 router.post('/api/users',controller.adduser)
 router.get('/api/users',controller.finduser)
 router.get('/api/users/:id',controller.finduser)
+router.get('/api/guests',controller.findGuests)
 
 //Movie login
 
@@ -40,12 +44,6 @@ router.get('/api/users/:id',controller.finduser)
 //validate login
 router.post('/api/usersvalid',services.usersvalid)
 
-//service routes
-router.get('/',services.homeroute)
-router.get('/singlebook/:id',services.singlebook)
-router.get('/authors',services.authors)
-router.get('/author/:id',services.singleauthor)
-router.get('/login',services.login)
 
 //exp
 router.post('/loginauth',controller.loginauth)
