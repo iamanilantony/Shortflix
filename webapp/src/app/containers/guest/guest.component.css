@@ -374,6 +374,16 @@ body{
   .guest-modal-left{
     flex: 2;
     color: white;
+  }.guest-modal-right2{
+    flex: 2;
+    color: white;
+  }
+  .guest-modal-bottom{
+    display: flex;
+  }
+  .modaltest{
+    display: flex;
+    flex-direction: column;
   }
   .guest-modal-container{
     display: flex;
@@ -456,6 +466,11 @@ body{
   .cardtest:hover{
     transform: scale(1.05);
 
+  }
+  .guesttabletest td,th{
+     padding: 30px;
+     text-align: center;
+     background-color: rgb(26, 26, 26);
   }
   
 
