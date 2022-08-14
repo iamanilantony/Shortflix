@@ -22,7 +22,7 @@ body {
   height: 100%;
   background-color: rgb(48, 237, 48);
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 12px;
   transition-duration: background-color 0.4s;
   color: black;
   display: flex;
@@ -32,30 +32,48 @@ body {
   font-weight: 600;
   text-align: center;
   z-index: 10;
+  font-size: 1.1vw;
 }
-.c1:hover {
+.cards h1 {
+  font-size: xx-large;
+  font-weight: 1000;
+}
+.c1 {
   background-color: yellow;
 }
+.c1:hover {
+  background-color: rgb(48, 237, 48);
+}
+.c2 {
+  background-color: rgb(49, 49, 192);
+}
 .c2:hover {
-  background-color: blue;
+  background-color: rgb(48, 237, 48);
+}
+.c3 {
+  background-color: rgb(226, 71, 71);
 }
 .c3:hover {
-  background-color: red;
+  background-color: rgb(48, 237, 48);
+}
+.c4 {
+  width: 12.2vw;
+  background-color: blueviolet;
 }
 .c4:hover {
-  background-color: blueviolet;
+  background-color: rgb(48, 237, 48);
 }
 .section1 {
   margin-top: 19vh;
   height: 80vh;
-  width: 35vw;
+  width: 45vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px 10px;
 }
 .section2 {
-  width: 58vw;
+  width: 48vw;
   height: auto;
 }
 h2 {
