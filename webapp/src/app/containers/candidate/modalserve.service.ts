@@ -5,11 +5,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ModalserveService {
   showDialog = false;
-  event_id= ''
+  event_id = '';
   constructor(private http: HttpClient) {}
 
   sendmovieToBackend(movie: any) {
-    console.log(movie);
     return this.http.post('http://localhost:3000/api/movie', movie).subscribe();
   }
 }

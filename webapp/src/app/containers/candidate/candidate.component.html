@@ -1,6 +1,30 @@
 <body>
+  <div class="Masterwrapper">
+    <div class="section1">
+      <div class="infos">
+        <div class="c1 cards">
+          Total Events <br />
+          6
+        </div>
+        <div class="c2 cards">
+          Current Events <br />
+          12
+        </div>
+        <div class="c3 cards">
+          Your Submission <br />
+          10
+        </div>
+        <div class="c4 cards">
+          Pending Submission <br />
+          0
+        </div>
+      </div>
+      <app-submit></app-submit>
+    </div>
+    <div class="section2">
+      <h2>Welcome {{ CandidateGreetingName }}</h2>
+      <app-events></app-events>
+    </div>
+  </div>
   <app-modal *ngIf="serve.showDialog"></app-modal>
-  <app-submit></app-submit>
-
-  <app-events></app-events>
 </body>

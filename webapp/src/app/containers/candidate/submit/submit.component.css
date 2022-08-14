@@ -19,7 +19,8 @@ table.bordered {
 
 th {
   background-color: black;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
+  font-weight: 500;
   color: white;
   border: 6px solid black;
 }

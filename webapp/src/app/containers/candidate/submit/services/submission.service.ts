@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class SubmissionService {
   constructor(private http: HttpClient) {}
   getEmovie() {
-    return this.http.get<any>('http://localhost:3000/api/movie');
+    return this.http.get<any>(
+      `http://localhost:3000/api/usersmovie/${localStorage.getItem('id')}`
+    );
   }
 }

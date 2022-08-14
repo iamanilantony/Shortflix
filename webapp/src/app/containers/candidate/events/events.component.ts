@@ -31,7 +31,6 @@ export class EventsComponent implements OnInit {
 
   fetchEvent() {
     return this.getTable.getETable().subscribe((events) => {
-      console.log(events);
       this.EventData = Object.values(events);
     });
   }

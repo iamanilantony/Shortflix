@@ -19,6 +19,7 @@ export class ModalComponent implements OnInit {
     event: '',
     user_id: '',
     movieName: '',
+    genre: '',
     crew: {
       cinematography: '',
       editor: '',
