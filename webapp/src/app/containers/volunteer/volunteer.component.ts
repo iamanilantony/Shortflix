@@ -114,15 +114,15 @@ export class VolunteerComponent implements OnInit {
   flibrary(){
     
   }
-  fetchMovieDataApi(url: string): any{
-    return this.video.getVideoDetails(url)
-      .subscribe(
-        res => {
-          this.videoObject = res;
-          console.log(this.videoObject)
-        }
-      )
-  }
+  // fetchMovieDataApi(url: string): any{
+  //   return this.video.getVideoDetails(url)
+  //     .subscribe(
+  //       res => {
+  //         this.videoObject = res;
+  //         console.log(this.videoObject)
+  //       }
+  //     )
+  // }
 
 }
 
