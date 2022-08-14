@@ -12,6 +12,7 @@ var movieSchema = {
   Actor: String,
   user_id: String,
   genre: String,
+  status: String, //TO BE UPDATED IN THE CONTROLLER
 
   crew: {
     director: String,

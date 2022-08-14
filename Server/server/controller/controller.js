@@ -117,6 +117,7 @@ exports.addmovie = (req, res) => {
     maxEntries: req.body.maxEntries,
     user_id: req.body.user_id,
     genre: req.body.genre,
+    theme: req.body.theme
   });
 
   movie
@@ -220,7 +221,7 @@ exports.findUsersMovies = (req, res) => {
     return;
   } else {
     movieDb
-      .aggregate([{ $match: { user_id: req.body.id } }])
+      .aggregate([{ $match: { user_id: id } }])
       .then((response) => {
         res.status(200).send(response);
         return;

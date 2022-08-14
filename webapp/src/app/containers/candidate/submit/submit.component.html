@@ -6,20 +6,10 @@
     <th>Event Name</th>
     <th>Status</th>
   </tr>
-  <!-- <tr *ngFor="let movie of myMovies">
+
+  <tr *ngFor="let movie of movieData">
+    <td>{{ movie.eventName }}</td>
     <td>{{ movie.movieName }}</td>
-    <td>{{ movie.event }}</td>
-  </tr> -->
-  <tr>
-    <td>Bahubaliz</td>
-    <td>Inter Disctrict Arts Fest</td>
-  </tr>
-  <tr>
-    <td>K.G.H</td>
-    <td>Tranvancore Film Fest</td>
-  </tr>
-  <tr>
-    <td>Conjuring 1</td>
-    <td>Mega Documentary Fest</td>
+    <td><button (click)="routerSubscriber(movie._id)">Status</button></td>
   </tr>
 </table>

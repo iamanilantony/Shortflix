@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmissionService } from './services/submission.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-submit',
   templateUrl: './submit.component.html',
@@ -8,17 +8,24 @@ import { SubmissionService } from './services/submission.service';
 })
 export class SubmitComponent implements OnInit {
   movieData: any;
-
-  constructor(public subserve: SubmissionService) {
+  id: string;
+  movie = { movieName: 'Bahubaliz', event: 'Inter Disctrict Arts Fest' };
+  constructor(
+    public subserve: SubmissionService,
+    private router: Router,
+    public putmdata: SubmissionService
+  ) {
     this.fetchMovie();
   }
 
   ngOnInit(): void {}
 
   fetchMovie() {
-    return this.subserve.getEmovie().subscribe((movies) => {
+    this.subserve.getEmovie().subscribe((movies) => {
       this.movieData = Object.values(movies);
-      console.log(this.movieData, 'Submission service');
     });
+  }
+  routerSubscriber(id: any) {
+    this.router.navigate([`/movie/${id}`]);
   }
 }

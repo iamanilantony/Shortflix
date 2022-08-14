@@ -17,6 +17,7 @@ export class ModalComponent implements OnInit {
     Actor: '',
     Others: '',
     event: '',
+    // eventName:''
     user_id: '',
     movieName: '',
     genre: '',
@@ -46,6 +47,7 @@ export class ModalComponent implements OnInit {
     this.movie.crew.writer = GetForm.value.writer;
     this.movie.event = this.serve.event_id;
     this.movie.user_id = localStorage.getItem('id') || '';
+    // this.
     this.serve.sendmovieToBackend(this.movie);
     this.serve.showDialog = false;
   }
