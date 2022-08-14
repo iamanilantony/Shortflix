@@ -7,10 +7,10 @@ import { ModalserveService } from './modalserve.service';
   styleUrls: ['./candidate.component.css'],
 })
 export class CandidateComponent implements OnInit {
-  constructor(public serve: ModalserveService) {}
-
-  ngOnInit(): void {}
-
-
+  CandidateGreetingName: String;
+  constructor(public serve: ModalserveService) {
+    this.CandidateGreetingName = localStorage.getItem('name') || ' ';
   }
 
+  ngOnInit(): void {}
+}

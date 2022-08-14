@@ -1,52 +1,58 @@
-const express = require('express')
-const controller = require('../controller/controller')
-const services = require('../services/render')
+const express = require("express");
+const controller = require("../controller/controller");
+const services = require("../services/render");
 
-const router = express.Router()  
+const router = express.Router();
 
-function verifyToken(req,res,next){
-    if(!req.headers.authorization) return res.status(401).send('Unauthorized request');
-    let token = req.headers.authorization.split('')[1]
-    if(token=='null') return res.status(401).send('Unauthorized request');
-    let payload = jwt.verify(token,'secretkey')
-    console.log(payload)
-    if(!payload) return res.status(401).send('Unauthorized request');
-    req.userId=payload.subject;
-    next()
+function verifyToken(req, res, next) {
+  if (!req.headers.authorization)
+    return res.status(401).send("Unauthorized request");
+  let token = req.headers.authorization.split("")[1];
+  if (token == "null") return res.status(401).send("Unauthorized request");
+  let payload = jwt.verify(token, "secretkey");
+  console.log(payload);
+  if (!payload) return res.status(401).send("Unauthorized request");
+  req.userId = payload.subject;
+  next();
 }
 
 //restful api events
-router.post('/api/events',controller.addevent)
-router.put('/api/events/:id',controller.updateevent)
-router.get('/api/events/:id',controller.findevent)
-router.get('/api/events',controller.findevent)
-router.delete('/api/events/:id',controller.deleteevent)
-router.get('/api/eventmovies/:id',controller.findEventMovies)
+router.post("/api/events", controller.addevent);
+router.put("/api/events/:id", controller.updateevent);
+router.get("/api/events/:id", controller.findevent);
+router.get("/api/events", controller.findevent);
+router.delete("/api/events/:id", controller.deleteevent);
 
 //restful api movie
-router.post('/api/movie',controller.addmovie)
-router.put('/api/movie/:id',controller.updatemovie)
-router.get('/api/movie/:id',controller.findmovie)
-router.get('/api/movie',controller.findmovie)
-router.delete('/api/movie/:id',controller.deletemovie)
-router.put('/api/movie/marks/:id',controller.updateMarks)
+router.post("/api/movie", controller.addmovie);
+router.put("/api/movie/:id", controller.updatemovie);
+router.get("/api/movie/:id", controller.findmovie);
+router.get("/api/movie", controller.findmovie);
+router.delete("/api/movie/:id", controller.deletemovie);
+router.put("/api/movie/marks/:id", controller.updateMarks);
 router.get('/api/usersmovie/:id',controller.findUsersMovies)
 
 //restful api user
-router.post('/api/users',controller.adduser)
-router.get('/api/users',controller.finduser)
-router.get('/api/users/:id',controller.finduser)
-router.get('/api/guests',controller.findGuests)
+router.post("/api/users", controller.adduser);
+router.get("/api/users", controller.finduser);
+router.get("/api/users/:id", controller.finduser);
 
 //Movie login
 
-
 //validate login
-router.post('/api/usersvalid',services.usersvalid)
+router.post("/api/usersvalid", services.usersvalid);
 
+//service routes
+router.get("/", services.homeroute);
+router.get("/singlebook/:id", services.singlebook);
+router.get("/authors", services.authors);
+router.get("/author/:id", services.singleauthor);
+router.get("/login", services.login);
 
 //exp
-router.post('/loginauth',controller.loginauth)
+router.post("/loginauth", controller.loginauth);
 
+//
+router.get("/api/usersmovie/:id", controller.findUsersMovies);
 
-module.exports = router
+module.exports = router;

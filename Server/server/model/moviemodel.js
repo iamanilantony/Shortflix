@@ -11,6 +11,7 @@ var movieSchema = {
   theme: String,
   Actor: String,
   user_id: String,
+  genre: String,
 
   crew: {
     director: String,
@@ -38,6 +39,7 @@ var movieSchema = {
       SFX: Number,
       Camera: Number,
       Production: Number,
+      Guest_id: String,
     },
   ],
   startDate: Date,
