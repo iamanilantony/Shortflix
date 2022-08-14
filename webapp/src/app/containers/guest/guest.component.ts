@@ -21,8 +21,11 @@ export class GuestComponent implements OnInit {
   }
   id : string = ''
   movieid : string =''
+  movieName : string =''
+  MarKs : []
   
   GMoviedata:any;
+  GMoviedatam:any;
   constructor(
     public serve:GuestServiceService,
     public getmovie:GuestServiceService
@@ -33,6 +36,7 @@ export class GuestComponent implements OnInit {
   ngOnInit(): void {
   }
   Gmodal = false;
+  Gmodalm = false;
   sguestmodal(movieId:string){
     this.Gmodal = !this.Gmodal;
     this.movieid = movieId;
@@ -40,6 +44,19 @@ export class GuestComponent implements OnInit {
   }
   cguestmodal(){
     this.Gmodal = !this.Gmodal;
+  }
+  sguestmodalmarks(movieId:string,moviename:string,marKs:[]){
+    this.Gmodalm = !this.Gmodalm;
+    this.movieid = movieId;
+    console.log(this.movieid);
+    this.movieName = moviename;
+    console.log(this.movieName);
+    this.MarKs = marKs;
+    console.log(this.MarKs);
+
+  }
+  cguestmodalmarks(){
+    this.Gmodalm = !this.Gmodalm;
   }
   addReview(rvform:NgForm):void{
     this.marks._id = localStorage.getItem('id') || '';
@@ -51,6 +68,7 @@ export class GuestComponent implements OnInit {
     return this.getmovie.getGmovie().subscribe((movies) => {
       console.log(movies);
       this.GMoviedata = Object.values(movies);
+      this.GMoviedatam = Object.values(movies);
       console.log(this.GMoviedata);
     })
   }

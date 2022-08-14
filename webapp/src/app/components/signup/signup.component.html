@@ -1,46 +1,101 @@
 <div class="signup-container">
-    <div class="signup-wrapper">
-        <div class="signup-left">
-            <div class="signup-form">
-                <h1>Create Your Account</h1>
-                <h4>A good storyteller is the most powerful person in the world</h4>
-                <form (ngSubmit)="userVerify(usersignup)" #usersignup = "ngForm">
-                    <input type="text" placeholder="Name" name="name" class="form-control" [(ngModel)]="User.name" required>
-                    <input type="email" placeholder="Email" name="email" class="form-control" [(ngModel)]="User.email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
-                    <div *ngIf ="email.touched && email.invalid" class="alert alert-danger">
-                        <div *ngIf="email.errors?.['required']">
-                            Email is required.
-                        </div>
-                        <div *ngIf="email.errors?.['pattern']">
-                            Invalid Email.
-                        </div>
-                    </div>
-                    <input type="password" placeholder="Password" class="form-control" name="password" [(ngModel)]="User.password" #password="ngModel" minlength="6" required>
-                    <div *ngIf ="password.touched && password.invalid" class="alert alert-danger">
-                        <div *ngIf="password.errors?.['required']">
-                            password is required.
-                        </div>
-                        <div *ngIf="password.errors?.['minlength']">
-                            password should be atleast 6 in number.
-                        </div>
-                    </div>
-                    <input type="password" placeholder="Confirm Password" name="confirmpassword"  minlength="6" required>
-                    <div class="signup-form-radio form-control">
-                        <input type="radio" id="html" name="role" value="Volunteer" [(ngModel)]="User.role">
-                        <label for="html">Volunteer</label><br>
-                        <input type="radio" id="candidate" name="role" value="candidate" [(ngModel)]="User.role">
-                        <label for="candidate">Candidate</label>
-                        <input type="radio" id="viewer" name="role" value="viewer" [(ngModel)]="User.role">
-                        <label for="viewer">Viewer</label>
-                    </div>
-                    <button type="submit">SignUp</button>
-                </form>
-                <p>A member register now? <a [routerLink]="['/login']">Log in</a></p>
+  <div class="signup-wrapper">
+    <div class="signup-left">
+      <div class="signup-form">
+        <h1>Create Your Account</h1>
+        <h4>A good storyteller is the most powerful person in the world</h4>
+        <form (ngSubmit)="userVerify(usersignup)" #usersignup="ngForm">
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            class="form-control"
+            [(ngModel)]="User.name"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            class="form-control"
+            [(ngModel)]="User.email"
+            #email="ngModel"
+            [class.is-invalid]="email.invalid && email.touched"
+            pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}"
+            required
+          />
+          <div
+            *ngIf="email.touched && email.invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['pattern']">Invalid Email.</div>
+          </div>
+          <input
+            type="password"
+            placeholder="Password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="User.password"
+            #password="ngModel"
+            minlength="6"
+            required
+          />
+          <div
+            *ngIf="password.touched && password.invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="password.errors?.['required']">
+              password is required.
             </div>
-        </div>
-        <div class="signup-right">
-            <img class="signup-right-bannerimg" src="https://wallpapercave.com/wp/wp10615910.jpg" alt="wallpapers">
-        </div>
+            <div *ngIf="password.errors?.['minlength']">
+              password should be atleast 6 in number.
+            </div>
+          </div>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="confirmpassword"
+            minlength="6"
+            required
+          />
+          <div class="signup-form-radio form-control">
+            <input
+              type="radio"
+              id="html"
+              name="role"
+              value="Volunteer"
+              [(ngModel)]="User.role"
+            />
+            <input
+              type="radio"
+              id="candidate"
+              name="role"
+              value="candidate"
+              [(ngModel)]="User.role"
+            />
+            <input
+              type="radio"
+              id="viewer"
+              name="role"
+              value="viewer"
+              [(ngModel)]="User.role"
+            />
+            <label for="html">Volunteer</label>
+            <label for="candidate">Candidate</label>
+            <label for="viewer">Viewer</label>
+          </div>
+          <button type="submit">SignUp</button>
+        </form>
+        <p>A member register now? <a [routerLink]="['/login']">Log in</a></p>
+      </div>
     </div>
+    <div class="signup-right">
+      <img
+        class="signup-right-bannerimg"
+        src="https://wallpapercave.com/wp/wp10615910.jpg"
+        alt="wallpapers"
+      />
+    </div>
+  </div>
 </div>
-
