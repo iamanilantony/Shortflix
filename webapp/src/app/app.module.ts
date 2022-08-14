@@ -28,6 +28,7 @@ import { SubmitComponent } from './containers/candidate/submit/submit.component'
 import { EventsComponent } from './containers/candidate/events/events.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EventPageComponent } from './components/event-page/event-page.component';
+import { MoviePageComponent } from './components/movie-page/movie-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { EventPageComponent } from './components/event-page/event-page.component
     SubmitComponent,
     EventsComponent,
     FooterComponent,
-    EventPageComponent
+    EventPageComponent,
+    MoviePageComponent
   ],
   imports: [
     BrowserModule,

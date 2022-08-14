@@ -14,7 +14,7 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
   }
   fetchgmovie(){
-    return this.getmovie.getGmovie().subscribe((movies) => {
+    return this.getmovie.getGmovie().subscribe((movies:any) => {
       console.log(movies);
       this.GMoviedata = Object.values(movies);
       console.log(this.GMoviedata);
