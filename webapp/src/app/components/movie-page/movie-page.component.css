@@ -1,14 +1,14 @@
 .event-container{
     padding-top: 100px;
     width: 99vw;
-    height: 100vh;
+    height: auto;
     background-color: rgb(26, 26, 26);
     color: white;
     padding-bottom: 100px;
 
 }
 .event-top-container{
-    background-image: linear-gradient(rgb(54, 2, 144), rgb(91, 0, 249));
+    background-image: linear-gradient(rgb(147, 0, 123), rgb(235, 0, 196));
     border-radius: 30px;
     padding: 10px;
     margin-top: 10px;
@@ -34,20 +34,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.event-top-right-header button{
-    border: none;
-    border-radius: 10px;
-    background-color: yellowgreen;
-    color: white;
-    padding: 10px;
-    margin-top: -20px;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-.event-top-right-header h2{
-    font-weight: 600;
-    font-size: 1.9rem;
 }
 .table-responsive h2{
     font-size: 2rem;
@@ -76,4 +62,13 @@
 }
 .addguest-form-event button{
     margin-left: 20px;
+}
+.event-top-right-header .h6{
+    color: white;
+    padding-top: 20px;
+
+}
+.event-top-right-header .h4{
+    font-weight: 500;
+    color: green;
 }
