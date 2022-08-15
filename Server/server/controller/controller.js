@@ -61,9 +61,9 @@ exports.findevent = (req, res) => {
       .findById(vid)
       .then((data) => {
         if (!data) {
-          res.status(200).send("Id not found");
+          res.status(400).send("Id not found");
         } else {
-          res.send(data);
+          res.status(200).send(data);
         }
       })
       .catch((err) => {
@@ -213,6 +213,24 @@ exports.findmovie = (req, res) => {
       });
   }
 };
+exports.findEventMovies = (req, res) => {
+  let id = req.params.id;
+  if (!id) {
+    res.status(400).send("Empty Data cannot be searched");
+    return;
+  } else {
+    movieDb
+      .aggregate([{ $match: { event: id } }])
+      .then((response) => {
+        res.status(200).send(response);
+        return;
+      })
+      .catch((e) => {
+        res.status(200).send("Error finding users movie from db", e);
+        return;
+      });
+  }
+};
 exports.findUsersMovies = (req, res) => {
   let id = req.params.id;
   if (!id) {
@@ -220,7 +238,7 @@ exports.findUsersMovies = (req, res) => {
     return;
   } else {
     movieDb
-      .aggregate([{ $match: { user_id: req.body.id } }])
+      .aggregate([{ $match: { user_id: id } }])
       .then((response) => {
         res.status(200).send(response);
         return;
@@ -284,6 +302,27 @@ exports.finduser = (req, res) => {
       });
   }
 };
+exports.updateUser = (req, res) => {
+  console.log(req);
+  if (Object.entries(req.body).length === 0) {
+    res.status(500).send(req.body);
+    return;
+  }
+  var id = req.params.id;
+  userDb
+    .findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    .then((data) => {
+      if (!data) {
+        res.send("User Does not exist");
+        return;
+      } else {
+        res.status(200).send(data);
+      }
+    })
+    .catch((err) => {
+      res.status(400).send({ message: "No such user" });
+    });
+};
 exports.loginauth = (req, res) => {
   if (!req.body) {
     res.send("Insert values first");
@@ -308,3 +347,21 @@ exports.loginauth = (req, res) => {
       return;
     });
 };
+exports.aggregateEvent = (req,res) => {
+  let id = req.params;
+  if(!id){
+    res.send('cannot Send empty data'); 
+    return;
+  } 
+  else {
+    movieDb.aggregate([
+      {$lookup:
+      {
+        from: "events",
+        localField: "event",
+        foreignField: "_id",
+        as: "event_name"
+      }}])
+  }
+  
+}

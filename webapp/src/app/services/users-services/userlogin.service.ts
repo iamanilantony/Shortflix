@@ -28,7 +28,9 @@ export class UserloginService {
     this.route.navigate(['login'])
   }
   getUser(id : any){
-    return this.http.get<any>('http://localhost:3000/api/users',id)
+    return this.http.get<any>(`http://localhost:3000/api/users/${id}`)
   }
-
+  updateUser(id : any,body:any){
+    return this.http.put(`http://localhost:3000/api/users/${id}`,body)
+  }
 }

@@ -36,6 +36,7 @@ router.get('/api/usersmovie/:id',controller.findUsersMovies)
 router.post("/api/users", controller.adduser);
 router.get("/api/users", controller.finduser);
 router.get("/api/users/:id", controller.finduser);
+router.put("/api/users/:id", controller.updateUser);
 
 //Movie login
 
