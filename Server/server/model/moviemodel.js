@@ -28,6 +28,7 @@ var movieSchema = {
   },
   cast: [String],
   event: String,
+  eventName: String,
   date: Date,
   shortListed: Boolean,
   marks: [

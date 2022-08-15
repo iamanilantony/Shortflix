@@ -1,15 +1,16 @@
 <h1 style="font-size: xxx-large; font-weight: bolder">Submissions</h1>
-
-<table style="width: 100%" class="bordered">
+<table class="table table-hover table-dark event-table-main bordered">
   <tr>
     <th>Movie Name</th>
     <th>Event Name</th>
+
     <th>Status</th>
   </tr>
 
   <tr *ngFor="let movie of movieData">
-    <td>{{ movie.eventName }}</td>
     <td>{{ movie.movieName }}</td>
+    <td>{{ movie.eventName }}</td>
+
     <td><button (click)="routerSubscriber(movie._id)">Status</button></td>
   </tr>
 </table>

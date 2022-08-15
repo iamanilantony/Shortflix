@@ -117,7 +117,8 @@ exports.addmovie = (req, res) => {
     maxEntries: req.body.maxEntries,
     user_id: req.body.user_id,
     genre: req.body.genre,
-    theme: req.body.theme
+    theme: req.body.theme,
+    eventName: req.body.eventName,
   });
 
   movie

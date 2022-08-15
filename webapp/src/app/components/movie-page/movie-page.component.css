@@ -1,74 +1,64 @@
-.event-container{
-    padding-top: 100px;
-    width: 99vw;
-    height: auto;
-    background-color: rgb(26, 26, 26);
-    color: white;
-    padding-bottom: 100px;
-
+.event-container {
+  padding-top: 100px;
+  width: 99vw;
+  height: auto;
+  background-color: rgb(26, 26, 26);
+  color: white;
+  padding-bottom: 100px;
 }
-.event-top-container{
-    background-image: linear-gradient(rgb(147, 0, 123), rgb(235, 0, 196));
-    border-radius: 30px;
-    padding: 10px;
-    margin-top: 10px;
+.event-top-container {
+  background-image: linear-gradient(rgb(147, 0, 123), rgb(235, 0, 196));
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 10px;
 }
-.event-top-container .h6{
-    color: gray;
+.event-top-container .h6 {
+  color: gray;
 }
-.event-top-left-header h1{
-    font-size: 2.2rem;
-    font-weight: 500;
+.event-top-left-header h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
 }
-.event-top-left-header h2{
-    font-size: 16px;
-    color: gray;
-    margin-top: -20px;
+.event-top-left-header h2 {
+  font-size: 16px;
+  color: gray;
+  margin-top: -20px;
 }
-.event-top-left-header h5{
-    width: 30vw;
-    font-size: 1rem;
+.event-top-left-header h5 {
+  width: 30vw;
+  font-size: 1rem;
 }
-.event-top-right-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.event-top-right-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.table-responsive h2{
-    font-size: 2rem;
-    margin-top: 30px;
-
+.table-responsive h2 {
+  font-size: 2rem;
+  margin-top: 30px;
 }
-.event-table-main{
-    border-radius: 20px;
+.event-table-main {
+  border-radius: 20px;
 }
-.event-table-main th, td{
-    padding: 25px;
-    width: 25%;
-    text-align: center;
+.event-table-main th,
+td {
+  padding: 25px;
+  width: 25%;
+  text-align: center;
 }
-.btn-select-event{
-    /* width: 50rem; */
-    margin-bottom: 10px;
+.btn-select-event {
+  /* width: 50rem; */
+  margin-bottom: 10px;
 }
-.marks-offcanvas{
-    overflow: hidden;
+.marks-offcanvas {
+  overflow: hidden;
 }
-.input-offcanvas-guest{
-    padding: 10px;
-    border: none;
-    margin-left: 20px;
+.input-offcanvas-guest {
+  padding: 10px;
+  border: none;
+  margin-left: 20px;
 }
-.addguest-form-event button{
-    margin-left: 20px;
-}
-.event-top-right-header .h6{
-    color: white;
-    padding-top: 20px;
-
-}
-.event-top-right-header .h4{
-    font-weight: 500;
-    color: green;
+.addguest-form-event button {
+  margin-left: 20px;
 }

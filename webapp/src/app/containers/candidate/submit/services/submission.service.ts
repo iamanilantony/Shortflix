@@ -15,8 +15,6 @@ export class SubmissionService {
   }
 
   getMovieSub(movieId: any) {
-    return this.http.get<any>(
-      `http://localhost:3000/api/movie/62f889cff3a9a052d074676f`
-    );
+    return this.http.get<any>(`http://localhost:3000/api/movie/${movieId}`);
   }
 }
