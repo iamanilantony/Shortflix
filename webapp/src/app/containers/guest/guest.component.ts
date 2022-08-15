@@ -26,6 +26,7 @@ export class GuestComponent implements OnInit {
   
   GMoviedata:any;
   GMoviedatam:any;
+  moviedata1:any;
   constructor(
     public serve:GuestServiceService,
     public getmovie:GuestServiceService
@@ -53,6 +54,10 @@ export class GuestComponent implements OnInit {
     console.log(this.movieName);
     this.MarKs = marKs;
     console.log(this.MarKs);
+    return this.getmovie.getg1movie(this.movieid).subscribe((movies) => {
+      console.log(movies);
+      this.moviedata1.marks=
+    })
 
   }
   cguestmodalmarks(){
@@ -69,7 +74,7 @@ export class GuestComponent implements OnInit {
       console.log(movies);
       this.GMoviedata = Object.values(movies);
       this.GMoviedatam = Object.values(movies);
-      console.log(this.GMoviedata);
+      console.log(this.GMoviedatam,"hiiiiiiiiiiiiiiiii");
     })
   }
 

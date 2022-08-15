@@ -15,4 +15,7 @@ export class GuestServiceService {
   getGmovie(){
     return this.http.get<any>('http://localhost:3000/api/movie');
   }
+  getg1movie(id : string){
+    return this.http.get<any>(`http://localhost:3000/api/movie/${id}`);
+  }
 }
