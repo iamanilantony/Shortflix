@@ -1,31 +1,35 @@
 <div class="guest-container">
     <div class="container">
         <div class="movie-list-container">
-            <h1 class="movie-list-title">TO BE REVIEWED</h1>
+            <h1 class="movie-list-title guesttitletest">TO BE REVIEWED</h1>
             <div class="movie-list-wrapper">
                 <div class="movie-list">
-                    <div class="card cardtest" style="width: 18rem;" *ngFor="let gam of GMoviedata">
-                        <img class="card-img-top" src="https://static.toiimg.com/photo/msid-91646261/91646261.jpg" alt="Card image cap">
-                        <div class="card-body bodytest">
-                          <h3 class="card-title titletest">{{gam.movieName}}</h3>
-                          <h5 class="card-title titletest">By {{gam.directedBy}}</h5>
-                          <button class="buttontest">Watch</button>
-                          <button class="buttontest1"(click)="sguestmodal(gam._id)">Review</button>
+                    <div class="guest-hovertest" *ngFor="let gam of GMoviedata">
+                        <div class="card cardtest" style="width: 18rem;" >
+                            <img class="card-img-top gusetimagetest" src="https://static.toiimg.com/photo/msid-91646261/91646261.jpg" alt="Card image cap">
+                            <div class="card-body bodytest">
+                              <h3 class="card-title titletest">{{gam.movieName}}</h3>
+                              <h5 class="card-title titletest1">By {{gam.directedBy}}</h5>
+                              <button class="buttontest">Watch</button>
+                              <button class="buttontest1"(click)="sguestmodal(gam._id)">Review</button>
+                            </div>
                         </div>
-                        
                     </div>
+                    
                 </div>
             </div>
-            <h1 class="movie-list-title">REVIEWED</h1>
+            <h1 class="movie-list-title guesttitletest">REVIEWED</h1>
             <div class="movie-list-wrapper">
                 <div class="movie-list">
-                    <div class="card cardtest" style="width: 18rem;" *ngFor="let gam of GMoviedata">
-                        <img class="card-img-top" src="https://static.toiimg.com/photo/msid-91646261/91646261.jpg" alt="Card image cap">
-                        <div class="card-body bodytest">
-                          <h5 class="card-title titletest">{{gam.movieName}}</h5>
-                          <h5 class="card-title titletest">By {{gam.directedBy}}</h5>
-                          <button class="buttontest">Watch</button>
-                          <button class="buttontest1"(click)="sguestmodalmarks(gam._id,gam.movieName,gam.marks)">view</button>
+                    <div class="guest-hovertest" *ngFor="let gam of GMoviedata">
+                        <div class="card cardtest" style="width: 18rem;" >
+                            <img class="card-img-top gusetimagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
+                            <div class="card-body bodytest">
+                              <h5 class="card-title titletest">{{gam.movieName}}</h5>
+                              <h5 class="card-title titletest1">By {{gam.directedBy}}</h5>
+                              <button class="buttontest">Watch</button>
+                              <button class="buttontest1"(click)="sguestmodalmarks(gam._id,gam.movieName,gam.marks)">view</button>
+                            </div>
                         </div>
                     </div>
                 </div>

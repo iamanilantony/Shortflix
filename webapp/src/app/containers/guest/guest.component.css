@@ -18,16 +18,30 @@
 .movie-list {
   display: flex;
   align-items: center;
-  height: 400px;
+  height: 300px;
   transform: translateX(0);
   transition: all 1s ease-in-out;
   overflow-x: scroll;
+  overflow-y: hidden;
+  height: auto;
   }
 .movie-list::-webkit-scrollbar { 
   display: none; }
 .movie-list-item {
 margin-right: 30px;
 position: relative;
+}
+.guest-hovertest{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* padding: 10px; */
+  height: auto;
+  z-index: 100;
+  border-radius: 20px;
 }
 .modalguest{
   width: 100%;
@@ -134,6 +148,7 @@ text-align: center;
   background-color: transparent;
   border: none;
 }
+/*-------------------------- buttons-------------------------- */
 .buttontest{
   padding: 10px;
   background-color: #4dbf00;
@@ -143,9 +158,15 @@ text-align: center;
   border:none;
   cursor: pointer;
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   right: 15px;
   transition: 0.5s;
+  height: 30px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 .buttontest:hover{
   padding: 10px;
@@ -161,9 +182,14 @@ text-align: center;
   border:none;
   cursor: pointer;
   position: absolute;
-  bottom: 20px;
-  right: 85px;
+  bottom: 50px;
+  right: 15px;
   transition: 0.5s;
+  height: 30px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .buttontest1:hover{
   padding: 10px;
@@ -171,12 +197,30 @@ text-align: center;
   border-radius: 10px;
   border-color: #4dbf00;
 }
+/* ------------------------------------------------------------ */
 .bodytest{
   background-color: #333;
-  height: fit-content;
+  height: 20px;
+}
+.guesttitletest{
+  margin-bottom: -20px;
+  padding: 15px;
+  font-size: 25px;
+  font-weight: 500;
 }
 .titletest{
   color: white;
+  margin-bottom: 20px;
+}
+.titletest{
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.titletest1{
+  font-size: 13px;
+  color: gray;
 }
 .cardtest{
   margin-left: 5px;
@@ -186,9 +230,14 @@ text-align: center;
   overflow: hidden;
   border: none;
   transition: 0.5s;
+  border-radius: 10px;
+  
 }
-.cardtest:hover{
+.guest-hovertest:hover .cardtest{
   transform: scale(1.05);
+}
+.gusetimagetest{
+  height: 200px;
 }
 .guesttabletest td,th{
    padding: 30px;
