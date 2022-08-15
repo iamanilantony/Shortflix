@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { data } from 'jquery';
 import { GuestServiceService } from './services/guest-service.service';
 
 @Component({
@@ -23,6 +24,8 @@ export class GuestComponent implements OnInit {
   movieid : string =''
   movieName : string =''
   MarKs : []
+  roleid:string
+  exmark:any
   
   GMoviedata:any;
   GMoviedatam:any;
@@ -43,8 +46,9 @@ export class GuestComponent implements OnInit {
     this.movieid = movieId;
     console.log(this.movieid);
   }
-  cguestmodal(){
+  cguestmodal(rvform:NgForm){
     this.Gmodal = !this.Gmodal;
+    rvform.reset();
   }
   sguestmodalmarks(movieId:string,moviename:string,marKs:[]){
     this.Gmodalm = !this.Gmodalm;
@@ -54,9 +58,22 @@ export class GuestComponent implements OnInit {
     console.log(this.movieName);
     this.MarKs = marKs;
     console.log(this.MarKs);
+
+    // to fetch one movie data
     return this.getmovie.getg1movie(this.movieid).subscribe((movies1:any) => {
       console.log(movies1);
       this.moviedata1=movies1;
+      this.moviedata1.marks1=movies1.marks;
+      console.log(this.moviedata1.marks1,"yeahbouuuuuy");
+      this.roleid=localStorage.getItem('id') || '';
+      for(let i=0;i<3;i++){
+        console.log(this.moviedata1.marks1[i],i);
+        if(this.moviedata1.marks1[i]._id == this.roleid){
+          console.log(this.moviedata1.marks1[i],"if works");
+          this.exmark=this.moviedata1.marks1[i];
+          console.log(this.exmark,"hoooraaaaay");
+        }
+      }
     })
 
   }
@@ -68,6 +85,7 @@ export class GuestComponent implements OnInit {
     console.log(this.marks);
     this.serve.updatemark(this.marks,this.movieid);
     this.Gmodal = false;
+    rvform.reset();
   }
   fetchgmovie(){
     return this.getmovie.getGmovie().subscribe((movies) => {

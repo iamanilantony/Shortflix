@@ -38,7 +38,7 @@
         <div class="modalguest" style="display: flex;" *ngIf=Gmodal>
             <div class="modalcontentguest">
                 <div class="closebutton" >
-                    <button (click)="cguestmodal()">&times;</button>
+                    <button (click)="cguestmodal(reviewform)">&times;</button>
                 </div>
                 <div class="guest-modal-container">
                     <div class="guest-modal-left">
@@ -169,42 +169,42 @@
                         <table class="table table-hover table-dark guesttabletest">
                             <thead>
                               <tr>
-                                <th scope="col">Category</th>
+                                <th scope="col">Category{{exmark._id}}</th>
                                 <th scope="col">your marks</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
                                 <th scope="row">Overall</th>
-                                <td>{{moviedata1.marks[0]?.Overall}}</td>
+                                <td>{{exmark.Overall}}</td>
                               </tr>
                               <tr>
                                 <th scope="row">Direction</th>
-                                <td>{{moviedata1.marks[0]?.Direction}}</td>
+                                <td>{{exmark.Direction}}</td>
                               </tr>                              
                               <tr>
                                 <th scope="row">Story</th>
-                                <td>{{moviedata1.marks[0]?.Story}}</td>
+                                <td>{{exmark.Story}}</td>
                               </tr>
                               <tr>
                                 <th scope="row">Acting</th>
-                                <td>{{moviedata1.marks[0]?.Acting}}</td>
+                                <td>{{exmark.Acting}}</td>
                               </tr>
                               <tr>
                                 <th scope="row">Music</th>
-                                <td>{{moviedata1.marks[0]?.Music}}</td>
+                                <td>{{exmark.Music}}</td>
                               </tr>
                               <tr>
                                 <th scope="row">SFX</th>
-                                <td>{{moviedata1.marks[0]?.SFX}}</td>
+                                <td>{{exmark.SFX}}</td>
                               </tr>
                               <tr>
                                 <th scope="row">Camera</th>
-                                <td>{{moviedata1.marks[0]?.Camera}}</td>
+                                <td>{{exmark.Camera}}</td>
                               </tr>
                               <tr>
                                 <th scope="row">Production</th>
-                                <td>{{moviedata1.marks[0]?.Production}}</td>
+                                <td>{{exmark.Production}}</td>
                               </tr>
                             </tbody>
                         </table>
