@@ -105,6 +105,7 @@ exports.addmovie = (req, res) => {
     return;
   }
   let movie = new movieDb({
+    url: req.body.url,
     movieName: req.body.movieName,
     directedBy: req.body.directedBy,
     crew: req.body.crew,
@@ -119,6 +120,7 @@ exports.addmovie = (req, res) => {
     genre: req.body.genre,
     theme: req.body.theme,
     eventName: req.body.eventName,
+    status: req.body.status,
   });
 
   movie

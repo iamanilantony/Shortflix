@@ -1,6 +1,13 @@
 body {
   background-color: black;
   height: auto;
+
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.body::-webkit-scrollbar {
+  display: none;
 }
 .Masterwrapper {
   width: 100vw;
@@ -122,7 +129,7 @@ app-submit {
   border-radius: 20px;
   color: white;
   width: 100%;
-  height: auto;
+  overflow-y: scroll;
   margin-bottom: 1vw;
   padding: 1vw;
 }

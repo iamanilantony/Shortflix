@@ -12,9 +12,9 @@ export class ModalComponent implements OnInit {
   movie = {
     url: '',
     theme: '',
+    status: 'Pending',
     directedBy: '',
-    Producer: '',
-    Actor: '',
+
     Others: '',
     event: '',
     eventName: '',
@@ -22,6 +22,8 @@ export class ModalComponent implements OnInit {
     movieName: '',
     genre: '',
     crew: {
+      Producer: '',
+      Actor: '',
       cinematography: '',
       editor: '',
       asst_director: '',

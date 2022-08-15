@@ -13,7 +13,13 @@
         </div>
         <div class="event-top-right-header">
           <button
-            class="btn btn-primary m-1 btn-select-event"
+            class="btn btn-primary m-1 btn-select-event status"
+            type="button"
+          >
+            Status : {{ movieData.status }}
+          </button>
+          <button
+            class="btn btn-primary m-1 btn-select-event update"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight3"
@@ -21,12 +27,8 @@
           >
             Update Entry
           </button>
-          <button class="btn btn-danger mt-3">Delete Entry</button>
-          <button
-            class="btn btn-primary m-1 btn-select-event status"
-            type="button"
-          >
-            Status : Pending
+          <button (click)="DeleteEntry()" class="btn btn-danger delete">
+            Delete Entry
           </button>
         </div>
       </div>
@@ -100,7 +102,6 @@
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasRightLabel">View</h5>
     <button
-      style="background-color: white"
       type="button"
       class="closebutton"
       data-bs-dismiss="offcanvas"
@@ -109,5 +110,117 @@
       &times;
     </button>
   </div>
-  <div class="offcanvas-body"></div>
+  <div class="offcanvas-body">
+    <form (ngSubmit)="sendUpdatedMovie(Modalform)" #Modalform="ngForm">
+      <h4>Update Movie</h4>
+      <label for="url">URL</label>
+      <input
+        type="text"
+        id="url"
+        name="url"
+        [(ngModel)]="movie.url"
+        placeholder="Paste your content url here"
+      />
+      <label for="theme">Descrioption</label>
+      <input
+        type="text"
+        id="theme"
+        name="theme"
+        [(ngModel)]="movie.theme"
+        placeholder="Short Discription"
+      />
+
+      <label for="directedBy">Director</label>
+
+      <input
+        type="text"
+        id="directedBy"
+        name="directedBy"
+        [(ngModel)]="movie.directedBy"
+        placeholder="directedBy"
+      />
+      <label for="Producer">Producer</label>
+      <input
+        type="text"
+        id="Producer"
+        name="Producer"
+        [(ngModel)]="movie.crew.Producer"
+        placeholder="Producer"
+      />
+
+      <label for="Actor">Actors</label>
+
+      <input
+        type="text"
+        id="Actor"
+        name="Actor"
+        [(ngModel)]="movie.crew.Actor"
+        placeholder="Actor"
+      />
+      <label for="movieName">Movie Name</label>
+
+      <input
+        type="text"
+        id="movieName"
+        name="movieName"
+        [(ngModel)]="movie.movieName"
+        placeholder="Movie Name"
+      />
+
+      <label for="cinematography">Cinematography</label>
+
+      <input
+        type="text"
+        id="cinematography"
+        name="cinematography"
+        [(ngModel)]="movie.crew.cinematography"
+        placeholder="Cinematography"
+      />
+      <label for="editor">Editor</label>
+      <input
+        type="text"
+        id="editor"
+        name="editor"
+        [(ngModel)]="movie.crew.editor"
+        placeholder="Editor"
+      />
+
+      <label for="asst_director">Assistant Director</label>
+
+      <input
+        type="text"
+        id="asst_director"
+        name="asst_director"
+        [(ngModel)]="movie.crew.asst_director"
+        placeholder="Assistant director"
+      />
+      <label for="writer">Writer</label>
+      <input
+        type="text"
+        id="writer"
+        name="writer"
+        [(ngModel)]="movie.crew.writer"
+        placeholder="Writer"
+      />
+
+      <label for="cast">Cast</label>
+
+      <input
+        type="text"
+        id="cast"
+        name="cast"
+        [(ngModel)]="movie.cast"
+        placeholder="cast"
+      />
+      <label for="gemre">Genre</label>
+      <input
+        type="text"
+        id="genre"
+        name="cast"
+        [(ngModel)]="movie.genre"
+        placeholder="Genre"
+      />
+      <input class="sub" type="submit" value="Submit" value="SUBMIT" />
+    </form>
+  </div>
 </div>

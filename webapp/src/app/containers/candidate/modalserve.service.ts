@@ -17,5 +17,14 @@ export class ModalserveService {
 
   sendmovieToBackend(movie: any) {
     return this.http.post('http://localhost:3000/api/movie', movie).subscribe();
+    console.log(movie);
+  }
+  sendUpdatedMovieToBackend(Umovie: any, movieId: any) {
+    // console.log(movieId, Umovie, 'UPDATED MOVIES');
+    return this.http.put(`http://localhost:3000/api/movie/${movieId}`, Umovie);
+  }
+  deleteEntryRequest(movie: any, movieId: any) {
+    console.log(movie);
+    return this.http.put(`http://localhost:3000/api/movie/${movieId}`, movie);
   }
 }

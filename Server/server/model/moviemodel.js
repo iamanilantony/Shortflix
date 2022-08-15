@@ -9,14 +9,15 @@ var movieSchema = {
   directedBy: String,
   url: String,
   theme: String,
-  Actor: String,
+
   user_id: String,
   genre: String,
   status: String, //TO BE UPDATED IN THE CONTROLLER
 
   crew: {
     director: String,
-    producer: [String],
+    Actor: String,
+    Producer: String,
     cinematography: String,
     editor: String,
     asst_director: String,
@@ -31,6 +32,7 @@ var movieSchema = {
   eventName: String,
   date: Date,
   shortListed: Boolean,
+  status: String,
   marks: [
     {
       Overall: Number,
