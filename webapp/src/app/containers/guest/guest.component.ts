@@ -54,9 +54,9 @@ export class GuestComponent implements OnInit {
     console.log(this.movieName);
     this.MarKs = marKs;
     console.log(this.MarKs);
-    return this.getmovie.getg1movie(this.movieid).subscribe((movies) => {
-      console.log(movies);
-      this.moviedata1.marks=
+    return this.getmovie.getg1movie(this.movieid).subscribe((movies1:any) => {
+      console.log(movies1);
+      this.moviedata1=movies1;
     })
 
   }
