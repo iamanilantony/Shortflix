@@ -43,14 +43,18 @@ exports.updateevent = (req, res) => {
     .findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
-        res.send("User Does not exist");
+        res.status(400).send("Event Does not exist");
         return;
       } else {
+        console.log(data);
+        console.log(req.body);
         res.status(200).send(data);
+        return;
       }
     })
     .catch((err) => {
       res.status(400).send({ message: "No such user" });
+      return;
     });
 };
 
@@ -61,9 +65,9 @@ exports.findevent = (req, res) => {
       .findById(vid)
       .then((data) => {
         if (!data) {
-          res.status(200).send("Id not found");
+          res.status(400).send("Id not found");
         } else {
-          res.send(data);
+          res.status(200).send(data);
         }
       })
       .catch((err) => {
@@ -86,6 +90,23 @@ exports.deleteevent = (req, res) => {
   var id = req.params.id;
   eventdb
     .findByIdAndDelete(id)
+    .then((data) => {
+      if (!data) {
+        res.status(300).send("User Does not exist");
+        return;
+      }
+      res.status(200).send("data got deleted successfully");
+    })
+    .catch((err) => {
+      res.status(400).send({ message: "No such user" });
+    });
+};
+
+exports.deleteGuest = (req, res) => {
+  console.log(req.body);
+  var id = req.params.id;
+  movieDb
+    .findByIdAndUpdate(id, {$set: { guests: req.body }})
     .then((data) => {
       if (!data) {
         res.send("User Does not exist");
@@ -134,10 +155,9 @@ exports.addmovie = (req, res) => {
 };
 
 exports.updatemovie = (req, res) => {
+  console.log(req.body);
   if (!req.body) {
     res.status(400).send(`Cannot update Empty value ${req.query.data}`);
-    console.log(req.query.data);
-    res.send(req.body);
     return;
   }
   let id = req.params.id;
@@ -148,6 +168,7 @@ exports.updatemovie = (req, res) => {
         res.status(300).send("Id not found " + data);
         return;
       } else {
+        console.log(data);
         res.status(200).send("Data updated succesfuly" + data);
         return;
       }
@@ -158,11 +179,20 @@ exports.updatemovie = (req, res) => {
     });
 };
 exports.updateMarks = (req, res) => {
-  console.log(req.body);
-  console.log(req.params.id);
   let id = req.params.id;
   movieDb
     .findByIdAndUpdate(id, { $push: { marks: req.body } })
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((e) => {
+      console.log("Could not update data", e);
+    });
+};
+exports.updateGuests = (req, res) => {
+  let id = req.params.id;
+  movieDb
+    .findByIdAndUpdate(id, { $push: { guests: req.body.guest_id } })
     .then((data) => {
       res.status(200).send(data);
     })
@@ -235,6 +265,19 @@ exports.findEventMovies = (req, res) => {
       });
   }
 };
+exports.findGuests = (req,res) => {
+    userDb
+      .aggregate([{ $match: { role: "guest" } }])
+      .then((response) => {
+        res.status(200).send(response);
+        return;
+      })
+      .catch((e) => {
+        res.status(400).send("Error finding guest movie from db", e);
+        return;
+      });
+  }
+
 exports.findUsersMovies = (req, res) => {
   let id = req.params.id;
   if (!id) {
@@ -305,6 +348,26 @@ exports.finduser = (req, res) => {
         return;
       });
   }
+};
+exports.updateUser = (req, res) => {
+  if (Object.entries(req.body).length === 0) {
+    res.status(500).send(req.body);
+    return;
+  }
+  var id = req.params.id;
+  userDb
+    .findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    .then((data) => {
+      if (!data) {
+        res.send("User Does not exist");
+        return;
+      } else {
+        res.status(200).send(data);
+      }
+    })
+    .catch((err) => {
+      res.status(400).send({ message: "No such user",err });
+    });
 };
 exports.loginauth = (req, res) => {
   if (!req.body) {

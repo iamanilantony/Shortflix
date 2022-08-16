@@ -33,11 +33,15 @@ router.get("/api/movie", controller.findmovie);
 router.delete("/api/movie/:id", controller.deletemovie);
 router.put("/api/movie/marks/:id", controller.updateMarks);
 router.get('/api/usersmovie/:id',controller.findUsersMovies);
+router.put('/api/addguest/:id',controller.updateGuests);
+router.put('api/removeguest/:id',controller.deleteGuest);
 
 //restful api user
 router.post("/api/users", controller.adduser);
 router.get("/api/users", controller.finduser);
 router.get("/api/users/:id", controller.finduser);
+router.put("/api/users/:id", controller.updateUser);
+router.get("/api/guests", controller.findGuests);
 
 
 //validate login

@@ -3,22 +3,12 @@ import { NgForm } from '@angular/forms';
 import { animate, trigger, transition, state, style } from '@angular/animations';
 import { VolunteerServicesService } from './services/volunteer-services.service';
 import { VideoServicesService } from 'src/app/services/video-services.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-volunteer',
   templateUrl: './volunteer.component.html',
   styleUrls: ['./volunteer.component.css'],
-  animations: [
-    trigger('dialog',[
-      transition('void => *',[
-        style({ transform: 'scale3d(.3,.3,.3)' }),
-        animate(250)
-      ]),
-      transition('* => void',[
-        animate(200, style({ transform: 'scale3d(.0, .0, .0)' }))
-      ])
-    ])
-  ]
 })
 
 export class VolunteerComponent implements OnInit {
@@ -32,6 +22,8 @@ export class VolunteerComponent implements OnInit {
   TotalEvents: any;
   TotalGuests: any;
   TotalMovie: any;
+  ShortListedMovies: any;
+  nonShortListed: any;
 
   singleevent = {
     eventName: '',
@@ -49,7 +41,7 @@ export class VolunteerComponent implements OnInit {
   }
 
 
-  constructor(private event: VolunteerServicesService, private video:VideoServicesService ){
+  constructor(private event: VolunteerServicesService, private video:VideoServicesService , private router:Router){
    }
 
   ngOnInit(): void {
@@ -62,17 +54,9 @@ export class VolunteerComponent implements OnInit {
   Emodal = false;
   Gmodal = false;
 
-
-  fShowModal(){
-    this.Emodal = !this.Emodal;
-    this.visibleChange.emit(this.Emodal);
-  }
-  sguestmodal(){
-    this.Gmodal = !this.Gmodal;
-  }
   addEvent(eventform : NgForm): void{
     this.event.createEvent(eventform.value);
-    this.Emodal = false;
+    eventform.reset();
   }
   fetchEventData(): any{
     return this.event.fetchEvent()
@@ -99,7 +83,18 @@ export class VolunteerComponent implements OnInit {
       res => {
         this.MoviesData = Object.values(res);
         this.TotalMovie = this.MoviesData.length;
-
+        this.ShortListedMovies = [];
+        this.nonShortListed = []
+        this.MoviesData.map((e: { shortListed: any; }) => {
+          if(e.shortListed) {
+            this.ShortListedMovies.push(e)
+          }
+          else{
+            this.nonShortListed.push(e)
+          } 
+        })
+        this.MoviesData.length = 5
+        console.log(this.nonShortListed);
       }
     )
   }
@@ -107,10 +102,13 @@ export class VolunteerComponent implements OnInit {
   addGuest(gData : NgForm) : void{
     console.log(gData.value);
     this.event.addGuestS(gData.value);
-    this.Gmodal = false;
+    gData.reset();
   }
-  flibrary(){
-    
+  routeMovie(id: string){
+    this.router.navigate([`/movie/${id}`])
+  }
+  routeEvent(id: string){
+    this.router.navigate([`/event/${id}`])
   }
   // fetchMovieDataApi(url: string): any{
   //   return this.video.getVideoDetails(url)

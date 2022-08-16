@@ -157,13 +157,6 @@
     top: 0;
     transition: 0.5s;
   }
-.modalcontentvolunteer{
-    padding: 20px;
-    border-radius: 10px;
-    width: min-content;
-    height: auto;
-    background-color: rgb(26, 26, 26);
-  }
   .closebutton{
     display: flex;
     justify-content: flex-end;
@@ -185,12 +178,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 10px 25px;
+    margin: 0px 25px;
   }
   .modalcontentvolunteer h1 {
     text-align: center;
   }
-  .modalcontentvolunteer input {
+  .modalcontentvolunteer input,textarea {
     padding: 15px;
     background-color: rgb(51, 51, 51);
     border: none;
@@ -204,6 +197,7 @@
     margin: 10px 0px;
     border: none;
     background-color: forestgreen;
+    /* background-image: linear-gradient(rgb(54, 2, 144), rgb(91, 0, 249)); */
     justify-content: center;
     font-size: 18px;
     cursor: pointer;
@@ -327,4 +321,13 @@
 }
 .card-content-volunteer h3{
   position: relative;
+}
+.closebutton-offcanvas{
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-size: 40px;
+}
+.offcanvas-body .p1-10{
+  text-align: center;
 }
