@@ -5,50 +5,43 @@ import { UserloginService } from 'src/app/services/users-services/userlogin.serv
 @Component({
   selector: 'app-userupdate',
   templateUrl: './userupdate.component.html',
-  styleUrls: ['./userupdate.component.css']
+  styleUrls: ['./userupdate.component.css'],
 })
 export class UserupdateComponent implements OnInit {
-  userData:any;
+  userData: any;
 
-  constructor(private user:UserloginService) {
-  }
-  
-  
+  constructor(private user: UserloginService) {}
+
   ngOnInit(): void {
-    this.User = this.getUserData()
+    this.User = this.getUserData();
   }
-  id:any 
-  userinfo: any
+  id: any;
+  userinfo: any;
   User = {
     name: '',
-    email : '',
-    password : '',
-    role: ''
-  }
+    email: '',
+    password: '',
+    role: '',
+  };
   Userc = {
     name: '',
-    email : '',
-    password : '',
-    role: ''
-  }
-  getUserData(): any{
+    email: '',
+    password: '',
+    role: '',
+  };
+  getUserData(): any {
     this.id = localStorage.getItem('id') || '';
-    this.user.getUser(this.id)
-      .subscribe(
-        res=>{
-          console.log(res);
-          this.userinfo = res
-          this.Userc.name=this.userinfo.name;
-          this.Userc.email=this.userinfo.email;
-          this.Userc.password=this.userinfo.password;
-          this.Userc.role=this.userinfo.role;
-          console.log(this.Userc);
-          return this.User;
-        }
-      )
+    this.user.getUser(this.id).subscribe((res) => {
+      console.log(res);
+      this.userinfo = res;
+      this.Userc.name = this.userinfo.name;
+      this.Userc.email = this.userinfo.email;
+      this.Userc.password = this.userinfo.password;
+      this.Userc.role = this.userinfo.role;
+      return this.User;
+    });
   }
-  updateUserData(userupdateUser:NgForm): void{
-    console.log(this.Userc);
-    this.user.updateUser(this.id,this.Userc);
+  updateUserData(userupdateUser: NgForm): void {
+    this.user.updateUser(this.id, userupdateUser.value).subscribe();
   }
 }
