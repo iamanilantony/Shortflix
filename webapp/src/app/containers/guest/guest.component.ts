@@ -30,10 +30,12 @@ export class GuestComponent implements OnInit {
   
   GMoviedata:any;
   GMoviedatam:any;
+  GMoviedatan:any;
   GMoviedatac:any;
 
   moviedata1:any;
-  flagidtest: boolean=false;
+  flagidtest:boolean=false;
+  GMoviedatab:any;
 
 
   constructor(
@@ -97,14 +99,27 @@ export class GuestComponent implements OnInit {
   fetchgmovie(){
     return this.getmovie.getGmovie().subscribe((movies) => {
       this.GMoviedatac=[];
+      this.GMoviedatab=[];
       console.log(movies);
       this.GMoviedata = Object.values(movies);
       this.GMoviedatam = movies;
+      this.GMoviedatan = movies;
+
+      // to bereviewed feature
+      // this.GMoviedatan.map((movieb: { guests: any[]; })=>{
+      //   movieb.guests.forEach((e: string)=>{
+      //     if(e==this.roleid) this.GMoviedatab.push(movieb)
+      //   })
+      // })
+      // console.log(this.GMoviedatab);
+
+      // reviewed feature
       this.GMoviedatam.map((movie: { marks: any[]; })=>{
         movie.marks.forEach((e: { _id: string; })=>{
           if(e._id==this.roleid) this.GMoviedatac.push(movie)
         })
       })
+
       console.log(this.GMoviedatac);
     })
   }
