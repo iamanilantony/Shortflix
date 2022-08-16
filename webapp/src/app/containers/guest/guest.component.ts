@@ -24,12 +24,17 @@ export class GuestComponent implements OnInit {
   movieid : string =''
   movieName : string =''
   MarKs : []
-  roleid:string
+  roleid:string =localStorage.getItem('id') || '';
   exmark:any
+  
   
   GMoviedata:any;
   GMoviedatam:any;
+  GMoviedatac:any;
+
   moviedata1:any;
+
+
   constructor(
     public serve:GuestServiceService,
     public getmovie:GuestServiceService
@@ -66,7 +71,8 @@ export class GuestComponent implements OnInit {
       this.moviedata1.marks1=movies1.marks;
       console.log(this.moviedata1.marks1,"yeahbouuuuuy");
       this.roleid=localStorage.getItem('id') || '';
-      for(let i=0;i<3;i++){
+      
+      for(var i in this.moviedata1.marks1){
         console.log(this.moviedata1.marks1[i],i);
         if(this.moviedata1.marks1[i]._id == this.roleid){
           console.log(this.moviedata1.marks1[i],"if works");
@@ -93,6 +99,26 @@ export class GuestComponent implements OnInit {
       this.GMoviedata = Object.values(movies);
       this.GMoviedatam = Object.values(movies);
       console.log(this.GMoviedatam,"hiiiiiiiiiiiiiiiii");
+      for(var i in this.GMoviedatam){
+        console.log(this.GMoviedatam[i],"loop works");
+        console.log(this.GMoviedatam[i].marks,"loop works");
+
+        for(let j=0; j<3; j++){
+          console.log(this.GMoviedatam[i].marks[j],j,this.roleid,"loop loop works");
+          if(this.GMoviedatam[i].marks[j]._id == this.roleid){
+            // console.log(this.GMoviedatam[i],"loop ffworks");
+            // this.GMoviedatac[i]=this.GMoviedatam[i];
+
+            // this.GMoviedatac[i]=this.GMoviedatam[i];
+            console.log(this.GMoviedatac[i],"loop ffworks");
+
+            console.log("finally");
+          }
+
+        }
+      }
+      console.log(this.GMoviedatac,"congrats");
+        
     })
   }
 
