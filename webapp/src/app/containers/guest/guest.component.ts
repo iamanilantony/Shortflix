@@ -33,6 +33,7 @@ export class GuestComponent implements OnInit {
   GMoviedatac:any;
 
   moviedata1:any;
+  flagidtest: boolean=false;
 
 
   constructor(
@@ -95,30 +96,16 @@ export class GuestComponent implements OnInit {
   }
   fetchgmovie(){
     return this.getmovie.getGmovie().subscribe((movies) => {
+      this.GMoviedatac=[];
       console.log(movies);
       this.GMoviedata = Object.values(movies);
-      this.GMoviedatam = Object.values(movies);
-      console.log(this.GMoviedatam,"hiiiiiiiiiiiiiiiii");
-      for(var i in this.GMoviedatam){
-        console.log(this.GMoviedatam[i],"loop works");
-        console.log(this.GMoviedatam[i].marks,"loop works");
-
-        for(let j=0; j<3; j++){
-          console.log(this.GMoviedatam[i].marks[j],j,this.roleid,"loop loop works");
-          if(this.GMoviedatam[i].marks[j]._id == this.roleid){
-            // console.log(this.GMoviedatam[i],"loop ffworks");
-            // this.GMoviedatac[i]=this.GMoviedatam[i];
-
-            // this.GMoviedatac[i]=this.GMoviedatam[i];
-            console.log(this.GMoviedatac[i],"loop ffworks");
-
-            console.log("finally");
-          }
-
-        }
-      }
-      console.log(this.GMoviedatac,"congrats");
-        
+      this.GMoviedatam = movies;
+      this.GMoviedatam.map((movie: { marks: any[]; })=>{
+        movie.marks.forEach((e: { _id: string; })=>{
+          if(e._id==this.roleid) this.GMoviedatac.push(movie)
+        })
+      })
+      console.log(this.GMoviedatac);
     })
   }
 
