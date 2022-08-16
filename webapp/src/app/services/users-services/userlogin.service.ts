@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserloginService {
+  constructor(public http: HttpClient, private route: Router) {}
 
-  constructor(public http: HttpClient,private route:Router) { }
-
-  loginUser(user: any){
-    return this.http.post<any>('http://localhost:3000/loginauth',user)
+  loginUser(user: any) {
+    return this.http.post<any>('http://localhost:3000/loginauth', user);
   }
 
-  authrequest(){
+  authrequest() {
     return !!localStorage.getItem('token');
   }
 
-  gettoken(){
+  gettoken() {
     return localStorage.getItem('token');
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
     localStorage.removeItem('id');
-    localStorage.removeItem('role',);
-    this.route.navigate(['login'])
+    localStorage.removeItem('role');
+    this.route.navigate(['login']);
   }
-  getUser(id : any){
-    return this.http.get<any>(`http://localhost:3000/api/users/${id}`)
+  getUser(id: any) {
+    return this.http.get<any>(`http://localhost:3000/api/users/${id}`);
   }
-  updateUser(id : any,body:any){
-    return this.http.put(`http://localhost:3000/api/users/${id}`,body)
+  updateUser(id: any, body: any) {
+    console.log(`http://localhost:3000/api/users/${id}`);
+    return this.http.put(`http://localhost:3000/api/users/${id}`, body);
   }
 }
