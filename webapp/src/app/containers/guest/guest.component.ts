@@ -27,11 +27,9 @@ export class GuestComponent implements OnInit {
   roleid:string =localStorage.getItem('id') || '';
   exmark:any
   GMoviedata:any;
-  GMoviedatam:any;
   GMoviedatan:any;
   Reviewed:any;
   moviedata1:any;
-  flagidtest:boolean=false;
   validMovies:any;
   unReviewed: any;
 
@@ -89,7 +87,6 @@ export class GuestComponent implements OnInit {
       this.unReviewed=[];
       this.validMovies=[];
       this.GMoviedata = Object.values(movies);
-      this.GMoviedatam = movies;
       this.GMoviedatan = movies;
 
       // to bereviewed feature
