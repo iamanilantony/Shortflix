@@ -149,6 +149,10 @@ text-align: center;
   border: none;
 }
 /*-------------------------- buttons-------------------------- */
+.buttontest a{
+  text-decoration: none;
+  color: white;
+}
 .buttontest{
   padding: 10px;
   background-color: #4dbf00;
@@ -209,14 +213,11 @@ text-align: center;
   font-weight: 500;
 }
 .titletest{
-  color: white;
-  margin-bottom: 20px;
-}
-.titletest{
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: 400;
   margin-top: 10px;
   margin-bottom: 5px;
+  width:12.5rem ;
 }
 .titletest1{
   font-size: 13px;

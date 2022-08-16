@@ -10,7 +10,7 @@
                             <div class="card-body bodytest">
                               <h3 class="card-title titletest">{{gam.movieName}}</h3>
                               <h5 class="card-title titletest1">By {{gam.directedBy}}</h5>
-                              <button class="buttontest">Watch</button>
+                              <button class="buttontest"><a href="{{gam.url}}" target="_blank">Watch</a></button>
                               <button class="buttontest1"(click)="sguestmodal(gam._id)">Review</button>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                             <div class="card-body bodytest">
                               <h5 class="card-title titletest">{{gam.movieName}}</h5>
                               <h5 class="card-title titletest1">By {{gam.directedBy}}</h5>
-                              <button class="buttontest">Watch</button>
+                              <button class="buttontest"><a href="{{gam.url}}" target="_blank">Watch</a></button>
                               <button class="buttontest1"(click)="sguestmodalmarks(gam._id,gam.movieName,gam.marks)">View</button>
                             </div>
                         </div>
@@ -138,34 +138,8 @@
                     <button (click)="cguestmodalmarks()">&times;</button>
                 </div>
                 <div class="guest-modal-container modaltest">
-                    <!-- <div class="guest-modal-top">
-                        <h1>{{movieName}}</h1>
-                    </div>
-                    <div class="guest-modal-bottom">
-                        <div class="guest-modal-left">
-                            <h3>Overall&nbsp;: </h3>
-                            <h3>Direction : </h3>
-                            <h3>Story     : </h3>
-                            <h3>Acting    : </h3>
-                            <h3>Music     : </h3>
-                            <h3>SFX       : </h3>
-                            <h3>Camera    : </h3>
-                            <h3>Production: </h3>
-                        </div>
-                        <div class="guest-modal-right2">
-                            <h3>Overall: </h3>
-                            <h3>Direction: </h3>
-                            <h3>Story: </h3>
-                            <h3>Acting: </h3>
-                            <h3>Music: </h3>
-                            <h3>SFX: </h3>
-                            <h3>Camera: </h3>
-                            <h3>Production: </h3>
-                        </div>
-                    </div> -->
                     <div class="guest-modal-left">
                         <h1>{{movieName}}</h1>
-
                         <table class="table table-hover table-dark guesttabletest">
                             <thead>
                               <tr>

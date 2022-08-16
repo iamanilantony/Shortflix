@@ -42,6 +42,7 @@ export class GuestComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   Gmodal = false;
   Gmodalm = false;
   sguestmodal(movieId:string){
