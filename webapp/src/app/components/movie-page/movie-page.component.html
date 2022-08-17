@@ -1,214 +1,237 @@
 <div class="event-container">
-    <div class="container">
-        <div class="event-top-container row">
-            <div class="h6">Movie</div>
-            <div class="h2 col-sm-12 d-flex justify-content-between">
-                <div class="event-top-left-header">
-                    <h1>Bahubali</h1>
-                    <h2>BY RajaMauli</h2>
-                    <h4>Submitted to</h4>
-                    <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatum neque placeat velit
-                        reprehenderit beatae totam distinctio expedita nobis vel nam, cupiditate aperiam veniam quaerat
-                        eos? Ipsum saepe adipisci odit?</h5>
-                </div>
-                <div class="event-top-right-header">
-                    <button class="btn btn-primary">Update Entry</button>
-                    <button class="btn btn-danger mt-3">Delete Entry</button>
-                    <span class="h6">status: <span class="h4">pending</span> </span>
-                </div>
-            </div>
+  <div class="container">
+    <div class="event-top-container row">
+      <div class="h6">Movie</div>
+      <div class="h2 col-sm-12 d-flex justify-content-between">
+        <div class="event-top-left-header">
+          <h1>{{ movieName }}</h1>
+          <h2>By {{ directedBy }}</h2>
+          <h4>Submitted to {{ eventName }}</h4>
+          <h5>
+            {{ theme }}
+          </h5>
         </div>
-        <div class="table-responsive">
-            <h2>Marks</h2>
-            <table class="table table-hover table-dark event-table-main">
-                <thead>
-                    <tr>
-                        <th scope="col">Categories</th>
-                        <th scope="col">Guest A</th>
-                        <th scope="col">Guest B</th>
-                        <th scope="col">Guest C</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Overall</th>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <tr>
-                            <th scope="row">Direction</th>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <tr>
-                                <th scope="row">Story</th>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                            
-                            </tr>
-                            <tr>
-                                <th scope="row">Acting</th>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Music</th>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">SFX</th>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Production</th>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Guest_id</th>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                            </tr>
-                </tbody>
-            </table>
+        <div class="event-top-right-header">
+          <button
+            class="btn btn-primary m-1 btn-select-event status"
+            type="button"
+          >
+            Status : {{ movieData.status }}
+          </button>
+          <button
+            class="btn btn-primary m-1 btn-select-event update"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight3"
+            aria-controls="offcanvasRight3"
+          >
+            Update Entry
+          </button>
+          <button (click)="DeleteEntry()" class="btn btn-danger delete">
+            Delete Entry
+          </button>
         </div>
+      </div>
     </div>
+    <div class="table-responsive">
+      <h2>Marks</h2>
+      <table class="table table-hover table-dark event-table-main">
+        <thead>
+          <tr>
+            <th scope="col">Categories</th>
+            <th scope="col">Guest A</th>
+            <th scope="col">Guest B</th>
+            <th scope="col">Guest C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Overall</th>
+            <td>{{ movieData.marks[0]?.Overall }}</td>
+            <td>{{ movieData.marks[1]?.Overall }}</td>
+            <td>{{ movieData.marks[2]?.Overall }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Direction</th>
+            <td>{{ movieData.marks[0]?.Direction }}</td>
+            <td>{{ movieData.marks[1]?.Direction }}</td>
+            <td>{{ movieData.marks[2]?.Direction }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Story</th>
+            <td>{{ movieData.marks[0]?.Story }}</td>
+            <td>{{ movieData.marks[1]?.Story }}</td>
+            <td>{{ movieData.marks[2]?.Story }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Acting</th>
+            <td>{{ movieData.marks[0]?.Acting }}</td>
+            <td>{{ movieData.marks[1]?.Acting }}</td>
+            <td>{{ movieData.marks[2]?.Acting }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Music</th>
+            <td>{{ movieData.marks[0]?.Music }}</td>
+            <td>{{ movieData.marks[1]?.Music }}</td>
+            <td>{{ movieData.marks[2]?.Music }}</td>
+          </tr>
+          <tr>
+            <th scope="row">SFX</th>
+            <td>{{ movieData.marks[0]?.SFX }}</td>
+            <td>{{ movieData.marks[1]?.SFX }}</td>
+            <td>{{ movieData.marks[2]?.SFX }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Production</th>
+            <td>{{ movieData.marks[0]?.Production }}</td>
+            <td>{{ movieData.marks[1]?.Production }}</td>
+            <td>{{ movieData.marks[2]?.Production }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
+<div
+  class="offcanvas offcanvas-end text-bg-dark"
+  tabindex="-1"
+  id="offcanvasRight3"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">View</h5>
+    <button
+      type="button"
+      class="closebutton"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    >
+      &times;
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <form (ngSubmit)="sendUpdatedMovie(Modalform)" #Modalform="ngForm">
+      <h4>Update Movie</h4>
+      <label for="url">URL</label>
+      <input
+        type="text"
+        id="url"
+        name="url"
+        [(ngModel)]="movie.url"
+        placeholder="Paste your content url here"
+      />
+      <label for="theme">Descrioption</label>
+      <input
+        type="text"
+        id="theme"
+        name="theme"
+        [(ngModel)]="movie.theme"
+        placeholder="Short Discription"
+      />
 
-<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasRight"
-    aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">View</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div>
-            <h1>Movie Name</h1>
-            <h5>Directed By: Anil Antony</h5>
-            <p>Status: pending</p>
-            <h4>Assignees: Anil,Adlee,Shameem</h4>
-            <div class="marks-offcanvas table-responsive">
-                <table class="table table-hover table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">First</th>
-                            <th scope="col">GuestA</th>
-                            <th scope="col">GuestB</th>
-                            <th scope="col">GuestC</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Overall</th>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Direction</th>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Story</th>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Acting</th>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Music</th>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SFX</th>
-                            <td>2</td>
-                            <td>5</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Camera</th>
-                            <td>2</td>
-                            <td>5</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Camera</th>
-                            <td>2</td>
-                            <td>5</td>
-                            <td>1</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="d-flex">
-            <button class="btn btn-success m-1 btn-select-event" type="button">Select Winner</button>
-            <button class="btn btn-info m-1 btn-select-event" type="button">Shortlist</button>
-            <button class="btn btn-danger m-1 btn-select-event" type="button">Reject</button>
-        </div>
-    </div>
-</div>
-<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasRight2"
-    aria-labelledby="offcanvasRightLabel2">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Assign guests</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <h1>Movie Name</h1>
-        <h5>Directed By: Anil Antony</h5>
-        <p>Status: pending</p>
-        <h4>Added Guests</h4>
-        <table class="table table-hover table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">Guest</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Guest1</th>
-                    <td>Pending</td>
-                </tr>
-                <tr>
-                    <th scope="row">Guest2</th>
-                    <td>Complerted</td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>Select Your Guest</h2>
-        <form action="" class="addguest-form-event">
-            Select guest 
-            <select class="input-offcanvas-guest" name="cars" id="cars">
-                <option value="volvo">Lijo Jose Pellisery</option>
-                <option value="saab">Ravi</option>
-                <option value="mercedes">Shanker</option>
-                <option value="audi">PV Ravi</option>
-              </select>
-              <button class="btn btn-success" type="submit">Add</button>
-        </form>
-    </div>
+      <label for="directedBy">Director</label>
+
+      <input
+        type="text"
+        id="directedBy"
+        name="directedBy"
+        [(ngModel)]="movie.directedBy"
+        placeholder="directedBy"
+      />
+      <label for="Producer">Producer</label>
+      <input
+        type="text"
+        id="Producer"
+        name="Producer"
+        [(ngModel)]="movie.crew.Producer"
+        placeholder="Producer"
+      />
+
+      <label for="Actor">Actors</label>
+
+      <input
+        type="text"
+        id="Actor"
+        name="Actor"
+        [(ngModel)]="movie.crew.Actor"
+        placeholder="Actor"
+      />
+      <label for="movieName">Movie Name</label>
+
+      <input
+        type="text"
+        id="movieName"
+        name="movieName"
+        [(ngModel)]="movie.movieName"
+        placeholder="Movie Name"
+      />
+
+      <label for="cinematography">Cinematography</label>
+
+      <input
+        type="text"
+        id="cinematography"
+        name="cinematography"
+        [(ngModel)]="movie.crew.cinematography"
+        placeholder="Cinematography"
+      />
+      <label for="editor">Editor</label>
+      <input
+        type="text"
+        id="editor"
+        name="editor"
+        [(ngModel)]="movie.crew.editor"
+        placeholder="Editor"
+      />
+
+      <label for="asst_director">Assistant Director</label>
+
+      <input
+        type="text"
+        id="asst_director"
+        name="asst_director"
+        [(ngModel)]="movie.crew.asst_director"
+        placeholder="Assistant director"
+      />
+      <label for="writer">Writer</label>
+      <input
+        type="text"
+        id="writer"
+        name="writer"
+        [(ngModel)]="movie.crew.writer"
+        placeholder="Writer"
+      />
+
+      <label for="cast">Cast</label>
+
+      <input
+        type="text"
+        id="cast"
+        name="cast"
+        [(ngModel)]="movie.cast"
+        placeholder="cast"
+      />
+      <label for="gemre">Genre</label>
+      <input
+        type="text"
+        id="genre"
+        name="cast"
+        [(ngModel)]="movie.genre"
+        placeholder="Genre"
+        list="genres"
+      />
+      <datalist id="genres">
+        <option value="Drama"></option>
+        <option value="Documentary"></option>
+        <option value="Action & Adventure"></option>
+        <option value="Comedy"></option>
+        <option value="Musical"></option>
+        <option value="Romantic"></option>
+        <option value="Thriller"></option>
+        <option value="Scifi"></option>
+      </datalist>
+      <input class="sub" type="submit" value="Submit" value="SUBMIT" />
+    </form>
+  </div>
 </div>

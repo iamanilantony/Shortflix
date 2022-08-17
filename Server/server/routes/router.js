@@ -23,15 +23,13 @@ router.get("/api/events/:id", controller.findevent);
 router.get("/api/events", controller.findevent);
 router.delete("/api/events/:id", controller.deleteevent);
 
-//restful api movie
+//restful api author
 router.post("/api/movie", controller.addmovie);
 router.put("/api/movie/:id", controller.updatemovie);
 router.get("/api/movie/:id", controller.findmovie);
 router.get("/api/movie", controller.findmovie);
 router.delete("/api/movie/:id", controller.deletemovie);
 router.put("/api/movie/marks/:id", controller.updateMarks);
-router.get('/api/usersmovie/:id',controller.findUsersMovies)
-
 //restful api user
 router.post("/api/users", controller.adduser);
 router.get("/api/users", controller.finduser);

@@ -3,20 +3,32 @@
     <div class="section1">
       <div class="infos">
         <div class="c1 cards">
-          Total Events <br />
-          6
+          <div class="heads">
+            Total Events <i class="fa-solid fa-clapperboard"></i>
+          </div>
+
+          <h1>{{ TotalEvents }}</h1>
         </div>
         <div class="c2 cards">
-          Current Events <br />
-          12
+          <div class="heads">
+            Current Events <i class="fa-solid fa-bolt"></i>
+          </div>
+
+          <h1>{{ CurrentEvents }}</h1>
         </div>
         <div class="c3 cards">
-          Your Submission <br />
-          10
+          <div class="heads">
+            Your Submission <i class="fa-solid fa-camera-retro"></i>
+          </div>
+
+          <h1>{{ YourSubmission }}</h1>
         </div>
         <div class="c4 cards">
-          Pending Submission <br />
-          0
+          <div class="heads">
+            Pending Submission <i class="fa-solid fa-camera-rotate"></i>
+          </div>
+
+          <h1>{{ PendingSubmission }}</h1>
         </div>
       </div>
       <app-submit></app-submit>
