@@ -219,7 +219,18 @@
         name="cast"
         [(ngModel)]="movie.genre"
         placeholder="Genre"
+        list="genres"
       />
+      <datalist id="genres">
+        <option value="Drama"></option>
+        <option value="Documentary"></option>
+        <option value="Action & Adventure"></option>
+        <option value="Comedy"></option>
+        <option value="Musical"></option>
+        <option value="Romantic"></option>
+        <option value="Thriller"></option>
+        <option value="Scifi"></option>
+      </datalist>
       <input class="sub" type="submit" value="Submit" value="SUBMIT" />
     </form>
   </div>
