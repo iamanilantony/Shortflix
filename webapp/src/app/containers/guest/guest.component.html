@@ -1,42 +1,44 @@
 <div class="guest-container">
     <div class="container">
         <div class="movie-list-container">
-            <h1 class="movie-list-title">TO BE REVIEWED</h1>
+            <h1 class="movie-list-title guesttitletest">TO BE REVIEWED</h1>
             <div class="movie-list-wrapper">
                 <div class="movie-list">
-                    <div class="card cardtest" style="width: 18rem;" *ngFor="let gam of GMoviedata">
-                        <img class="card-img-top" src="https://static.toiimg.com/photo/msid-91646261/91646261.jpg" alt="Card image cap">
-                        <div class="card-body bodytest">
-                          <h3 class="card-title titletest">{{gam.movieName}}</h3>
-                          <h5 class="card-title titletest">By {{gam.directedBy}}</h5>
-                          <button class="buttontest">Watch</button>
-                          <button class="buttontest1"(click)="sguestmodal(gam._id)">Review</button>
+                    <div class="guest-hovertest" *ngFor="let gam of unReviewed">
+                        <div class="card cardtest" style="width: 18rem;" >
+                            <img class="card-img-top gusetimagetest" src="https://static.toiimg.com/photo/msid-91646261/91646261.jpg" alt="Card image cap">
+                            <div class="card-body bodytest">
+                              <h3 class="card-title titletest">{{gam.movieName}}</h3>
+                              <h5 class="card-title titletest1">By {{gam.directedBy}}</h5>
+                              <button class="buttontest"><a href="{{gam.url}}" target="_blank">Watch</a></button>
+                              <button class="buttontest1"(click)="sguestmodal(gam._id)">Review</button>
+                            </div>
                         </div>
-                        
                     </div>
+                    
                 </div>
-                <i class="fas fa-chevron-right arrow"></i>
             </div>
-            <h1 class="movie-list-title">REVIEWED</h1>
+            <h1 class="movie-list-title guesttitletest">REVIEWED</h1>
             <div class="movie-list-wrapper">
                 <div class="movie-list">
-                    <div class="card cardtest" style="width: 18rem;" *ngFor="let gam of GMoviedata">
-                        <img class="card-img-top" src="https://static.toiimg.com/photo/msid-91646261/91646261.jpg" alt="Card image cap">
-                        <div class="card-body bodytest">
-                          <h5 class="card-title titletest">{{gam.movieName}}</h5>
-                          <h5 class="card-title titletest">By {{gam.directedBy}}</h5>
-                          <button class="buttontest">Watch</button>
-                          <button class="buttontest1"(click)="sguestmodalmarks(gam._id,gam.movieName,gam.marks)">view</button>
+                    <div class="guest-hovertest" *ngFor="let gam of Reviewed">
+                        <div class="card cardtest" style="width: 18rem;" >
+                            <img class="card-img-top gusetimagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
+                            <div class="card-body bodytest">
+                              <h5 class="card-title titletest">{{gam.movieName}}</h5>
+                              <h5 class="card-title titletest1">By {{gam.directedBy}}</h5>
+                              <button class="buttontest"><a href="{{gam.url}}" target="_blank">Watch</a></button>
+                              <button class="buttontest1"(click)="sguestmodalmarks(gam._id,gam.movieName,gam.marks)">View</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <i class="fas fa-chevron-right arrow"></i>
             </div>
         </div>
         <div class="modalguest" style="display: flex;" *ngIf=Gmodal>
             <div class="modalcontentguest">
                 <div class="closebutton" >
-                    <button (click)="cguestmodal()">&times;</button>
+                    <button (click)="cguestmodal(reviewform)">&times;</button>
                 </div>
                 <div class="guest-modal-container">
                     <div class="guest-modal-left">
@@ -135,10 +137,51 @@
                 <div class="closebutton" >
                     <button (click)="cguestmodalmarks()">&times;</button>
                 </div>
-                <div class="guest-modal-container">
+                <div class="guest-modal-container modaltest">
                     <div class="guest-modal-left">
                         <h1>{{movieName}}</h1>
-                        <h1>{{marks}}</h1>
+                        <table class="table table-hover table-dark guesttabletest">
+                            <thead>
+                              <tr>
+                                <th scope="col">Category</th>
+                                <th scope="col">your marks</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Overall</th>
+                                <td>{{exmark.Overall}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Direction</th>
+                                <td>{{exmark.Direction}}</td>
+                              </tr>                              
+                              <tr>
+                                <th scope="row">Story</th>
+                                <td>{{exmark.Story}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Acting</th>
+                                <td>{{exmark.Acting}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Music</th>
+                                <td>{{exmark.Music}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">SFX</th>
+                                <td>{{exmark.SFX}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Camera</th>
+                                <td>{{exmark.Camera}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Production</th>
+                                <td>{{exmark.Production}}</td>
+                              </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
