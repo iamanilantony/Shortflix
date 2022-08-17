@@ -11,7 +11,9 @@
     <td>{{ event.maxEntries }}</td>
 
     <td>
-      <button (click)="putEventModal(event._id)">+Submission</button>
+      <button (click)="putEventModal(event._id, event.eventName)">
+        +Submission
+      </button>
     </td>
   </tr>
 </table>

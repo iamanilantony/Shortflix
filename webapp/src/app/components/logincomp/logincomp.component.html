@@ -2,9 +2,10 @@
     <div class="login-wrapper">
         <div class="login-left">
             <div class="login-form">
-                <h1>Login to Your Account</h1>
-                <h4>A good storyteller is the most powerful person in the world</h4>
+                <h1>A good storyteller is the most powerful person in the world</h1>
+                <h4>Login to Your Account</h4>
                 <form (ngSubmit)="userVerify()" #userlogin = "ngForm">
+                    <!-- <i class="fa-solid fa-user"></i> -->
                     <input type="email" class="form-control" placeholder="Email" name="uname" [(ngModel)]="User.email" #email="ngModel" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
                     <div *ngIf ="email.touched && email.invalid" class="alert alert-danger">
                         <div *ngIf="email.errors?.['required']">
@@ -14,6 +15,7 @@
                             Invalid Email.
                         </div>
                     </div>
+                    <!-- <i class="fa-solid fa-lock"></i> -->
                     <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="User.password" minlength="6" required>
                     <span>Forget password?</span>
                     <button type="submit">LogIn</button>

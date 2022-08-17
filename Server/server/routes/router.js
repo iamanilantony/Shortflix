@@ -22,6 +22,8 @@ router.put("/api/events/:id", controller.updateevent);
 router.get("/api/events/:id", controller.findevent);
 router.get("/api/events", controller.findevent);
 router.delete("/api/events/:id", controller.deleteevent);
+router.get('/api/eventmovies/:id',controller.findEventMovies);
+
 
 //restful api movie
 router.post("/api/movie", controller.addmovie);
@@ -30,14 +32,17 @@ router.get("/api/movie/:id", controller.findmovie);
 router.get("/api/movie", controller.findmovie);
 router.delete("/api/movie/:id", controller.deletemovie);
 router.put("/api/movie/marks/:id", controller.updateMarks);
-router.get('/api/usersmovie/:id',controller.findUsersMovies)
+router.get('/api/usersmovie/:id',controller.findUsersMovies);
+router.put('/api/addguest/:id',controller.updateGuests);
+router.put('api/removeguest/:id',controller.deleteGuest);
 
 //restful api user
 router.post("/api/users", controller.adduser);
 router.get("/api/users", controller.finduser);
 router.get("/api/users/:id", controller.finduser);
+router.put("/api/users/:id", controller.updateUser);
+router.get("/api/guests", controller.findGuests);
 
-//Movie login
 
 //validate login
 router.post("/api/usersvalid", services.usersvalid);
@@ -52,7 +57,5 @@ router.get("/login", services.login);
 //exp
 router.post("/loginauth", controller.loginauth);
 
-//
-router.get("/api/usersmovie/:id", controller.findUsersMovies);
 
 module.exports = router;

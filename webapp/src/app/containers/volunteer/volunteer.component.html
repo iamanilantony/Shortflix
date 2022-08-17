@@ -1,128 +1,71 @@
- <div class="volunteer-container container-fluid" >
+<div class="volunteer-container container-fluid">
     <div class="volunteer-wrapper container">
-            <div class="volunteer-left-top row">
-                <div class="volunteer-card volunteer-card-primary h-100" id="volunteer-event-button" (click)="fShowModal()">
-                    Create an event
-                </div>
-                <div class="volunteer-card" id="volunteer-guest-button h-50" (click)="sguestmodal()">
-                    Add a guest
-                </div>
-                <div class="volunteer-card volunteer-uppercard-content h-50" id="volunteer-library-button"
-                    (click)="flibrary()">
-                    Manage Library
+        <div class="volunteer-left-top row">
+            <div class="volunteer-card volunteer-card-primary h-100" id="volunteer-event-button"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                Create an event
+            </div>
+            <div class="volunteer-card" id="volunteer-guest-button h-50" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight2">
+                Add a guest
+            </div>
+            <div class="volunteer-card volunteer-uppercard-content h-50" id="volunteer-library-button"
+                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight3" aria-controls="offcanvasRight3">
+                Manage Library
+            </div>
+        </div>
+        <div class="volunteer-dashboard row">
+            <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
+                <div class="card-body card-content-volunteer hover-blue">
+                    <h3> Total Events <i class="fa-solid fa-film"></i></h3>
+                    <h1>{{TotalEvents}}</h1>
                 </div>
             </div>
-            <div class="volunteer-dashboard row">
-                <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
-                    <div class="card-body card-content-volunteer hover-blue">
-                      <h3>Total Events</h3>
-                      <h1>120</h1>
-                    </div>
-                </div>
-                <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
-                    <div class="card-body card-content-volunteer hover-green">
-                      <h3>Current Events</h3>
-                      <h1>120</h1>
-                    </div>
-                </div>
-                <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
-                    <div class="card-body card-content-volunteer hover-yellow">
-                      <h3>Total Guests</h3>
-                      <h1>120</h1>
-                    </div>
-                </div>
-                <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
-                    <div class="card-body card-content-volunteer hover-violet">
-                      <h3>Movie Sumbissions</h3>
-                      <h1>120</h1>
-                    </div>
-                </div>
-            </div>
-            <div id="modal" class="modalvolunteer" style="display: flex;" *ngIf=Emodal>
-                <div class="modalcontentvolunteer" id="vol-modal" [@dialog]>
-                    <div class="closebutton">
-                        <button (click)="fShowModal()">&times;</button>
-                    </div>
-                    <div class="volunteer-modal-container">
-                        <div class="volunteer-modal-left">
-                            <h1>Add Event</h1>
-                            <form (ngSubmit)="addEvent(eventform)" #eventform="ngForm">
-                                Name :
-                                <input type="text" name="eventName" class="form-control"
-                                    [(ngModel)]="singleevent.eventName" placeholder='Enter the name'>
-                                <input type="hidden" class="form-control" [(ngModel)]="singleevent.eventName"
-                                    placeholder='Enter the name'>
-                                Max-Entry :
-                                <input type="text" name="maxEntries" [(ngModel)]="singleevent.maxEntries"
-                                    placeholder='Enter the Books'>
-                                Start Date :
-                                <input type="date" name="startDate" [(ngModel)]="singleevent.startDate"
-                                    placeholder='Enter the Age'>
-                                Due Date :
-                                <input type="date" name="dueDate" [(ngModel)]="singleevent.dueDate"
-                                    placeholder='Enter the Age'>
-                                Desc :
-                                <input type="text" name="desc" [(ngModel)]="singleevent.desc"
-                                    placeholder='Enter the Desc'>
-                                Organizer :
-                                <input type="text" name="hostedBy" [(ngModel)]="singleevent.hostedBy"
-                                    placeholder='Enter the Host'>
-                                <button type="submit">Update</button>
-                            </form>
-                        </div>
-                        <!-- <div class="volunteer-modal-right">
-                            <img src="https://wallpapercave.com/wp/wp5403866.jpg"
-                                alt="">
-                        </div> -->
-                    </div>
+            <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
+                <div class="card-body card-content-volunteer hover-green">
+                    <h3>Current Events <i class="fa-solid fa-clapperboard"></i> </h3>
+                    <h1>{{TotalEvents}}</h1>
 
                 </div>
             </div>
-            <div class="modalvolunteer" style="display: flex;" *ngIf=Gmodal>
-                <div class="modalcontentvolunteer" [@dialog]>
-                    <div class="closebutton">
-                        <button (click)="sguestmodal()">&times;</button>
-                    </div>
-                    <div class="volunteer-modal-container">
-                        <div class="volunteer-modal-left">
-
-                            <h1>Add a Guest</h1>
-                            <form (ngSubmit)="addGuest(guestform)" #guestform="ngForm">
-                                <input type="hidden" name="role" [(ngModel)]="Guest.role" placeholder='Enter the name'>
-                                Name :
-                                <input type="text" name="name" class="form-control" [(ngModel)]="Guest.name"
-                                    placeholder='Enter the name'>
-                                Email :
-                                <input type="email" name="email" [(ngModel)]="Guest.email" placeholder='Enter the Age'>
-                                Password :
-                                <input type="password" name="password" [(ngModel)]="Guest.password"
-                                    placeholder='Enter the Age'>
-                                <button type="submit">Add</button>
-                            </form>
-                        </div>
-                    </div>
+            <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
+                <div class="card-body card-content-volunteer hover-yellow">
+                    <h3>Total Users<i class="fa-solid fa-user"></i></h3>
+                    <h1>{{TotalGuests}}</h1>
                 </div>
             </div>
-            <div class="row justify-content-between pt-5">
-                <div class="volunteer-left-bottom col-sm-12 col-lg-7">
-                        <table class="volunteer-table-container">
-                            <tr class="lead">
-                                <td>Event</td>
-                                <td>Entries</td>
-                                <td>Due Date</td>
-                                <td>Status</td>
-                                <td>View</td>
-                            </tr>
-                            <tr *ngFor="let eventone of EventData" class="h6">
-                                <td>{{eventone.eventName}}</td>
-                                <td>{{eventone.hostedBy}}</td>
-                                <td>{{eventone.sumbmissions}}</td>
-                                <td>{{eventone.maxEntries}}</td>
-                                <td><button><a [routerLink]="['/event']">View</a> </button></td>
-                            </tr>
-                        </table>
-                    </div>
-                <div class="volunteer-right-bottom col-sm-12 col-lg-4 pl-2 mt-4 mt-md-0 d-flex justify-content-center">
+            <div class="card card-volunteer col-lg-3 col-md-6 col-sm-12">
+                <div class="card-body card-content-volunteer hover-violet">
+                    <h3>Movie Sumbissions <i class="fa-solid fa-video"></i></h3>
+                    <h1>{{TotalMovie}}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="table-responsive">
+                <h1 class="display-1">Events</h1>
+                <table class="table table-hover table-dark event-table-main">
+                    <thead>
+                        <tr>
+                            <td>Event</td>
+                            <td>Entries</td>
+                            <td>Start Date</td>
+                            <td>Due Date</td>
+                            <td>View</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let eventone of EventData" class="h6">
+                            <td>{{eventone.eventName}}</td>
+                            <td>{{eventone.hostedBy}}</td>
+                            <td>{{eventone.startDate.substring(0, 10)}}</td>
+                            <td>{{eventone.dueDate.substring(0, 10)}}</td>
+                            <td><button class="btn btn-success" (click)="routeEvent(eventone._id)">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- <div class="volunteer-right-bottom col-sm-12 col-lg-4 pl-2 mt-4 mt-md-0 d-flex justify-content-center">
                         <table class="volunteer-guest-table-list w-100">
                             <tr>
                                 <td>Name</td>
@@ -135,17 +78,131 @@
                                 <td>{{eventone.sumbmissions}}</td>
                             </tr>
                         </table>
-                </div>
-                <div class="volunteer-recent-submissions row mt-4">
-                    <div class="h3">Latest Sumbissions</div>    
-                    <div class="card card-volunteer-videos col-lg-2 col-md-6 col-sm-12" *ngFor="let videos of EventData">
-                        <img src="https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                        <div class="card-body">
-                          <h3>Total Events</h3>
-                          <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, officia consequuntur ab voluptates amet et totam? Dolore obcaecati possimus cumque, eum culpa iste iure ipsum. Illo tempora consectetur repellendus ad? </p>
-                        </div>
+                </div> -->
+            <div class="volunteer-recent-submissions row mt-4">
+                <div class="h3">Latest Sumbissions</div>
+                <div class="card card-volunteer-videos col-lg-2 col-md-6 col-sm-12" *ngFor="let videos of MoviesData">
+                    <img src="https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        alt="">
+                    <div class="card-body">
+                        <h3>{{videos.movieName}}</h3>
+                        <p>{{videos.genre}}</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Add an Event</h5>
+        <button type="button" class="closebutton-offcanvas" data-bs-dismiss="offcanvas"
+            aria-label="Close">&times;</button>
+    </div>
+    <div class="offcanvas-body">
+        <h1 class="text-center">Add Event</h1>
+        <div class="modalcontentvolunteer">
+            <form (ngSubmit)="addEvent(eventform)" #eventform="ngForm">
+                Name :
+                <input type="text" name="eventName" class="form-control" [(ngModel)]="singleevent.eventName"
+                    placeholder='Enter the name'>
+                <input type="hidden" class="form-control" [(ngModel)]="singleevent.eventName"
+                    placeholder='Enter the name'>
+                Max-Entry :
+                <input type="text" name="maxEntries" [(ngModel)]="singleevent.maxEntries" placeholder='Enter the Books'>
+                Start Date :
+                <input type="date" name="startDate" [(ngModel)]="singleevent.startDate" placeholder='Enter the Age'>
+                Due Date :
+                <input type="date" name="dueDate" [(ngModel)]="singleevent.dueDate" placeholder='Enter the Age'>
+                Desc :
+                <textarea rows="4" cols="50" name="desc" [(ngModel)]="singleevent.desc"
+                    placeholder='Enter the desc The origin of your story or any background details'>
+
+            </textarea>
+                Organizer :
+                <input type="text" name="hostedBy" [(ngModel)]="singleevent.hostedBy" placeholder='Enter the Host'>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasRight2"
+    aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Add an Event</h5>
+        <button type="button" class="closebutton-offcanvas" data-bs-dismiss="offcanvas"
+            aria-label="Close">&times;</button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="modalcontentvolunteer">
+            <h1>Add a Guest</h1>
+            <form (ngSubmit)="addGuest(guestform)" #guestform="ngForm">
+                <input type="hidden" name="role" [(ngModel)]="Guest.role" placeholder='Enter the name'>
+                Name :
+                <input type="text" name="name" class="form-control" [(ngModel)]="Guest.name"
+                    placeholder='Enter the name'>
+                Email :
+                <input type="email" name="email" [(ngModel)]="Guest.email" placeholder='Enter the Age'>
+                Password :
+                <input type="password" name="password" [(ngModel)]="Guest.password"
+                    placeholder='Enter the Age'>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasRight3"
+    aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Shortlisted Movies</h5>
+        <button type="button" class="closebutton-offcanvas" data-bs-dismiss="offcanvas"
+            aria-label="Close">&times;</button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="modalcontentvolunteer">
+            <h1>Shortlisted Movies</h1>
+            <div class="marks-offcanvas table-responsive">
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">First</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let shortlisted of ShortListedMovies">
+                            <th scope="row">{{shortlisted?.movieName}}</th>
+                            <td><button class="btn btn-success" (click)="routeMovie(shortlisted._id)">View</button></td>
+                        </tr>
+                 
+                    </tbody>
+                </table>
+            </div>
+            <h1>TO Be Shortlisted</h1>
+            <div class="marks-offcanvas table-responsive">
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">First</th>
+                            <th scope="col">View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let nonshortlisted of nonShortListed">
+                            <th scope="row">{{nonshortlisted?.movieName}}</th>
+                            <td><button class="btn btn-success" (click)="routeMovie(nonshortlisted._id)">View</button> {{nonshortlisted?.shortListed}}</td>
+                        </tr>
+                 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+        </div>
     </div>
 </div>

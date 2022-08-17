@@ -12,15 +12,18 @@ export class ModalComponent implements OnInit {
   movie = {
     url: '',
     theme: '',
+    status: 'Pending',
     directedBy: '',
-    Producer: '',
-    Actor: '',
+
     Others: '',
     event: '',
+    eventName: '',
     user_id: '',
     movieName: '',
     genre: '',
     crew: {
+      Producer: '',
+      Actor: '',
       cinematography: '',
       editor: '',
       asst_director: '',
@@ -45,7 +48,9 @@ export class ModalComponent implements OnInit {
     this.movie.crew.asst_director = GetForm.value.asst_director;
     this.movie.crew.writer = GetForm.value.writer;
     this.movie.event = this.serve.event_id;
+    this.movie.eventName = this.serve.eventName;
     this.movie.user_id = localStorage.getItem('id') || '';
+    // this.
     this.serve.sendmovieToBackend(this.movie);
     this.serve.showDialog = false;
   }

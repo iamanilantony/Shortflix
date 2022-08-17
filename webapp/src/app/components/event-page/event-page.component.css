@@ -1,0 +1,120 @@
+.event-container{
+    padding-top: 100px;
+    width: 99vw;
+    height: auto;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    padding-bottom: 100px;
+
+}
+.event-top-container{
+    background-image: linear-gradient(rgb(54, 2, 144), rgb(91, 0, 249));
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.event-top-container .h6{
+    color: gray;
+}
+.event-top-left-header h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+.event-top-left-header h2{
+    font-size: 16px;
+    color: gray;
+    margin-top: -10px;
+}
+.event-top-left-header h5{
+    width: 30vw;
+    font-size: 1rem;
+}
+.event-top-right-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.event-top-right-header .update-button{
+    border: none;
+    border-radius: 5px;
+    background-color: yellowgreen;
+    color: white;
+    padding: 8px;
+    margin-top: -20px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.event-top-right-header h2{
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+.table-responsive h2{
+    font-size: 2rem;
+    margin-top: 30px;
+
+}
+.event-table-main{
+    border-radius: 20px;
+}
+.event-table-main th, td{
+    padding: 25px;
+    width: 25%;
+    text-align: center;
+}
+.btn-select-event{
+    /* width: 50rem; */
+    margin-bottom: 10px;
+}
+.marks-offcanvas{
+    overflow: hidden;
+}
+.input-offcanvas-guest{
+    padding: 10px;
+    border: none;
+    margin-left: 20px;
+}
+.addguest-form-event button{
+    margin-left: 20px;
+}
+.event-top-left-header h3{
+    font-weight: 700;
+
+}
+.closebutton-offcanvas{
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+  }
+  .modalcontentvolunteer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px 25px;
+  }
+  .modalcontentvolunteer h1 {
+    text-align: center;
+  }
+  .modalcontentvolunteer input,textarea {
+    padding: 15px;
+    background-color: rgb(51, 51, 51);
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    color: white;
+  }
+  .modalcontentvolunteer form button {
+    display: flex;
+    padding: 10px;
+    margin: 10px 0px;
+    border: none;
+    color: white;
+    background-image: linear-gradient(rgb(54, 2, 144), rgb(91, 0, 249));
+    /* background-image: linear-gradient(rgb(54, 2, 144), rgb(91, 0, 249)); */
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+
+  }

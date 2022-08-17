@@ -8,6 +8,8 @@ import { GuestComponent } from './containers/guest/guest.component';
 import { ViewComponent } from './containers/view/view.component';
 import { VolunteerComponent } from './containers/volunteer/volunteer.component';
 import { AuthGuard } from './services/users-services/auth.guard';
+import { EventPageComponent } from './components/event-page/event-page.component';
+import { MoviePageComponent } from './components/movie-page/movie-page.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -17,10 +19,12 @@ const routes: Routes = [
   {path: 'guest',canActivate:[AuthGuard], component: GuestComponent},
   {path: 'candidate',canActivate:[AuthGuard], component: CandidateComponent},
   {path: 'updateuser',canActivate:[AuthGuard], component: UserupdateComponent},
+  {path: 'event/:id',canActivate:[AuthGuard], component: EventPageComponent},
+  {path: 'movie/:id',canActivate:[AuthGuard], component: MoviePageComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -9,13 +9,15 @@ var movieSchema = {
   directedBy: String,
   url: String,
   theme: String,
-  Actor: String,
+
   user_id: String,
   genre: String,
+  status: String, //TO BE UPDATED IN THE CONTROLLER
 
   crew: {
     director: String,
-    producer: [String],
+    Actor: String,
+    Producer: String,
     cinematography: String,
     editor: String,
     asst_director: String,
@@ -27,8 +29,10 @@ var movieSchema = {
   },
   cast: [String],
   event: String,
+  eventName: String,
   date: Date,
   shortListed: Boolean,
+  status: String,
   marks: [
     {
       Overall: Number,
@@ -42,8 +46,18 @@ var movieSchema = {
       Guest_id: String,
     },
   ],
+  status: String,
   startDate: Date,
   maxEntries: Number,
+  guests: [{
+    type: String,
+    validate: {
+      validator: () => {
+        return !(this.guests.length > 3);
+      },
+      message: props => `${props.value} exceeds maximum array size (10)!`
+    },
+  }]
 };
 
 var movieDb = mongoose.model("movies", movieSchema);
