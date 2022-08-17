@@ -31,6 +31,7 @@ export class GuestComponent implements OnInit {
   Reviewed:any;
   moviedata1:any;
   validMovies:any;
+  validMovies2: any;
   unReviewed: any;
 
   constructor(
@@ -87,6 +88,7 @@ export class GuestComponent implements OnInit {
       this.Reviewed=[];
       this.unReviewed=[];
       this.validMovies=[];
+      this.validMovies2=[];
       this.GMoviedata = Object.values(movies);
       this.GMoviedatan = movies;
 
@@ -95,7 +97,13 @@ export class GuestComponent implements OnInit {
         {guests: any[];})=>{
         movieb.guests?.forEach((f: string)=>{
           if(f==this.roleid) {
-            this.validMovies.push(movieb)
+            this.validMovies2.push(movieb)
+            this.validMovies2.forEach((e: any)=> {
+              let x = e.url.match(/.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/);
+              console.log(x);
+              this.validMovies.push({...e , urlId: `https://i.ytimg.com/vi/${x[1]}/maxresdefault.jpg`});
+              console.log(this.validMovies)
+            })
           }
         })
       })
@@ -104,6 +112,7 @@ export class GuestComponent implements OnInit {
       this.validMovies.map((movie: { marks: any[]; })=>{
         if(!movie.marks.length){
           this.unReviewed?.push(movie)
+          console.log(this.unReviewed);
         }
         movie.marks.forEach((e: { _id: string; })=>{
           if(e._id==this.roleid){ 

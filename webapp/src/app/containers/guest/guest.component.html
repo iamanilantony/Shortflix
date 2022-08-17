@@ -6,7 +6,7 @@
                 <div class="movie-list">
                     <div class="guest-hovertest" *ngFor="let gam of unReviewed">
                         <div class="card cardtest" style="width: 18rem;" >
-                            <img class="card-img-top gusetimagetest" src="https://static.toiimg.com/photo/msid-91646261/91646261.jpg" alt="Card image cap">
+                            <img class="card-img-top gusetimagetest" src={{gam.urlId}} alt="Card image cap">
                             <div class="card-body bodytest">
                               <h3 class="card-title titletest">{{gam.movieName}}</h3>
                               <h5 class="card-title titletest1">By {{gam.directedBy}}</h5>
@@ -23,7 +23,7 @@
                 <div class="movie-list">
                     <div class="guest-hovertest" *ngFor="let gam of Reviewed">
                         <div class="card cardtest" style="width: 18rem;" >
-                            <img class="card-img-top gusetimagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
+                            <img class="card-img-top gusetimagetest" src={{gam.urlId}} alt="Card image cap">
                             <div class="card-body bodytest">
                               <h5 class="card-title titletest">{{gam.movieName}}</h5>
                               <h5 class="card-title titletest1">By {{gam.directedBy}}</h5>
