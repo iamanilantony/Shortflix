@@ -1,62 +1,66 @@
-.our-training-program,.why-should-join-us{
-    padding: 100px;
-    background-color: black;
-    color: white;
+.container {
+  background-color: black;
+  width: 100vw;
 }
-.cnlandtestcard{
-    display: flex;
-    align-items: center;
-    /* height: 400px; */
+.our-training-program,
+.why-should-join-us {
+  padding: 100px;
+  background-color: black;
+  color: white;
 }
-.cnlnd-card{
-    padding: 20px;
-    margin-right: 20px;
-    background-color: rgb(26,26,26);
-    color: white;
-    /* height: 400px; */
-    /* width: 500px; */
-    
+.cnlandtestcard {
+  display: flex;
+  align-items: center;
+  /* height: 400px; */
 }
-.cnlnd-card-join{
-    padding: 20px;
-    margin-top: 20px;
-    background-color: rgb(26,26,26);
-    color: white;
-    width: 300px;
-    height: 150px;
+.cnlnd-card {
+  padding: 20px;
+  margin-right: 20px;
+  background-color: rgb(26, 26, 26);
+  color: white;
+  /* height: 400px; */
+  /* width: 500px; */
 }
-.trainingtesttext1{
-    font-size: 150px;
-    font-weight: 600;
-    opacity: 0.1;
+.cnlnd-card-join {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgb(26, 26, 26);
+  color: white;
+  width: 300px;
+  height: 150px;
 }
-.trainingtesttext2{
-    font-size: 30px;
-    font-weight: 600;
+.trainingtesttext1 {
+  font-size: 150px;
+  font-weight: 600;
+  opacity: 0.1;
 }
-.card-title{
-    font-weight: 500;
-    font-size: medium;
+.trainingtesttext2 {
+  font-size: 30px;
+  font-weight: 600;
 }
-.card-text{
-    font-weight: 100;
-    color: gray;
+.card-title {
+  font-weight: 500;
+  font-size: medium;
 }
-.joinustest{
-    display: flex;
+.card-text {
+  font-weight: 100;
+  color: gray;
 }
-.subttt1{
-    padding: 50px;
+.joinustest {
+  display: flex;
 }
-.nnntest{
-    display: flex;
-    padding: 30px;
+.subttt1 {
+  padding: 50px;
 }
-.nntest{
-    padding: 20px;
+.nnntest {
+  display: flex;
+  padding: 30px;
 }
-.nnum{
-    color: palevioletred;
-    font-size: 30px;
-    font-weight: 600;
+.nntest {
+  padding: 20px;
+}
+.nnum {
+  color: palevioletred;
+  font-size: 30px;
+  font-weight: 600;
 }
