@@ -1,3 +1,4 @@
+@import"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css";
 .login-container{
     display: flex;
     background-color: black;
@@ -7,6 +8,13 @@
     height: 100vh;
 }
 .login-wrapper{
+    position: relative;
+    background:black;
+    /* height: 100%; */
+    border-radius:150px;
+    -webkit-box-shadow: 0px 10px 40px -10px rgb(235, 243, 235);
+    -moz-box-shadow: 0px 10px 40px -10px rgb(235, 243, 235);
+    box-shadow: 0px 10px 40px -10px rgb(235, 243, 235);
     width: 80%;
     display: flex;
     justify-content: space-between;
@@ -14,15 +22,24 @@
 
 }
 .login-right-bannerimg{
+    position: relative;
+    right: -1%;
     height: 40rem;
-    width: 50rem;
-    border-radius: 10%;
+    width: 40rem;
+    border-radius:18%;
+    
     transition: 0.5s;
 }
 .login-right-bannerimg:hover{
     transform: scale(1.01);
 }
 .login-left{
+    position: relative;
+    background:black;
+    border-radius: 25px;
+    /* height:50% ; */
+    /* padding: 25px; 
+    padding: left 50px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,35 +49,53 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top:-5% ;
 }
 
-.login-form h1{
-    font-size: 38px;
+.login-form h4{
+    font-size: 35px;
     text-align: center;
     font-weight: 700;
     letter-spacing: 2px;
+    border-bottom:6px solid green;
+    margin-bottom: 50px;
+    padding:13px 0 ;
 }
-.login-form h4{
-    color: gray;
-    font-size: 18px;
+.login-form h1{
+    color: wheat;
+    font-size: 20px;
+    text-align: center;
+    padding: 13px;
+    font-weight: 700;
 }
 .login-form input{
-    width: 100%;
+    overflow: hidden;
+    width: 108%;
     height: 2rem;
     background-color: rgb(71, 71, 71);
     color: rgb(255, 255, 255);
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     border: none;
-    margin-bottom: 15px;
-    font-size: 16px;
+    margin: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid #4caf50;
+    
+   
+    /* width: 100%;
+    overflow: hidden;
+    font-size: 100px; 
+    padding: 8px 0;
+    margin: 8px 0; */
+   
 }
 .login-form-forgetpassword{
     text-align: right;
     cursor: pointer;
 }
 .login-form button{
-    width: 100%;
+    width:108%;
     height: 3rem;
     background-color: green;
     border: none;
@@ -70,7 +105,23 @@
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
+   /* position: relative;
+   right:-13% ; */
+
 }
+.login-form button:hover{
+    background:linear-gradient(45deg,green,lightgreen); 
+}
+
+
+/* .login-form-form-control{
+    width: 100%;
+    overflow: hidden;
+    font-size: 100px; 
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid #4caf50;
+} */
 /* .alert{
     display: flex;
     flex-direction: column;
