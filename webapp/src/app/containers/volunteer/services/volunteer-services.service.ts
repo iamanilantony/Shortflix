@@ -20,6 +20,12 @@ export class VolunteerServicesService {
       }
     )
   }
+  updateEvent(id: string,data:any){
+    console.log(id);
+    return this.http.put(`http://localhost:3000/api/events/${id}`,data)
+    .subscribe()
+  }
+
   eventModal(){
     this.showEvent = !this.showEvent;
   }

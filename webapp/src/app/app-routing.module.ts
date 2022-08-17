@@ -12,31 +12,15 @@ import { EventPageComponent } from './components/event-page/event-page.component
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  {
-    path: 'volunteer',
-    canActivate: [AuthGuard],
-    component: VolunteerComponent,
-  },
-  { path: '', canActivate: [AuthGuard], component: ViewComponent },
-  { path: 'guest', canActivate: [AuthGuard], component: GuestComponent },
-  {
-    path: 'candidate',
-    canActivate: [AuthGuard],
-    component: CandidateComponent,
-  },
-  {
-    path: 'updateuser',
-    canActivate: [AuthGuard],
-    component: UserupdateComponent,
-  },
-  { path: 'event', canActivate: [AuthGuard], component: EventPageComponent },
-  {
-    path: 'movie/:id',
-    canActivate: [AuthGuard],
-    component: MoviePageComponent,
-  },
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'volunteer',canActivate:[AuthGuard], component: VolunteerComponent},
+  {path: '',canActivate:[AuthGuard], component: ViewComponent},
+  {path: 'guest',canActivate:[AuthGuard], component: GuestComponent},
+  {path: 'candidate',canActivate:[AuthGuard], component: CandidateComponent},
+  {path: 'updateuser',canActivate:[AuthGuard], component: UserupdateComponent},
+  {path: 'event/:id',canActivate:[AuthGuard], component: EventPageComponent},
+  {path: 'movie/:id',canActivate:[AuthGuard], component: MoviePageComponent},
 ];
 
 @NgModule({

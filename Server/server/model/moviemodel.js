@@ -46,8 +46,18 @@ var movieSchema = {
       Guest_id: String,
     },
   ],
+  status: String,
   startDate: Date,
   maxEntries: Number,
+  guests: [{
+    type: String,
+    validate: {
+      validator: () => {
+        return !(this.guests.length > 3);
+      },
+      message: props => `${props.value} exceeds maximum array size (10)!`
+    },
+  }]
 };
 
 var movieDb = mongoose.model("movies", movieSchema);

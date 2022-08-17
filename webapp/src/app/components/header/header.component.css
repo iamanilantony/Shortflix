@@ -36,6 +36,9 @@
   border-radius: 10px;
   margin-left: 10px;
 }
-.header-title-secondary {
-  color: green;
+.header-title-secondary{
+    color: green;
+}
+.header-left{
+    cursor: pointer;
 }
