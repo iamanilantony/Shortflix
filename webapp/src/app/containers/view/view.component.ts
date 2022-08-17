@@ -11,9 +11,12 @@ export class ViewComponent implements OnInit {
   actionMovies: any;
   comedyMovies: any;
   docuMovies: any;
-  adventureMovies: any;
+  dramaMovies: any;
   musicalMovies: any;
+  romanticMovies:any;
   scifiMovies: any;
+  thrillerMovies:any;
+  
   constructor(public getmovie:ViewservisesService) { 
     this.fetchgmovie();
   }
@@ -30,29 +33,37 @@ export class ViewComponent implements OnInit {
       this.actionMovies=[]
       this.comedyMovies=[]
       this.docuMovies=[]
-      this.adventureMovies=[]
+      this.dramaMovies=[]
       this.musicalMovies=[]
+      this.romanticMovies=[]
       this.scifiMovies=[]
+      this.thrillerMovies=[]
 
       this.GMoviedatan.forEach((movieb: { genre: string; })=>{
           console.log(movieb,"movieb")
-          if(movieb.genre=="Action") {
+          if(movieb.genre=="Action & Adventure") {
             this.actionMovies.push(movieb)
           }
           if(movieb.genre=="Comedy") {
             this.comedyMovies.push(movieb)
           }
-          if(movieb.genre=="Documentry") {
+          if(movieb.genre=="Documentary") {
             this.docuMovies.push(movieb)
           }
-          if(movieb.genre=="Adventure") {
-            this.adventureMovies.push(movieb)
+          if(movieb.genre=="Drama") {
+            this.dramaMovies.push(movieb)
           }
           if(movieb.genre=="Musical") {
             this.musicalMovies.push(movieb)
           }
-          if(movieb.genre=="Sci-Fi") {
+          if(movieb.genre=="Romantic") {
+            this.romanticMovies.push(movieb)
+          }
+          if(movieb.genre=="Scifi") {
             this.scifiMovies.push(movieb)
+          }
+          if(movieb.genre=="Thriller") {
+            this.thrillerMovies.push(movieb)
           }
       })
     })

@@ -35,10 +35,10 @@
               </div>
             </div>
         </div>
-          <h1 class="movie-list-title">Comedy</h1>
+          <h1 class="movie-list-title">Action & Adventure</h1>
           <div class="movie-list-wrapper">
             <div class="movie-list">
-              <div class="hovertest" *ngFor="let gam of GMoviedata">
+              <div class="hovertest" *ngFor="let gam of actionMovies">
                 <div class="cardtest">
                   <img class="card-img-top imagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
                 </div>
@@ -53,10 +53,10 @@
               </div>
             </div>
         </div>
-          <h1 class="movie-list-title">Drama</h1>
+          <h1 class="movie-list-title">Comedy</h1>
           <div class="movie-list-wrapper">
             <div class="movie-list">
-              <div class="hovertest" *ngFor="let gam of GMoviedata">
+              <div class="hovertest" *ngFor="let gam of comedyMovies">
                 <div class="cardtest">
                   <img class="card-img-top imagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
                 </div>
@@ -75,7 +75,7 @@
           <h1 class="movie-list-title">Documentary</h1>
           <div class="movie-list-wrapper">
             <div class="movie-list">
-              <div class="hovertest" *ngFor="let gam of GMoviedata">
+              <div class="hovertest" *ngFor="let gam of docuMovies">
                 <div class="cardtest">
                   <img class="card-img-top imagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
                 </div>
@@ -90,10 +90,10 @@
               </div>
             </div>
         </div>
-          <h1 class="movie-list-title">Adventure</h1>
+          <h1 class="movie-list-title">Drama</h1>
           <div class="movie-list-wrapper">
             <div class="movie-list">
-              <div class="hovertest" *ngFor="let gam of GMoviedata">
+              <div class="hovertest" *ngFor="let gam of dramaMovies">
                 <div class="cardtest">
                   <img class="card-img-top imagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
                 </div>
@@ -111,7 +111,7 @@
           <h1 class="movie-list-title">Musical</h1>
           <div class="movie-list-wrapper">
             <div class="movie-list">
-              <div class="hovertest" *ngFor="let gam of GMoviedata">
+              <div class="hovertest" *ngFor="let gam of musicalMovies">
                 <div class="cardtest">
                   <img class="card-img-top imagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
                 </div>
@@ -126,10 +126,29 @@
               </div>
             </div>
         </div>
+        <h1 class="movie-list-title">Romantic</h1>
+        <div class="movie-list-wrapper">
+            <div class="movie-list">
+              <div class="hovertest" *ngFor="let gam of romanticMovies">
+                <div class="cardtest">
+                  <img class="card-img-top imagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
+                </div>
+                <div class="Htext">
+                  <div class="movietexttest">
+                    <h3 class="card-title titletest">{{gam.movieName}}</h3>
+                    <h5 class="card-title titletest2">By {{gam.directedBy}}</h5>
+                  </div>
+                <div class="vheart">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
           <h1 class="movie-list-title">Sci-Fi</h1>
           <div class="movie-list-wrapper">
               <div class="movie-list">
-                <div class="hovertest" *ngFor="let gam of GMoviedata">
+                <div class="hovertest" *ngFor="let gam of scifiMovies">
                   <div class="cardtest">
                     <img class="card-img-top imagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
                   </div>
@@ -145,5 +164,24 @@
               </div>
           </div>
       </div>
+      <h1 class="movie-list-title">Thriller</h1>
+      <div class="movie-list-wrapper">
+          <div class="movie-list">
+            <div class="hovertest" *ngFor="let gam of thrillerMovies">
+              <div class="cardtest">
+                <img class="card-img-top imagetest" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2022/2/17/original/Mohanlal.jpg?w=400&dpr=2.6" alt="Card image cap">
+              </div>
+              <div class="Htext">
+                <div class="movietexttest">
+                  <h3 class="card-title titletest">{{gam.movieName}}</h3>
+                  <h5 class="card-title titletest2">By {{gam.directedBy}}</h5>
+                </div>
+              <div class="vheart">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
   </div>
 </div>
