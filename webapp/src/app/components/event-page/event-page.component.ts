@@ -86,7 +86,7 @@ export class EventPageComponent implements OnInit {
 
   addGuest(id: any, guest_id: any){
     this.video.addGuests(id , {guest_id}).subscribe()
-    window.location.reload();
+    // window.location.reload();
   }
 
   updateFormData(){
@@ -116,7 +116,7 @@ export class EventPageComponent implements OnInit {
   deleteMovie(id: string){
     if(confirm('Do you want to delete movie')){
     this.video.deleteMovies(id).subscribe()
-    window.location.reload();
+    // window.location.reload();
   }}
   deleteGuests(id: string){
     let guests: any[] = [];
@@ -129,7 +129,7 @@ export class EventPageComponent implements OnInit {
         guests.push(e._id);
       })
       this.video.deleteGuest(this.singleMovie._id,{guests}).subscribe();
-      window.location.reload();
+      // window.location.reload();
   }
 }
 routeMovie(id: string){

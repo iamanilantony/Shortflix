@@ -8,6 +8,6 @@ export class ViewservisesService {
 
   constructor(public http: HttpClient, private route: Router) { }
   getGmovie(){
-    return this.http.get<any>('http://localhost:3000/api/movie');
+    return this.http.get<any>('https://shotflix.herokuapp.com/api/movie');
   }
 }

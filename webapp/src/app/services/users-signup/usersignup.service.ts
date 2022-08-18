@@ -12,7 +12,7 @@ export class UsersignupService {
   adduser(user:any){
     console.log(this.http);
     const headers ={'Content-type':'application/x-www-form-urlencoded'}
-    return this.http.post('http://localhost:3000/api/users',user)
+    return this.http.post('https://shotflix.herokuapp.com/api/users',user)
     .subscribe(              
       res=>{
             this.route.navigate(['/login'])

@@ -10,11 +10,11 @@ export class SubmissionService {
 
   getEmovie() {
     return this.http.get<any>(
-      `http://localhost:3000/api/usersmovie/${localStorage.getItem('id')}`
+      `https://shotflix.herokuapp.com/api/usersmovie/${localStorage.getItem('id')}`
     );
   }
 
   getMovieSub(movieId: any) {
-    return this.http.get<any>(`http://localhost:3000/api/movie/${movieId}`);
+    return this.http.get<any>(`https://shotflix.herokuapp.com/api/movie/${movieId}`);
   }
 }

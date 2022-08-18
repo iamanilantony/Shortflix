@@ -13,7 +13,7 @@ export class VolunteerServicesService {
   createEvent(data:any){
     console.log(data);
     const headers ={'Content-type':'application/x-www-form-urlencoded'}
-    return this.http.post('http://localhost:3000/api/events',data)
+    return this.http.post('https://shotflix.herokuapp.com/api/events',data)
     .subscribe(
       res => {
         this.route.navigate(['/volunteer'])
@@ -22,7 +22,7 @@ export class VolunteerServicesService {
   }
   updateEvent(id: string,data:any){
     console.log(id);
-    return this.http.put(`http://localhost:3000/api/events/${id}`,data)
+    return this.http.put(`https://shotflix.herokuapp.com/api/events/${id}`,data)
     .subscribe()
   }
 
@@ -30,16 +30,16 @@ export class VolunteerServicesService {
     this.showEvent = !this.showEvent;
   }
   fetchEvent(){
-    return this.http.get<any>('http://localhost:3000/api/events')
+    return this.http.get<any>('https://shotflix.herokuapp.com/api/events')
   }
   fetchMovies(){
-    return this.http.get<any>('http://localhost:3000/api/movie')
+    return this.http.get<any>('https://shotflix.herokuapp.com/api/movie')
   }
   fetchusers(){
-    return this.http.get<any>('http://localhost:3000/api/users')
+    return this.http.get<any>('https://shotflix.herokuapp.com/api/users')
   }
   addGuestS(data:any){
-    return this.http.post('http://localhost:3000/api/users',data)
+    return this.http.post('https://shotflix.herokuapp.com/api/users',data)
     .subscribe()
   }
 }

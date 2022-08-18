@@ -8,6 +8,6 @@ export class GetEtableService {
   constructor(private http: HttpClient) {}
 
   getETable() {
-    return this.http.get<any>('http://localhost:3000/api/events');
+    return this.http.get<any>('https://shotflix.herokuapp.com/api/events');
   }
 }
