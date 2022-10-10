@@ -3,7 +3,7 @@
 
 - 🔭 Created by aspiring web enthusisists** 
  
-- 🌱 Anil **Antony** 
+- 🌱 Anil **Antony**  
  
 - 💬 Adlee **Xavier*
 
