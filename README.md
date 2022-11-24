@@ -3,9 +3,9 @@
  
 - 🔭 Created by aspiring web enthusiasts** 
   
-- 🌱 Anil **Antony**  
+- 🌱 **Anil Antony**  
   
-- 💬 Adlee **Xavier* 
+- 💬 **Adlee Xavier**
  
 - 📫  **Sreehari** 
     
